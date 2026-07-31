@@ -1,0 +1,138 @@
+{
+  "player": {
+    "name": "Hadjs",
+    "location": "apartment",
+    "stats": {
+      "energy": 1,
+      "money": 6,
+      "skill": 6,
+      "reputation": 4
+    },
+    "era": "modern",
+    "age": 3
+  },
+  "origin": {
+    "id": "scholarship_student",
+    "name": "Scholarship Student",
+    "tag": "Academic head start",
+    "description": "You arrived with academic momentum, but very little financial room.",
+    "effects": {
+      "skill": 2,
+      "money": -2
+    },
+    "known_npc": "leo"
+  },
+  "year": 1,
+  "season_index": 2,
+  "actions_remaining": 3,
+  "npcs": [
+    {
+      "id": "maya",
+      "name": "Maya Ortiz",
+      "role": "Your roommate",
+      "location": "apartment",
+      "affinity": 5,
+      "trust": 5,
+      "description": "A practical designer who values people showing up."
+    },
+    {
+      "id": "leo",
+      "name": "Leo Chen",
+      "role": "Classmate",
+      "location": "college",
+      "affinity": 3,
+      "trust": 1,
+      "description": "An ambitious student who knows every deadline."
+    },
+    {
+      "id": "priya",
+      "name": "Priya Shah",
+      "role": "Cafe manager",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 1,
+      "description": "A sharp observer who notices consistent work."
+    },
+    {
+      "id": "dr_ellis",
+      "name": "Dr. Ellis Reed",
+      "role": "Career mentor",
+      "location": "college",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A patient lecturer with local connections."
+    },
+    {
+      "id": "sam",
+      "name": "Sam Walker",
+      "role": "Community organizer",
+      "location": "cafe",
+      "affinity": 2,
+      "trust": 1,
+      "description": "A determined organizer working on housing."
+    },
+    {
+      "id": "nora",
+      "name": "Nora Blake",
+      "role": "Local rival",
+      "location": "cafe",
+      "affinity": -1,
+      "trust": 0,
+      "description": "A competitive regular with a sharp opinion."
+    }
+  ],
+  "flags": {
+    "maya_encouraged": true,
+    "community_focus": true,
+    "advanced_study": true
+  },
+  "memories": [
+    "You worked alongside Priya Shah.",
+    "A new chapter with Maya Ortiz.",
+    "Encourage her to stay",
+    "Spring: Help at a community meeting.",
+    "You visited Apartment.",
+    "You had a good conversation with Maya Ortiz.",
+    "Protect your own plans",
+    "You made time to help Maya Ortiz.",
+    "You had a good conversation with Maya Ortiz.",
+    "Summer: Pursue advanced study."
+  ],
+  "active_random_event": null,
+  "random_seen_this_season": false,
+  "seen_random_events": [
+    "maya_tension",
+    "maya_shares_project",
+    "maya_confides",
+    "roommate_favor"
+  ],
+  "completed": false,
+  "completed_milestones": [
+    "maya_affinity_neg2",
+    "maya_trust_1",
+    "maya_trust_3"
+  ],
+  "milestone_events_pending": [],
+  "dynamic_locations": {
+    "apartment": "Your cozy apartment",
+    "cafe": "Juniper Cafe - a warm local spot",
+    "college": "Riverton Community College"
+  },
+  "dynamic_npcs": [],
+  "starting_scenario": "A modest day in Riverton: the cafe and college hum with possibility.",
+  "starting_map": {
+    "center": "Juniper Cafe",
+    "locations": {
+      "apartment": "Your cozy apartment",
+      "cafe": "Juniper Cafe - a warm local spot",
+      "college": "Riverton Community College"
+    }
+  },
+  "ui_stats": {
+    "happiness": 60,
+    "health": 70,
+    "smarts": 55,
+    "looks": 50
+  },
+  "season_summary": "Summer in Riverton. Hadjs focused on pursue advanced study. Key shifts: energy 3->1, skill 4->6. The season moved forward, and the streets of Riverton continue to hold their stories."
+}
