@@ -1,766 +1,480 @@
-GAME DESIGN AND ARCHITECTURE SKELETON
-===================================
+RIVERTON
+GAME DESIGN AND ARCHITECTURE
+============================
 
-This file contains a skeleton framework for the game concept discussed so far.
-It is intended to be expanded into a real implementation later.
+This document is the current design reference for Riverton. It replaces the
+earlier broad open-world skeleton with a manageable desktop-first plan.
 
-------------------------------------------------------------
-1. GAME CONCEPT SUMMARY
-------------------------------------------------------------
+The project is built in layers:
+- a deterministic life-simulation core
+- a native desktop interface
+- specialized systems for event selection, memory, NPC logic, and narration
 
-Core Idea:
-- The game is a long-form, choice-driven life simulation with an open world.
-- The player creates a character and starts in a defined world.
-- The story progresses year by year.
-- Each year, the player faces four major main-event choices.
-- Random events can happen at any time between those major events.
-- These events change the world, the player’s relationships, and future choices.
+The game will not rely on a single LLM to control everything. Rules remain
+authoritative; models are used only where they add variety or natural language.
 
-Design Goal:
-- Make the story feel dynamic, personal, and replayable.
-- Avoid a linear job menu.
-- Make careers, social status, and opportunities emerge from actions and relationships.
+---------------------------------------------------------------------
+1. PRODUCT VISION
+---------------------------------------------------------------------
 
-Optional Optimization Note:
+Riverton is a choice-driven life simulation. The player spends a year in a
+modern neighborhood, builds relationships, makes tradeoffs, and sees their
+future emerge from actions rather than from a fixed career menu.
 
-- Alternative approach: start with one city and one era before expanding to a full open world.
+Design goals:
+- Choices must have visible and lasting consequences.
+- Different origins, relationships, and actions must create different runs.
+- The game must remain fast and predictable on modest hardware.
+- Story text should feel personal without allowing generated text to break
+  rules, state, or balance.
 
-------------------------------------------------------------
-2. GAMEPLAY LOOP
-------------------------------------------------------------
+---------------------------------------------------------------------
+2. CURRENT VERTICAL SLICE (V1 / V2)
+---------------------------------------------------------------------
 
-Loop Structure:
-1. Create character
-2. Start in a location
-3. Explore the world
-4. Visit locations and interact with NPCs
-5. Trigger random encounters or events
-6. Make choices
-7. Update character state and world state
-8. Advance to the next year
-9. New main events appear
-10. Repeat with new consequences
+The current playable scope is one year in Riverton.
 
-Suggested Flow:
-- Player enters a location
-- The system loads nearby NPCs, items, and events
-- The player can talk, act, observe, or travel
-- Outcomes change relationships, resources, skills, knowledge, prestige, and story flags
-- The next year’s events are influenced by these changes
+World:
+- Modern neighborhood
+- Apartment
+- Juniper Cafe
+- Community College
 
-Optimization Note:
-- Keep the loop as simple as possible at first: location -> choice -> consequence -> year progression.
-- Alternative approach: add a “timeline” panel that summarizes year outcomes and unresolved opportunities.
+NPCs:
+- Maya Ortiz, roommate
+- Leo Chen, classmate
+- Priya Shah, cafe manager
+- Dr. Ellis Reed, career mentor
+- Sam Walker, community organizer
+- Nora Blake, local rival
 
-------------------------------------------------------------
-3. CHARACTER CREATION
-------------------------------------------------------------
-
-Character Customization:
-- Name
-- Gender or identity options
-- Appearance
-- Background
-- Personality traits
-- Skills
-- Beliefs or ideology
-- Starting stats
-- Starting wealth or resources
-- Starting location
-
-Suggested Stats:
-- Strength
-- Intelligence
-- Charisma
-- Social influence
-- Luck
-- Creativity
-- Discipline
-- Wealth
+Player stats:
+- Energy
+- Money
+- Skill
 - Reputation
 
-Optional Optimization Note:
-- Start with fewer stats to avoid overcomplication.
-- Alternative approach: use a trait-based system instead of many numeric stats.
+Relationship stats per NPC:
+- Affinity
+- Trust
 
-------------------------------------------------------------
-4. WORLD AND STORY STRUCTURE
-------------------------------------------------------------
+Replayability systems already defined:
+- Four origins with different starting advantages and relationships
+- Four seasonal main decisions
+- Weighted random events with eligibility conditions
+- Four primary ending paths
+- Three actions per season
+- JSON local save state
 
-World Model:
-- The world is fully customizable.
-- The game can support many settings, including modern, medieval, fantasy, sci-fi, cyberpunk, and custom worlds.
+Current implementation note:
+- The playable prototype is a PySide6 native desktop application.
+- The previous browser prototype is retained only as development history and is
+  no longer the primary way to run the game.
 
-World Parameters:
-- Genre
-- Time period
-- Setting
-- Technology level
-- Cultural structure
-- Political system
-- Economic state
-- Social norms
+---------------------------------------------------------------------
+3. CORE GAMEPLAY LOOP
+---------------------------------------------------------------------
 
-Example World Types:
-- Modern city
-- Medieval kingdom
-- Fantasy realm
-- Future metropolis
-- Dystopian society
+1. Start a new life and choose an origin.
+2. Begin a season with three actions.
+3. Travel freely between locations.
+4. Spend actions talking, helping, or working with NPCs.
+5. Resolve any random event that appears.
+6. Use all actions, then make the season's main decision.
+7. Apply consequences to stats, relationships, flags, memories, and paths.
+8. Restore three actions and advance to the next season.
+9. At year end, calculate an outcome from the player's full state.
 
-The story should be shaped by:
-- time progression
-- place progression
+Travel is free. NPC interactions cost one action. The seasonal limit prevents
+stat farming and creates meaningful tradeoffs.
+
+---------------------------------------------------------------------
+4. ORIGINS
+---------------------------------------------------------------------
+
+Each origin changes starting stats, initial relationships, and likely early
+opportunities.
+
+- Scholarship Student
+  - Higher Skill, lower Money
+  - Knows Leo
+
+- Cafe Worker
+  - Higher Money, lower Energy
+  - Knows Priya
+
+- Local Resident
+  - Higher Reputation
+  - Knows Sam
+
+- New Arrival
+  - Higher Energy
+  - No established connection
+
+Origins must affect gameplay rather than merely changing flavor text.
+
+---------------------------------------------------------------------
+5. CAREER AND ENDING PATHS
+---------------------------------------------------------------------
+
+Paths are unlocked by combinations of flags, stats, and NPC trust. They are
+not selected directly from a job menu.
+
+Initial ending paths:
+- Professional path: study, portfolio, application, interview, Skill, and
+  Dr. Ellis's trust lead to a trainee offer.
+- Community path: community work, campaign progress, public action,
+  leadership, Reputation, and Sam's trust lead to an organizer role.
+- Cafe path: dependable work, Priya's trust, and financial stability lead to
+  greater responsibility at the cafe.
+- Independent path: Skill and savings lead to a small self-directed project.
+- Foundation ending: a valid outcome for an unfinished or mixed first year.
+
+---------------------------------------------------------------------
+6. NATIVE DESKTOP DIRECTION
+---------------------------------------------------------------------
+
+Target platform:
+- Windows desktop first
+
+Recommended toolkit:
+- Python + PySide6 / Qt Widgets
+
+Reason:
+- Keeps the existing Python simulation logic.
+- Provides a real native desktop window with no browser or web server.
+- Supports a card-based interface, scrollable journal, local files, and later
+  model integration.
+
+Native UI screens:
+- New-game and origin selection screen
+- Main seasonal dashboard
+- Location and NPC panels
+- Fixed-height, scrollable journal
+- Main-event and random-event panels
+- Character and relationship view
+- End-of-year outcome screen
+
+Migration rule:
+- Move the game rules out of the current web application before rebuilding
+  the interface.
+- The rules engine must run without a UI, web server, or LLM.
+
+Suggested native project layout:
+
+    riverton/
+      game_engine/
+        state.py
+        events.py
+        relationships.py
+        event_director.py
+        storage.py
+      desktop/
+        main.py
+        main_window.py
+        views/
+      data/
+        save_state.json
+        events.jsonl
+        memories.jsonl
+
+---------------------------------------------------------------------
+7. AUTHORITATIVE SIMULATION CORE
+---------------------------------------------------------------------
+
+The simulation core is the single source of truth. It owns:
+- player state
+- stats and resources
 - relationships
-- ideology
-- skills
-- resource access
-- random events
-
-Optional Optimization Note:
-- Use presets first, then allow custom inputs later.
-- Alternative approach: let players choose a template and then tweak it with a few sliders.
-
-------------------------------------------------------------
-5. YEARLY SYSTEM
-------------------------------------------------------------
-
-Year Structure:
-- Every year contains a phase of main events.
-- The player may also experience random events during the year.
-- Events can change what is possible next year.
-
-Main Event System:
-- Each year, four choices appear.
-- These are the major decisions of the year.
-- They can lead to:
-  - career changes
-  - social changes
-  - political changes
-  - personal growth
-  - world events
-
-Random Event System:
-- Random events happen between the main events.
-- These events may include:
-  - meeting a friend
-  - theft
-  - helping someone
-  - receiving an opportunity
-  - being betrayed
-  - discovering a clue
-  - meeting a powerful person
-
-Effect of Events:
-- relationship changes
-- resource changes
-- skill changes
-- reputation changes
-- unlocks new paths
-- changes future main events
-
-Optional Optimization Note:
-- Use a weighted event system so some events appear more often than others.
-- Alternative approach: create event pools based on current year, location, and player state.
-
-------------------------------------------------------------
-6. LOCATIONS AND PLAYER ACTIONS
-------------------------------------------------------------
-
-Location System:
-- The player can visit many places.
-- Locations should feel different and provide different opportunities.
-
-Example Locations:
-- School
-- Gym
-- Work
-- Park
-- Library
-- Market
-- Hospital
-- Bar
-- Apartment
-- Office
-- City district
-- Guild hall
-- Castle
-- Laboratory
-- Company headquarters
-
-Player Actions in Locations:
-- Explore
-- Talk to NPCs
-- Observe the environment
-- Take an action
-- Trigger an encounter
-- Travel elsewhere
-- Spend time building a skill
-
-Optional Optimization Note:
-- Start with a smaller set of core locations instead of a huge map.
-- Alternative approach: use a region-based map with a few key locations per region.
-
-------------------------------------------------------------
-7. NPC SYSTEM
-------------------------------------------------------------
-
-NPC Design:
-- NPCs are not static.
-- They can appear, disappear, change their behavior, and affect the story.
-
-NPC Fields:
-- Name
-- Role
-- Age or life stage
-- Personality
-- Occupation or function
-- Relationship level with player
-- Trust level
-- Reputation level
-- Current location
-- Current activity
-- Beliefs or affiliations
-- Memory of past interactions
-- Importance to story
-
-NPC Behavior Rules:
-- Some NPCs are always present in a location.
-- Others appear only under certain conditions.
-- Some are only visible at certain times.
-- Some appear based on relationships, reputation, or story flags.
-
-Optional Optimization Note:
-- Keep NPC templates simple and use procedural generation for minor details.
-- Alternative approach: use a small set of archetypes and then customize them with variables.
-
-------------------------------------------------------------
-8. AUTONOMOUS NPC BEHAVIOR
-------------------------------------------------------------
-
-Concept:
-- Not every NPC should be fully autonomous.
-- Some should feel reactive, and others should feel more alive.
-
-AT: Autonomous Thinking
-- Stronger behavior layer
-- NPCs with this layer can:
-  - move around a location
-  - talk to nearby NPCs
-  - interact with the player
-  - form friendships or rivalries
-  - react to events
-  - follow their own goals
-
-PAT: Pseudo-Autonomous Thinking
-- Lower-cost behavior layer
-- NPCs with this layer can:
-  - react when the player approaches
-  - show mood changes
-  - speak a short line
-  - act based on simple rules
-  - be background characters without full simulation
-
-Behavior Logic:
-- Relationship level affects behavior.
-- Strong positive relation = friendly, supportive, helpful
-- Neutral relation = normal, casual, indifferent
-- Negative relation = avoidant, hostile, or suspicious
-
-Closest-NPC Rule:
-- The system can assign AT behavior to the NPC closest to the player in a location.
-- Other nearby NPCs can receive PAT behavior.
-- This creates a dynamic feeling without requiring full AI for every character.
-
-Optional Optimization Note:
-- Use a small number of active NPCs per location to reduce CPU and memory use.
-- Alternative approach: switch between AT and PAT depending on distance, importance, or story relevance.
-
-------------------------------------------------------------
-9. INTERACTION SYSTEM
-------------------------------------------------------------
-
-Player can interact with NPCs through:
-- Talk
-- Greet
-- Ask for help
-- Offer a deal
-- Challenge
-- Flirt
-- Investigate
-- Follow
-- Invite
-- Accuse
-- Bargain
-- Share a secret
-
-Interactions can change:
-- relationship level
-- trust
-- reputation
-- NPC memory
-- future opportunities
-- story flags
-
-Optional Optimization Note:
-- Keep interactions structured as a small action set at first.
-- Alternative approach: later add branching dialogue with a local model or a dialogue graph.
-
-------------------------------------------------------------
-10. CAREER AND OPPORTUNITY SYSTEM
-------------------------------------------------------------
-
-The game should not force a fixed job menu.
-Instead, careers should emerge from the player’s actions.
-
-Career Progression Principle:
-- The player does not simply choose a profession.
-- The player builds a path through skills, relationships, opportunities, reputation, and knowledge.
-
-Examples:
-- Political path
-  - player meets activists or politicians
-  - player forms ideology and support network
-  - player joins a movement or party
-  - player gains publicity
-  - player may eventually run for office or become a leader
-
-- Medical path
-  - player studies medicine
-  - player earns credentials or degrees
-  - player meets mentors and professionals
-  - player applies for positions
-  - player attends interviews or assessments
-  - player begins a medical career
-
-- Engineering path
-  - player builds skills and knowledge
-  - player creates projects or portfolios
-  - player gains recommendations
-  - player applies to companies or labs
-  - player receives opportunities
-
-Opportunity System:
-- Opportunities are generated based on:
-  - skills
-  - relationships
-  - ideology
-  - reputation
-  - location
-  - random events
-  - education level
-
-Optional Optimization Note:
-- Keep career trees simple and use tags rather than complex branching logic at first.
-- Alternative approach: use a rule-based opportunity generator instead of hand-authored career paths.
-
-------------------------------------------------------------
-11. DYNAMIC POLITICAL PATH EXAMPLE
-------------------------------------------------------------
-
-Example Design:
-- The player meets a Democrat or political organizer.
-- The player builds trust through conversations and shared actions.
-- The player joins campaign events or community causes.
-- The player develops a political identity.
-- The player gains followers or allies.
-- Later, the player can pursue leadership, running for office, or influence at a larger scale.
-
-This should feel like a social and ideological progression, not a menu click.
-
-Optional Optimization Note:
-- Use a simple ideology system first, such as moderate, liberal, conservative, populist, revolutionary, neutral.
-- Alternative approach: use a custom ideology vector with multiple axes.
-
-------------------------------------------------------------
-12. PROFESSIONAL PATH EXAMPLE
-------------------------------------------------------------
-
-Professional path should include:
-- education or training
-- skill growth
-- degree or certificate acquisition
-- professional contacts
-- application system
-- interview system
-- job offer or opportunity
-
-Example Process:
-1. The player studies relevant material
-2. The player gains a degree or certification
-3. The player visits a platform or job board
-4. The player applies to a role
-5. The player attends an interview
-6. The player receives an offer or a rejection
-7. The player begins work and may advance later
-
-Optional Optimization Note:
-- Start with a simplified “apply -> interview -> result” flow before adding deeper systems.
-- Alternative approach: represent opportunities as cards and let the player choose among them.
-
-------------------------------------------------------------
-13. WORLD GENERATION AND CUSTOMIZATION
-------------------------------------------------------------
-
-World Generation Principles:
-- The world should be generated from a set of core parameters.
-- These can include:
-  - genre
-  - era
-  - setting
-  - technology level
-  - social structures
-  - cultural values
-  - custom player input
-
-Possible Genre Options:
-- modern
-- medieval
-- fantasy
-- sci-fi
-- cyberpunk
-- dystopian
-- post-apocalyptic
-- custom
-
-Possible Era Options:
-- ancient
-- medieval
-- industrial
-- modern
-- future
-
-Possible Setting Options:
-- city
-- town
-- kingdom
-- colony
-- academy
-- corporate society
-- rural life
-- custom
-
-Custom Input Example:
-- “A dark futuristic city where AI manages daily life.”
-- “A peaceful fantasy kingdom with floating cities.”
-- “A small modern town with rising political tension.”
-
-Generated World Features:
-- locations
-- institutions
-- factions
-- technologies
-- cultural rules
-- available menu systems
-- possible story hooks
-
-Optional Optimization Note:
-- Use a template-based generator first.
-- Alternative approach: use an LLM to expand a short player prompt into world parameters.
-
-------------------------------------------------------------
-14. ADAPTIVE MENU AND UI SYSTEM
-------------------------------------------------------------
-
-The interface should change based on the world and its technology.
-
-Examples:
-- Modern world
-  - phone interface
-  - apps
-  - job portals
-  - social media
-  - digital communication
-
-- Medieval world
-  - letters
-  - guild boards
-  - town notices
-  - messenger routes
-
-- Fantasy world
-  - scrolls
-  - magical contracts
-  - enchanted communications
-  - guild networks
-
-- Scientific future
-  - AI assistants
-  - digital dashboards
-  - autonomous systems
-
-Important Rule:
-- The UI should reflect available technology and world culture.
-- Some systems can be unlocked later if the player earns the knowledge or resources to build them.
-
-Example:
-- In a medieval setting, a phone-like system may not exist by default.
-- But if the player develops the knowledge and tools, a basic communication system may be unlocked.
-
-Optional Optimization Note:
-- Build the UI around a modular system where each app or panel is optional.
-- Alternative approach: create several UI themes and switch them based on world rules.
-
-------------------------------------------------------------
-15. CARD SYSTEM
-------------------------------------------------------------
-
-Cards should be auto-generated for major world objects.
-
-Card Types:
-- Place cards
-- NPC cards
-- Item cards
-- Event cards
-- Opportunity cards
-- Relationship cards
-- Quest or story cards
-
-Card Content:
-- name
-- short description
-- icon or image
-- tags
-- current state
-- relationship to player
-- available actions
-- related entities
-
-Example:
-- NPC card contains role, trust, current location, current mood, and available actions.
-- Place card contains type, current occupants, safety level, and available interactions.
-- Item card contains item type, condition, value, and use cases.
-
-Dynamic Card Updates:
-- Cards update when the player changes relations, gains skill, or triggers events.
-- Cards should be regenerated from current state rather than being manually stored forever.
-
-Optional Optimization Note:
-- Use a shared card template and different data schemas for each card type.
-- Alternative approach: keep cards lightweight and render them from a data object instead of a full UI component each time.
-
-------------------------------------------------------------
-16. DATA STORAGE PLAN
-------------------------------------------------------------
-
-The backend should store data in JSON and JSONL for simplicity and readability.
-
-Suggested Files:
-- world.json
-  - shared world settings and rules
-- player_state.json
-  - player stats, resources, location, progress, flags
-- npcs.json
-  - NPC definitions and current state
-- locations.json
-  - location definitions, current population, active events
-- items.json
-  - item inventory and world items
-- events.jsonl
-  - append-only event log
-- memories.jsonl
-  - NPC and player memories
-- logs.jsonl
-  - debug and history log
-
-Suggested Record Format:
+- actions remaining
+- seasonal progression
+- eligibility rules
+- event effects
+- unlocks and endings
+- save/load operations
+
+Generated prose must never directly change these values. Every state change
+must be represented as structured data and applied by the simulation core.
+
+Example effect object:
+
+    {
+      "money": 2,
+      "energy": -1,
+      "trust": {"priya": 1},
+      "flags": {"cafe_shift": true}
+    }
+
+---------------------------------------------------------------------
+8. EVENT DIRECTOR
+---------------------------------------------------------------------
+
+The Event Director is a specialized system that chooses which eligible event
+is most useful and interesting for the current player state.
+
+It does NOT create arbitrary events or change the game state. It selects from
+events supplied by the rules engine.
+
+Pipeline:
+
+    Current game state
+          |
+          v
+    Rules filter: eligible event candidates
+          |
+          v
+    Event Director: score and rank candidates
+          |
+          v
+    Rules engine: activate selected event
+          |
+          v
+    Narrative model: describe the selected event
+
+Candidate event data includes:
 - id
-- type
-- timestamp
-- text
+- title
+- structured choices and effects
+- location requirement
+- required stats
+- required relationship values
+- required or forbidden flags
+- weight
 - tags
-- linked_entities
-- priority
-- importance
+- cooldown or recent-use rules
 
-Example Memory Record:
-- id: mem_001
-- type: memory
-- text: “Alice trusted the player after helping at school.”
-- tags: friendship, school, trust
-- linked_entities: player, alice, school_event
+Example:
 
-Optional Optimization Note:
-- Use a database later if the game grows large.
-- Alternative approach: keep a hybrid system using JSON for small projects and SQLite/Postgres for scale.
+    {
+      "id": "extra_shift",
+      "requires": {
+        "location": "cafe",
+        "npc": {"priya": {"trust": 1}}
+      },
+      "weight": 3,
+      "tags": ["cafe", "money", "priya"]
+    }
 
-------------------------------------------------------------
-17. RETRIEVAL AND MEMORY SYSTEM
-------------------------------------------------------------
+---------------------------------------------------------------------
+9. EVENT DIRECTOR EVOLUTION
+---------------------------------------------------------------------
 
-The game needs a fast way to retrieve relevant memories, logs, and story context.
+V1 Event Director: deterministic scoring
 
-Recommended Approach:
-- Store structured memory data in JSONL.
-- Index text data using BM25.
-- Retrieve the most relevant memories for the current scene.
-- Use those results as context for dialogue, NPC behavior, or story generation.
+The first version uses a transparent score rather than ML:
 
-Retrieval Flow:
-1. Build a query from the current context
-2. Search the memory index
-3. Retrieve top results
-4. Rank by recency, relevance, and importance
-5. Feed a limited set into the model or logic engine
+    score =
+        relevance_to_player * 3
+        + relationship_tension * 2
+        + path_progress * 2
+        + novelty * 2
+        - recently_seen_penalty * 4
 
-Suggested Retrieval Fields:
+This should favor events that:
+- relate to active player paths
+- react to high or low NPC relationships
+- advance unfinished story threads
+- introduce variety
+- avoid recent repetition
+
+V2 Event Director: learned ranking
+
+Log structured gameplay data:
+- candidate events
+- selected event
+- player state features
+- player choice
+- follow-up outcome
+- event frequency
+
+Use this data for a small contextual bandit or ranking model. This is better
+than early RL because it can learn useful event preferences from short,
+individual event decisions.
+
+V3 Event Director: reinforcement learning research
+
+Only consider RL after there are many test runs and a defined reward function.
+Possible reward components:
+- narrative variety
+- meaningful player agency
+- balanced difficulty
+- completion of long-term paths
+- avoidance of repetitive or contradictory events
+
+Never allow an RL policy to bypass hard eligibility, safety, or balance rules.
+
+---------------------------------------------------------------------
+10. ORCHESTRATOR AGENT
+---------------------------------------------------------------------
+
+The game needs a coordinator, called the Game Orchestrator. At first this is
+deterministic Python code, not an uncontrolled autonomous LLM agent.
+
+It coordinates specialized systems:
+
+    Native UI
+       |
+       v
+    Game Orchestrator
+       |- Simulation Core
+       |- Memory Retrieval
+       |- Event Director
+       |- NPC Logic
+       `- Narrative LLM
+
+Orchestrator responsibilities:
+- determine which system runs next
+- prepare only the context that system needs
+- enforce time, token, and memory budgets
+- validate structured responses
+- record logs and memories
+- call the simulation core to apply allowed changes
+
+The Orchestrator must not permit generated text to directly write a save file.
+
+---------------------------------------------------------------------
+11. LOCAL LLM: NARRATION ONLY
+---------------------------------------------------------------------
+
+The local LLM improves presentation, not simulation logic.
+
+Appropriate tasks:
+- short event descriptions
+- NPC dialogue lines
+- mood-sensitive reactions
+- concise season summaries
+- rewrite structured event outcomes in a natural style
+
+The local LLM receives:
+- selected event id and description
+- allowed factual context
+- a small selection of relevant memories
+- tone and length constraints
+
+The local LLM returns:
+- text only, or a tightly validated structured response
+
+It must not:
+- invent an event outcome
+- change stats, trust, money, or flags
+- introduce NPCs or facts that do not exist in state
+- write long responses during ordinary actions
+
+Use rules-based fallback text whenever a local model is unavailable or slow.
+
+---------------------------------------------------------------------
+12. MEMORY AND RETRIEVAL
+---------------------------------------------------------------------
+
+Memory is stored as structured JSONL records. Each memory includes:
+- id
+- timestamp / season
 - text
 - tags
 - linked entities
-- timestamp
 - importance
-- memory owner
+- owner (player or NPC)
 
-Optional Optimization Note:
-- Do not retrieve too much context at once.
-- Alternative approach: use a two-stage retrieval system: BM25 first, then reranking by importance.
+Example:
 
-------------------------------------------------------------
-18. LOCAL MODEL AND PERFORMANCE PLAN
-------------------------------------------------------------
+    {
+      "id": "mem_012",
+      "season": "Summer",
+      "text": "The player returned a wallet to Priya.",
+      "tags": ["cafe", "trust", "priya"],
+      "linked_entities": ["player", "priya"],
+      "importance": 3
+    }
 
-The game should not depend entirely on a heavy local model.
-The model should be used carefully because the hardware is limited.
+Retrieval order:
+1. exact entity and tag match
+2. recency and importance ranking
+3. later: BM25 text retrieval
+4. later: reranking if required
 
-Hardware Context:
-- Laptop GPU: 5050 class
-- RAM: 16 GB
-- Model target: Gemma 4 8B
+Only a small set of relevant memories should be passed to the narrative model.
 
-Recommended Strategy:
-- Use the local model for high-value moments only.
-- Use rule-based logic for everyday systems.
+---------------------------------------------------------------------
+13. NPC LOGIC
+---------------------------------------------------------------------
 
-Suggested Usage Tiers:
-- Tier 1: Rules and heuristics
-  - relationship changes
-  - simple encounter resolution
-  - NPC movement
-  - location state updates
+NPC behavior remains mostly rule-driven.
 
-- Tier 2: Small local generation
-  - dialogue lines
-  - short event descriptions
-  - NPC reactions
-  - simple conversational responses
+NPC state includes:
+- role and location
+- affinity and trust
+- availability
+- current mood or status
+- simple goals
+- memory tags
+- story importance
 
-- Tier 3: Larger or more expensive generation
-  - major story scenes
-  - long branching dialogue
-  - core narrative summaries
+Relationship rules:
+- High trust unlocks invitations, opportunities, and support.
+- Low trust can close paths, create tension, or enable conflict events.
+- NPC memory gives later events continuity.
 
-Performance Rules:
-- Keep prompts short
-- Keep context small
-- Use quantized models when possible
-- Avoid generating long responses repeatedly
-- Cache common outputs
+The narrative model may describe NPC behavior, but NPC availability and
+consequences are decided by the simulation core.
 
-Optional Optimization Note:
-- Use a smaller model for routine interactions and reserve larger models for meaningful narrative moments.
-- Alternative approach: use a remote model for story events and a local model for lightweight interactions.
+---------------------------------------------------------------------
+14. DATA AND LOGGING
+---------------------------------------------------------------------
 
-------------------------------------------------------------
-19. PROPOSED SYSTEM ARCHITECTURE
-------------------------------------------------------------
+Local data files:
+- save_state.json: current game state
+- events.jsonl: activated events and choices
+- memories.jsonl: structured player and NPC memories
+- director_log.jsonl: candidates, scores, and selected events
+- model_log.jsonl: optional prompt/result timing and fallback use
 
-Front End:
-- UI panels for character, world, locations, timeline, relationships, cards, and journal
+Logs are required for debugging balance, tracking repetition, and training a
+future event-ranking model.
 
-Game Logic Layer:
-- year engine
-- event engine
-- relationship engine
-- opportunity engine
-- NPC behavior engine
-- world generation engine
+---------------------------------------------------------------------
+15. PERFORMANCE PRINCIPLES
+---------------------------------------------------------------------
 
-Data Layer:
-- JSON and JSONL storage
-- BM25 memory index
-- optional cache layer
+- Prefer rules and small structured objects over model calls.
+- Generate prose only for meaningful events, not every button press.
+- Keep model prompts short and grounded in retrieved context.
+- Cache or reuse common template text.
+- Run one local model task at a time on modest hardware.
+- Always have deterministic fallback narration.
 
-Model Layer:
-- local model for dialogue and narrative generation
-- rules-based fallback for stable behavior
+---------------------------------------------------------------------
+16. DEVELOPMENT ROADMAP
+---------------------------------------------------------------------
 
-Optional Optimization Note:
-- Keep the architecture modular so each subsystem can be swapped later.
-- Alternative approach: build the game with a lightweight simulation core first, then add AI features after the core systems work.
+Completed:
+- V1: one-year playable vertical slice
+- V2: origins, weighted random events, path hints, endings, and replayability
+- V2.1: seasonal three-action budget and fixed scrollable journal
 
-------------------------------------------------------------
-20. IMPLEMENTATION ROADMAP
-------------------------------------------------------------
+Completed: Native migration
+- Game rules are extracted into a UI-independent engine.
+- A PySide6 desktop shell provides the origin screen and seasonal dashboard.
+- The native app preserves the JSON save format.
 
-Phase 1: Foundation
-- Create basic world and player state system
-- Create locations and NPC templates
-- Create simple yearly progression
-- Create basic event and relationship systems
+Next:
+- V2.2: conditional seasonal main events based on origins, stats, trust, and
+  active paths
+- V2.3: stronger NPC relationship consequences
+- V2.4: Event Director v1 deterministic scoring and director logs
+- V2.5: structured memory storage and retrieval
+- V2.6: local LLM narration with rules-based fallback
 
-Phase 2: Interaction Layer
-- Add locations and exploration
-- Add NPC interactions
-- Add event cards and dynamic UI cards
-- Add simple memory logging
+Future:
+- V3: multiple years, longer careers, changing NPC lives, and expanded world
+- V4: learned event ranking from logged playthroughs
+- V5: evaluate RL only after sufficient data and stable reward metrics
 
-Phase 3: Career and Opportunity System
-- Add skill and education progression
-- Add application and interview flow
-- Add ideological and political opportunity logic
+---------------------------------------------------------------------
+17. FINAL PRINCIPLE
+---------------------------------------------------------------------
 
-Phase 4: World Customization
-- Add genre, era, setting, and technology parameters
-- Add adaptive menu system
-- Add world-generation templates
+Riverton is a simulation first and an AI experience second.
 
-Phase 5: Memory and Retrieval
-- Add JSONL logs and memory storage
-- Add BM25 indexing
-- Add retrieval for relevant context
-
-Phase 6: AI Integration
-- Add local model support for dialogue and event generation
-- Add rule-based fallback system
-- Add performance limits and prompt budgeting
-
-Optional Optimization Note:
-- Build in vertical slices: one location, one career path, one event type, and one NPC type first.
-- Alternative approach: build a text-based prototype before a full visual app.
-
-------------------------------------------------------------
-21. RECOMMENDED STARTING MVP
-------------------------------------------------------------
-
-The best first version should be small and focused.
-
-Suggested MVP:
-- One player character
-- One city or town
-- Three core locations
-- Five to ten NPCs
-- One yearly progression loop
-- One political path and one professional path
-- Basic event cards
-- Basic memory and logs
-- Basic BM25 retrieval
-- Rule-based NPC behavior
-
-This MVP is enough to test the design without overwhelming the project.
-
-Optional Optimization Note:
-- Keep the first build to one era and one genre.
-- Alternative approach: build the modern-city version first because it supports richer UI and more obvious career systems.
-
-------------------------------------------------------------
-22. FINAL DESIGN PRINCIPLE
-------------------------------------------------------------
-
-The project should be built around this idea:
-- The world is dynamic.
-- The player shapes the story through actions.
-- NPCs and locations react to the player.
-- Careers emerge from life choices rather than fixed menu options.
-- AI should enhance the experience, not replace the core simulation.
-
-This is the foundation for turning the concept into a working app.
+Rules create fair consequences. The Event Director creates variety. Memory
+creates continuity. The local LLM creates voice. The native interface makes
+the experience feel like a real desktop game.

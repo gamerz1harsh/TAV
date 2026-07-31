@@ -1,0 +1,527 @@
+{
+  "seasons": ["Spring", "Summer", "Autumn", "Winter"],
+  "base_locations": {
+    "apartment": "Apartment",
+    "cafe": "Juniper Cafe",
+    "college": "Community College"
+  },
+  "npc_templates": [
+    {
+      "id": "maya",
+      "name": "Maya Ortiz",
+      "role": "Your roommate",
+      "location": "apartment",
+      "affinity": 2,
+      "trust": 1,
+      "description": "A practical designer who values people showing up."
+    },
+    {
+      "id": "leo",
+      "name": "Leo Chen",
+      "role": "Classmate",
+      "location": "college",
+      "affinity": 1,
+      "trust": 0,
+      "description": "An ambitious student who knows every deadline."
+    },
+    {
+      "id": "priya",
+      "name": "Priya Shah",
+      "role": "Cafe manager",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A sharp observer who notices consistent work."
+    },
+    {
+      "id": "dr_ellis",
+      "name": "Dr. Ellis Reed",
+      "role": "Career mentor",
+      "location": "college",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A patient lecturer with local connections."
+    },
+    {
+      "id": "sam",
+      "name": "Sam Walker",
+      "role": "Community organizer",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A determined organizer working on housing."
+    },
+    {
+      "id": "nora",
+      "name": "Nora Blake",
+      "role": "Local rival",
+      "location": "cafe",
+      "affinity": -1,
+      "trust": 0,
+      "description": "A competitive regular with a sharp opinion."
+    }
+  ],
+  "origins": [
+    {
+      "id": "scholarship_student",
+      "name": "Scholarship Student",
+      "tag": "Academic head start",
+      "description": "You arrived with academic momentum, but very little financial room.",
+      "effects": {"skill": 2, "money": -2},
+      "known_npc": "leo"
+    },
+    {
+      "id": "cafe_worker",
+      "name": "Cafe Worker",
+      "tag": "Earned connections",
+      "description": "You know how to earn a shift and read a room.",
+      "effects": {"money": 2, "energy": -1},
+      "known_npc": "priya"
+    },
+    {
+      "id": "local_resident",
+      "name": "Local Resident",
+      "tag": "A familiar face",
+      "description": "Your history in Riverton gives you a voice from day one.",
+      "effects": {"reputation": 2},
+      "known_npc": "sam"
+    },
+    {
+      "id": "new_arrival",
+      "name": "New Arrival",
+      "tag": "A clean slate",
+      "description": "You are free to reinvent yourself without old expectations.",
+      "effects": {"energy": 1},
+      "known_npc": null
+    }
+  ],
+  "main_events": [
+    {
+      "id": "spring_direction",
+      "title": "Spring: Choose a direction",
+      "text": "Your first months in Riverton are open. What gets your attention?",
+      "choices": [
+        {
+          "id": "study",
+          "label": "Commit to your studies",
+          "text": "Build a skill foundation for your future.",
+          "effects": {"skill": 2, "energy": -1, "flags": {"study_focus": true}}
+        },
+        {
+          "id": "volunteer",
+          "label": "Help at a community meeting",
+          "text": "Meet people working to change the neighborhood.",
+          "effects": {"reputation": 1, "affinity": {"sam": 2}, "trust": {"sam": 1}, "flags": {"community_focus": true}}
+        }
+      ]
+    },
+    {
+      "id": "summer_opening",
+      "title": "Summer: An opening",
+      "text": "An opportunity appears, but it needs real commitment.",
+      "choices": [
+        {
+          "id": "portfolio",
+          "label": "Build a small portfolio",
+          "text": "Turn learning into work you can show.",
+          "effects": {"skill": 2, "energy": -1, "flags": {"portfolio": true}}
+        },
+        {
+          "id": "campaign",
+          "label": "Join the housing campaign",
+          "text": "Spend weekends knocking on doors with Sam.",
+          "effects": {"reputation": 2, "energy": -1, "affinity": {"sam": 2}, "trust": {"sam": 2}, "flags": {"campaign": true}}
+        }
+      ]
+    },
+    {
+      "id": "autumn_commitment",
+      "title": "Autumn: Make yourself known",
+      "text": "People are noticing your choices. Where do you put your name?",
+      "choices": [
+        {
+          "id": "apply",
+          "label": "Apply for a trainee role",
+          "text": "Ask Dr. Ellis to review an application.",
+          "effects": {"money": -1, "reputation": 1, "trust": {"dr_ellis": 1}, "flags": {"applied": true}}
+        },
+        {
+          "id": "speak",
+          "label": "Speak at a town forum",
+          "text": "Take the microphone for the campaign.",
+          "effects": {"reputation": 2, "energy": -1, "trust": {"sam": 1}, "flags": {"spoke": true}}
+        }
+      ]
+    },
+    {
+      "id": "winter_result",
+      "title": "Winter: A decision arrives",
+      "text": "The year's work is ready to turn into an outcome.",
+      "choices": [
+        {
+          "id": "interview",
+          "label": "Attend an interview",
+          "text": "Make your case for the trainee role.",
+          "effects": {"energy": -1, "flags": {"interviewed": true}}
+        },
+        {
+          "id": "lead",
+          "label": "Coordinate the next campaign",
+          "text": "Accept responsibility for a team of volunteers.",
+          "effects": {"reputation": 2, "trust": {"sam": 2}, "flags": {"led": true}}
+        }
+      ]
+    }
+  ],
+  "random_events": [
+    {
+      "id": "lost_wallet",
+      "weight": 2,
+      "requires": {"location": "cafe"},
+      "title": "A lost wallet",
+      "text": "You find a wallet outside the cafe.",
+      "choices": [
+        {"id": "return", "label": "Hand it to Priya", "effects": {"reputation": 1, "trust": {"priya": 2}}},
+        {"id": "keep", "label": "Keep the cash", "effects": {"money": 2, "reputation": -1}}
+      ]
+    },
+    {
+      "id": "study_group",
+      "weight": 3,
+      "requires": {"location": "college"},
+      "title": "An open seat",
+      "text": "Leo waves you over to a last-minute study group.",
+      "choices": [
+        {"id": "join", "label": "Join them", "effects": {"skill": 1, "affinity": {"leo": 2}, "trust": {"leo": 1}}},
+        {"id": "decline", "label": "Keep your evening free", "effects": {"energy": 1}}
+      ]
+    },
+    {
+      "id": "roommate_favor",
+      "weight": 2,
+      "requires": {"location": "apartment"},
+      "title": "Maya needs a hand",
+      "text": "Your roommate has an urgent deadline and asks for help.",
+      "choices": [
+        {"id": "help", "label": "Stay and help", "effects": {"energy": -1, "affinity": {"maya": 2}, "trust": {"maya": 2}}},
+        {"id": "decline", "label": "Protect your own plans", "effects": {"energy": 1, "affinity": {"maya": -1}}}
+      ]
+    },
+    {
+      "id": "mentor_invitation",
+      "weight": 2,
+      "requires": {"location": "college", "npc": {"dr_ellis": {"trust": 1}}},
+      "title": "A mentor's invitation",
+      "text": "Dr. Ellis offers you a place at a small industry talk.",
+      "choices": [
+        {"id": "attend", "label": "Attend the talk", "effects": {"skill": 1, "reputation": 1, "trust": {"dr_ellis": 1}, "flags": {"mentor_contact": true}}},
+        {"id": "skip", "label": "Skip it", "effects": {"energy": 1}}
+      ]
+    },
+    {
+      "id": "extra_shift",
+      "weight": 3,
+      "requires": {"location": "cafe", "npc": {"priya": {"trust": 1}}},
+      "title": "An extra shift",
+      "text": "Priya has a paid shift available at short notice.",
+      "choices": [
+        {"id": "take", "label": "Take the shift", "effects": {"money": 2, "energy": -1, "trust": {"priya": 1}, "flags": {"cafe_shift": true}}},
+        {"id": "pass", "label": "Pass this time", "effects": {"energy": 1}}
+      ]
+    },
+    {
+      "id": "petition",
+      "weight": 3,
+      "requires": {"location": "cafe", "npc": {"sam": {"trust": 1}}},
+      "title": "A petition needs signatures",
+      "text": "Sam asks you to take a clipboard around the market.",
+      "choices": [
+        {"id": "collect", "label": "Collect signatures", "effects": {"reputation": 2, "energy": -1, "trust": {"sam": 1}, "flags": {"petition": true}}},
+        {"id": "decline", "label": "Decline", "effects": {"energy": 1}}
+      ]
+    },
+    {
+      "id": "nora_challenge",
+      "weight": 1,
+      "requires": {"location": "cafe", "stat": {"reputation": 1}},
+      "title": "Nora calls you out",
+      "text": "Nora publicly challenges a claim you made about the neighborhood.",
+      "choices": [
+        {"id": "listen", "label": "Listen and respond calmly", "effects": {"reputation": 1, "affinity": {"nora": 1}}},
+        {"id": "argue", "label": "Escalate the argument", "effects": {"reputation": -1, "affinity": {"nora": -2}}}
+      ]
+    },
+    {
+      "id": "late_bill",
+      "weight": 1,
+      "requires": {"stat": {"money": 0}},
+      "title": "An unexpected bill",
+      "text": "A broken appliance leaves you with a bill you did not plan for.",
+      "choices": [
+        {"id": "pay", "label": "Pay it now", "effects": {"money": -1, "trust": {"maya": 1}}},
+        {"id": "borrow", "label": "Ask Maya for help", "effects": {"affinity": {"maya": -1}, "trust": {"maya": -1}, "flags": {"borrowed": true}}}
+      ]
+    },
+    {
+      "id": "quiet_weekend",
+      "weight": 2,
+      "requires": {},
+      "title": "A quiet weekend",
+      "text": "For once, Riverton asks nothing urgent of you.",
+      "choices": [
+        {"id": "rest", "label": "Rest and reset", "effects": {"energy": 2}},
+        {"id": "practice", "label": "Practice a skill", "effects": {"skill": 1, "energy": -1}}
+      ]
+    },
+    {
+      "id": "neighborhood_tip",
+      "weight": 2,
+      "requires": {"stat": {"reputation": 2}},
+      "title": "A neighborhood tip",
+      "text": "A resident tells you about a small chance to make a difference.",
+      "choices": [
+        {"id": "follow", "label": "Follow the lead", "effects": {"reputation": 1, "money": 1}},
+        {"id": "share", "label": "Share it with Sam", "effects": {"trust": {"sam": 1}, "reputation": 1}}
+      ]
+    }
+  ],
+  "npc_arcs": {
+    "maya": {
+      "name": "Maya Ortiz",
+      "role": "Your roommate",
+      "description": "A practical designer who values people showing up.",
+      "milestones": [
+        {
+          "id": "maya_trust_1",
+          "title": "Roommate trust",
+          "trigger": {"trust": 2},
+          "event": {
+            "id": "maya_shares_project",
+            "title": "Maya shares her design project",
+            "text": "Maya shows you the portfolio she's been working on late at night. She asks what you think.",
+            "requires": {"location": "apartment", "npc": {"maya": {"trust": 2}}},
+            "choices": [
+              {"id": "praise", "label": "Give honest feedback", "effects": {"affinity": {"maya": 2}, "trust": {"maya": 1}}},
+              {"id": "dismiss", "label": "Brush it off", "effects": {"affinity": {"maya": -2}}}
+            ]
+          }
+        },
+        {
+          "id": "maya_trust_3",
+          "title": "Deep trust",
+          "trigger": {"trust": 3},
+          "event": {
+            "id": "maya_confides",
+            "title": "A late-night confession",
+            "text": "Maya admits she's worried about affording next semester. She's thinking of dropping out.",
+            "requires": {"location": "apartment", "npc": {"maya": {"trust": 3}}},
+            "choices": [
+              {"id": "encourage", "label": "Encourage her to stay", "effects": {"affinity": {"maya": 3}, "trust": {"maya": 2}, "flags": {"maya_encouraged": true}}},
+              {"id": "listen", "label": "Just listen", "effects": {"affinity": {"maya": 1}, "trust": {"maya": 1}}}
+            ]
+          }
+        },
+        {
+          "id": "maya_affinity_neg2",
+          "title": "Strained room",
+          "trigger": {"affinity": -2},
+          "event": {
+            "id": "maya_tension",
+            "title": "Tension at home",
+            "text": "The apartment feels cold. Maya has been avoiding you, and a note on the counter asks for space.",
+            "requires": {"location": "apartment", "npc": {"maya": {"affinity": -2}}},
+            "choices": [
+              {"id": "apologize", "label": "Leave a sincere note", "effects": {"affinity": {"maya": 2}, "trust": {"maya": 1}}},
+              {"id": "ignore", "label": "Give her space", "effects": {"affinity": {"maya": -1}}}
+            ]
+          }
+        }
+      ]
+    },
+    "leo": {
+      "name": "Leo Chen",
+      "role": "Classmate",
+      "description": "An ambitious student who knows every deadline.",
+      "milestones": [
+        {
+          "id": "leo_trust_2",
+          "title": "Study partner",
+          "trigger": {"trust": 2},
+          "event": {
+            "id": "leo_study_proposal",
+            "title": "Leo proposes a study group",
+            "text": "Leo has organized a weekly study group and wants you to co-lead it with him.",
+            "requires": {"location": "college", "npc": {"leo": {"trust": 2}}},
+            "choices": [
+              {"id": "accept", "label": "Co-lead the group", "effects": {"skill": 2, "affinity": {"leo": 2}, "trust": {"leo": 1}, "flags": {"study_group": true}}},
+              {"id": "decline", "label": "Attend occasionally", "effects": {"skill": 1, "affinity": {"leo": 1}}}
+            ]
+          }
+        },
+        {
+          "id": "leo_trust_3",
+          "title": "Academic rival",
+          "trigger": {"trust": 3, "flags": ["study_group"]},
+          "event": {
+            "id": "leo_competition",
+            "title": "A friendly competition",
+            "text": "Leo challenges you to see who can get the highest grade this semester. The stakes are coffee for a month.",
+            "requires": {"location": "college", "npc": {"leo": {"trust": 3}}, "flags": {"study_group": true}},
+            "choices": [
+              {"id": "accept", "label": "Accept the challenge", "effects": {"skill": 2, "affinity": {"leo": 2}, "flags": {"leo_challenge": true}}},
+              {"id": "decline", "label": "Let him win", "effects": {"affinity": {"leo": 1}}}
+            ]
+          }
+        }
+      ]
+    },
+    "priya": {
+      "name": "Priya Shah",
+      "role": "Cafe manager",
+      "description": "A sharp observer who notices consistent work.",
+      "milestones": [
+        {
+          "id": "priya_trust_2",
+          "title": "Reliable worker",
+          "trigger": {"trust": 2},
+          "event": {
+            "id": "priya_offers_shift",
+            "title": "Priya offers more hours",
+            "text": "Priya has noticed your reliability and offers you a regular weekend shift with better pay.",
+            "requires": {"location": "cafe", "npc": {"priya": {"trust": 2}}},
+            "choices": [
+              {"id": "accept", "label": "Take the regular shift", "effects": {"money": 2, "energy": -1, "trust": {"priya": 2}, "flags": {"regular_shift": true}}},
+              {"id": "negotiate", "label": "Ask for flexible hours", "effects": {"money": 1, "trust": {"priya": 1}}}
+            ]
+          }
+        },
+        {
+          "id": "priya_trust_4",
+          "title": "Key holder",
+          "trigger": {"trust": 4, "flags": ["regular_shift"]},
+          "event": {
+            "id": "priya_promotion",
+            "title": "A promotion offer",
+            "text": "Priya sits you down with a serious look. She wants to train you as assistant manager.",
+            "requires": {"location": "cafe", "npc": {"priya": {"trust": 4}}, "flags": {"regular_shift": true}},
+            "choices": [
+              {"id": "accept", "label": "Accept the training", "effects": {"money": 3, "skill": 1, "trust": {"priya": 2}, "flags": {"assistant_manager": true}}},
+              {"id": "decline", "label": "Stay a barista", "effects": {"trust": {"priya": 1}}}
+            ]
+          }
+        }
+      ]
+    },
+    "dr_ellis": {
+      "name": "Dr. Ellis Reed",
+      "role": "Career mentor",
+      "description": "A patient lecturer with local connections.",
+      "milestones": [
+        {
+          "id": "ellis_trust_1",
+          "title": "Noticed potential",
+          "trigger": {"trust": 1, "flags": ["study_focus"]},
+          "event": {
+            "id": "ellis_office_hours",
+            "title": "Office hours invitation",
+            "text": "Dr. Ellis invites you to office hours. He has heard about your focus and wants to discuss your future.",
+            "requires": {"location": "college", "npc": {"dr_ellis": {"trust": 1}}, "flags": {"study_focus": true}},
+            "choices": [
+              {"id": "attend", "label": "Attend office hours", "effects": {"skill": 1, "trust": {"dr_ellis": 2}, "flags": {"mentor_contact": true}}},
+              {"id": "skip", "label": "Skip this time", "effects": {"trust": {"dr_ellis": -1}}}
+            ]
+          }
+        },
+        {
+          "id": "ellis_trust_3",
+          "title": "Mentor's recommendation",
+          "trigger": {"trust": 3, "flags": ["portfolio"]},
+          "event": {
+            "id": "ellis_recommendation",
+            "title": "A letter of recommendation",
+            "text": "Dr. Ellis has written a strong letter of recommendation for a local internship. He hands it to you without preamble.",
+            "requires": {"location": "college", "npc": {"dr_ellis": {"trust": 3}}, "flags": {"portfolio": true}},
+            "choices": [
+              {"id": "accept", "label": "Accept gratefully", "effects": {"reputation": 2, "trust": {"dr_ellis": 2}, "flags": {"has_recommendation": true}}},
+              {"id": "question", "label": "Ask if you earned it", "effects": {"trust": {"dr_ellis": 1}}}
+            ]
+          }
+        }
+      ]
+    },
+    "sam": {
+      "name": "Sam Walker",
+      "role": "Community organizer",
+      "description": "A determined organizer working on housing.",
+      "milestones": [
+        {
+          "id": "sam_trust_2",
+          "title": "Community volunteer",
+          "trigger": {"trust": 2},
+          "event": {
+            "id": "sam_canvassing",
+            "title": "Door-knocking together",
+            "text": "Sam asks you to spend a Saturday canvassing the neighborhood for the housing campaign.",
+            "requires": {"location": "cafe", "npc": {"sam": {"trust": 2}}},
+            "choices": [
+              {"id": "join", "label": "Spend the day canvassing", "effects": {"reputation": 2, "energy": -1, "trust": {"sam": 2}, "flags": {"canvassed": true}}},
+              {"id": "donate", "label": "Donate instead", "effects": {"money": -1, "reputation": 1, "trust": {"sam": 1}}}
+            ]
+          }
+        },
+        {
+          "id": "sam_trust_4",
+          "title": "Campaign leader",
+          "trigger": {"trust": 4, "flags": ["campaign"]},
+          "event": {
+            "id": "sam_leadership",
+            "title": "A leadership role",
+            "text": "Sam's campaign is growing faster than expected. She asks you to lead a team of new volunteers.",
+            "requires": {"location": "cafe", "npc": {"sam": {"trust": 4}}, "flags": {"campaign": true}},
+            "choices": [
+              {"id": "accept", "label": "Lead the team", "effects": {"reputation": 3, "trust": {"sam": 2}, "flags": {"team_leader": true}}},
+              {"id": "support", "label": "Support from the sidelines", "effects": {"reputation": 1, "trust": {"sam": 1}}}
+            ]
+          }
+        }
+      ]
+    },
+    "nora": {
+      "name": "Nora Blake",
+      "role": "Local rival",
+      "description": "A competitive regular with a sharp opinion.",
+      "milestones": [
+        {
+          "id": "nora_affinity_1",
+          "title": "Thawing the ice",
+          "trigger": {"affinity": 1},
+          "event": {
+            "id": "nora_olive_branch",
+            "title": "An unexpected compliment",
+            "text": "Nora grudgingly admits you handled a situation well. It's the closest thing to an olive branch you've seen from her.",
+            "requires": {"location": "cafe", "npc": {"nora": {"affinity": 1}}},
+            "choices": [
+              {"id": "accept", "label": "Thank her sincerely", "effects": {"affinity": {"nora": 2}, "trust": {"nora": 1}}},
+              {"id": "mock", "label": "Make a joke about it", "effects": {"affinity": {"nora": -2}}}
+            ]
+          }
+        },
+        {
+          "id": "nora_affinity_3",
+          "title": "Unlikely ally",
+          "trigger": {"affinity": 3},
+          "event": {
+            "id": "nora_alliance",
+            "title": "Nora's proposal",
+            "text": "Nora approaches you with a surprising proposal: a joint project that would benefit you both.",
+            "requires": {"location": "cafe", "npc": {"nora": {"affinity": 3}}},
+            "choices": [
+              {"id": "partner", "label": "Partner with Nora", "effects": {"money": 2, "reputation": 1, "affinity": {"nora": 3}, "trust": {"nora": 2}, "flags": {"nora_partner": true}}},
+              {"id": "decline", "label": "Decline carefully", "effects": {"affinity": {"nora": -1}}}
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
