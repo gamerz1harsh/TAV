@@ -1,0 +1,23 @@
+{
+  "player": {
+    "name": "E3",
+    "location": "apartment",
+    "stats": {
+      "energy": 5,
+      "money": 4,
+      "skill": 0,
+      "reputation": 0
+    }
+  },
+  "origin": {
+    "id": "scholarship_student",
+    "name": "Scholarship Student",
+    "tag": "Academic head start",
+    "description": "You arrived with academic momentum, but very little financial room.",
+    "effects": {
+      "skill": 2,
+      "money": -2
+    },
+    "known_npc": "leo"
+  }
+}

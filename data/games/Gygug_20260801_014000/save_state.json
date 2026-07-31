@@ -1,0 +1,176 @@
+{
+  "player": {
+    "name": "Gygug",
+    "location": "apartment",
+    "stats": {
+      "energy": 5,
+      "money": 5,
+      "skill": 4,
+      "reputation": 3
+    },
+    "era": "modern",
+    "age": 5
+  },
+  "origin": {
+    "id": "scholarship_student",
+    "name": "Scholarship Student",
+    "tag": "Academic head start",
+    "description": "You arrived with academic momentum, but very little financial room.",
+    "effects": {
+      "skill": 2,
+      "money": -2
+    },
+    "known_npc": "leo"
+  },
+  "year": 1,
+  "season_index": 0,
+  "actions_remaining": 3,
+  "npcs": [
+    {
+      "id": "maya",
+      "name": "Maya Ortiz",
+      "role": "Your roommate",
+      "location": "apartment",
+      "affinity": 2,
+      "trust": 1,
+      "description": "A practical designer who values people showing up."
+    },
+    {
+      "id": "leo",
+      "name": "Leo Chen",
+      "role": "Classmate",
+      "location": "college",
+      "affinity": 3,
+      "trust": 1,
+      "description": "An ambitious student who knows every deadline."
+    },
+    {
+      "id": "priya",
+      "name": "Priya Shah",
+      "role": "Cafe manager",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A sharp observer who notices consistent work."
+    },
+    {
+      "id": "dr_ellis",
+      "name": "Dr. Ellis Reed",
+      "role": "Career mentor",
+      "location": "college",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A patient lecturer with local connections."
+    },
+    {
+      "id": "sam",
+      "name": "Sam Walker",
+      "role": "Community organizer",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A determined organizer working on housing."
+    },
+    {
+      "id": "nora",
+      "name": "Nora Blake",
+      "role": "Local rival",
+      "location": "cafe",
+      "affinity": -1,
+      "trust": 0,
+      "description": "A competitive regular with a sharp opinion."
+    },
+    {
+      "id": "teacher_eliza",
+      "name": "Ms. Eliza",
+      "role": "Kindergarten Teacher",
+      "location": "Sunny Sprouts Classroom",
+      "affinity": 3,
+      "trust": 2,
+      "description": "A warm, patient teacher with bright purple cardigans. She always has a cheerful song ready to lift spirits."
+    },
+    {
+      "id": "mom_sarah",
+      "name": "Sarah",
+      "role": "Parent/Guardian",
+      "location": "player_home",
+      "affinity": 3,
+      "trust": 3,
+      "description": "Your loving mom who helps pack your snacks. She always reminds you about handwashing before lunch."
+    },
+    {
+      "id": "leo_parker",
+      "name": "Leo Parker",
+      "role": "Classmate/Neighbor",
+      "location": "playyard",
+      "affinity": 2,
+      "trust": 1,
+      "description": "A friendly boy who loves digging holes in the sand. He usually brings his favorite dinosaur action figures to show off."
+    }
+  ],
+  "flags": {},
+  "memories": [
+    "You arrived in Riverton as a scholarship student.",
+    "Today is the first day of art class at Sunny Sprouts Kindergarten! The air smells like new crayons and washable paint, and the big outdoor play area looks perfect for jumping. You spend your morning making colorful messes with your best friends.",
+    "You visited The main room filled with tables, cubbies, and bright educational posters..",
+    "You visited Apartment."
+  ],
+  "active_random_event": null,
+  "random_seen_this_season": false,
+  "seen_random_events": [],
+  "completed": false,
+  "completed_milestones": [],
+  "milestone_events_pending": [],
+  "dynamic_locations": {
+    "player_home": "The small blue house where Gygug lives; it has a toy chest by the front door.",
+    "classroom": "The main room filled with tables, cubbies, and bright educational posters.",
+    "playyard": "A grassy area with swings, slides, and rubber playground mats.",
+    "art_room": "Smudged with paint splatters, this room holds easels and bins of glitter glue."
+  },
+  "dynamic_npcs": [
+    {
+      "id": "teacher_eliza",
+      "name": "Ms. Eliza",
+      "role": "Kindergarten Teacher",
+      "location": "Sunny Sprouts Classroom",
+      "affinity": 3,
+      "trust": 2,
+      "description": "A warm, patient teacher with bright purple cardigans. She always has a cheerful song ready to lift spirits."
+    },
+    {
+      "id": "mom_sarah",
+      "name": "Sarah",
+      "role": "Parent/Guardian",
+      "location": "player_home",
+      "affinity": 3,
+      "trust": 3,
+      "description": "Your loving mom who helps pack your snacks. She always reminds you about handwashing before lunch."
+    },
+    {
+      "id": "leo_parker",
+      "name": "Leo Parker",
+      "role": "Classmate/Neighbor",
+      "location": "playyard",
+      "affinity": 2,
+      "trust": 1,
+      "description": "A friendly boy who loves digging holes in the sand. He usually brings his favorite dinosaur action figures to show off."
+    }
+  ],
+  "starting_scenario": "Today is the first day of art class at Sunny Sprouts Kindergarten! The air smells like new crayons and washable paint, and the big outdoor play area looks perfect for jumping. You spend your morning making colorful messes with your best friends.",
+  "starting_map": {
+    "center": "Sunny Sprouts Classroom",
+    "locations": {
+      "player_home": "The small blue house where Gygug lives; it has a toy chest by the front door.",
+      "classroom": "The main room filled with tables, cubbies, and bright educational posters.",
+      "playyard": "A grassy area with swings, slides, and rubber playground mats.",
+      "art_room": "Smudged with paint splatters, this room holds easels and bins of glitter glue."
+    }
+  },
+  "game_folder": "Gygug_20260801_014000",
+  "ui_stats": {
+    "happiness": 60,
+    "health": 70,
+    "smarts": 55,
+    "looks": 50
+  }
+}
