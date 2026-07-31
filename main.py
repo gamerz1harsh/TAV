@@ -18,6 +18,7 @@ from game_engine import GameEngine, GameRuleError, LOCATIONS, ORIGINS, SAVE_FILE
 from game_features import filter_memories
 from llm_service import get_dynamic_year_options, generate_starting_scenario, load_llm_settings, save_llm_settings
 from character_creation import enumerate_eras, build_character_template
+from desktop.screens.creation_screen import CreationScreen
 from dev_console import DevConsole
 import game_config
 
@@ -405,7 +406,10 @@ class RivertonWindow(QMainWindow):
         self.pages = QStackedWidget()
         self.setCentralWidget(self.pages)
         self.setup_page = self._build_setup_page()
-        self.creation_page = self._build_creation_page()
+        self.creation_page = CreationScreen()
+        self.creation_page.generate_requested.connect(self._on_generate_clicked)
+        self.creation_page.begin_requested.connect(self._on_begin_without_generation)
+        self.creation_page.back_requested.connect(lambda: self.pages.setCurrentWidget(self.setup_page))
         self.generating_overlay = self._build_generating_overlay()
         self.game_page = self._build_game_page()
         self.pages.addWidget(self.setup_page)
@@ -894,14 +898,14 @@ class RivertonWindow(QMainWindow):
         return page
 
     def _start_new_game(self) -> None:
-        button = self.origin_group.checkedButton()
-        origin_id = button.property("origin_id") if button else ""
+        data = self.creation_page.get_creation_data()
+        origin_id = data.get("origin") or ""
         try:
-            state = self.engine.new_game(self.name_input.text(), origin_id)
+            state = self.engine.new_game(data["name"], origin_id)
         except GameRuleError as error:
             self._error(str(error))
             return
-        self._dev_console.info(f"New game started: {self.name_input.text()} ({origin_id})", "Game")
+        self._dev_console.info(f"New game started: {data['name']} ({origin_id})", "Game")
         self.pages.setCurrentWidget(self.game_page)
         self._render(state)
 
@@ -985,9 +989,9 @@ class RivertonWindow(QMainWindow):
         return getattr(dialog, "_selected_game", None)
 
     def _show_setup(self) -> None:
-        self.name_input.clear()
+        self.creation_page.name_input.clear()
         self.pages.setCurrentWidget(self.setup_page)
-        self.name_input.setFocus()
+        self.creation_page.name_input.setFocus()
         self.statusBar().showMessage("Choose an origin to begin a new story.")
 
     def _apply_character_template(self, dialog: QDialog | None, name: str, era: str, age_text: str, start_year: int = 1, use_llm: bool = False) -> None:
@@ -995,9 +999,8 @@ class RivertonWindow(QMainWindow):
             age = int(age_text) if age_text.strip() else None
         except ValueError:
             age = None
-        template = build_character_template(name=name or self.name_input.text() or "Player", era=era or "modern", age=age)
-        button = self.origin_group.checkedButton()
-        origin_id = button.property("origin_id") if button else ""
+        template = build_character_template(name=name or "Player", era=era or "modern", age=age)
+        origin_id = self.creation_page.get_creation_data().get("origin") or ""
         if use_llm:
             self._start_generation(template, origin_id, start_year)
             if dialog is not None:
@@ -1029,15 +1032,19 @@ class RivertonWindow(QMainWindow):
         self.pages.setCurrentWidget(self.game_page)
         self._render(self.engine.public_state())
 
+    def _on_begin_without_generation(self) -> None:
+        data = self.creation_page.get_creation_data()
+        self._apply_character_template(None, data["name"], data["era"], data["age"], data["start_year"], False)
+
     def _on_generate_clicked(self) -> None:
+        data = self.creation_page.get_creation_data()
         try:
-            age = int(self.age_input.text()) if self.age_input.text().strip() else None
+            age = int(data["age"]) if data["age"].strip() else None
         except ValueError:
             age = None
-        template = build_character_template(name=self.name_input.text() or "Player", era=self.era_input.text() or "modern", age=age)
-        btn = self.origin_group.checkedButton()
-        origin_id = btn.property("origin_id") if btn else ""
-        start_year = int(self.start_year_box.currentText())
+        template = build_character_template(name=data["name"] or "Player", era=data["era"] or "modern", age=age)
+        origin_id = data.get("origin") or ""
+        start_year = data["start_year"]
         self._start_generation(template, origin_id, start_year)
 
     def _start_generation(self, template: dict[str, Any], origin_id: str, start_year: int) -> None:
@@ -1151,7 +1158,7 @@ class RivertonWindow(QMainWindow):
             age = int(age_text) if age_text.strip() else None
         except ValueError:
             age = None
-        template = build_character_template(name=name or self.name_input.text() or "Player", era=era or "modern", age=age)
+        template = build_character_template(name=name or "Player", era=era or "modern", age=age)
         if not use_llm:
             QMessageBox.information(self, "Preview", "LLM preview is disabled. Check 'Use LLM' to enable generation.")
             return

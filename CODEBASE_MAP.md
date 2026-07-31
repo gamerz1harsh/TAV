@@ -98,6 +98,7 @@ The application follows a strict separation of concerns:
 
 - **`APP_STYLE`**: Has been successfully moved from `main.py` to a dedicated file: `desktop/theme.py`.
 - **StartScreen Extraction**: The entire initial view layer has been extracted into the signal-driven component `desktop/screens/start_screen.py`. This was the immediate goal of this refactoring phase.
+- **CreationScreen Integration**: `CreationScreen` (`desktop/screens/creation_screen.py`) is now wired into `RivertonWindow._build_pages()`. `RivertonWindow` owns application coordination (signal connections, generation workflow, navigation). `_build_creation_page()` is temporarily retained in `main.py` for compatibility and will be removed in a later cleanup PR.
 - **Next Planned UI Task:** Finalizing the wiring up of all signals in `main.py` to ensure every user interaction on the new `StartScreen` correctly triggers the corresponding state change or logic path within `RivertonWindow`.
 
 ## Architecture Inconsistencies Noticed
