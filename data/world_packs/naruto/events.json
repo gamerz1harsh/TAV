@@ -1,0 +1,122 @@
+{
+  "disaster_chance": 0.12,
+  "disasters": [
+    {
+      "id": "forest_fire",
+      "title": "Fire on the forest road",
+      "description": "A fast-moving fire has reached a forest road used by families and supply caravans. Smoke is already obscuring the nearest route.",
+      "regions": ["land_of_fire"],
+      "choices": [
+        {"id":"organize_evacuation","label":"Organize an evacuation","effects":{"world_influence":3,"regional_effects":{"land_of_fire":{"security":3,"public_trust":4}},"skill_xp":{"survival":2,"charisma":1},"memory":"You helped move travelers away from the forest fire before the road became unsafe."}},
+        {"id":"clear_route","label":"Help clear a safe route","effects":{"world_influence":2,"regional_effects":{"land_of_fire":{"security":2,"prosperity":1}},"ui_stats":{"health":-3},"memory":"You helped clear a route through smoke and falling branches."}}
+      ]
+    },
+    {
+      "id": "sandstorm_emergency",
+      "title": "A sandstorm swallows the caravan route",
+      "description": "A sudden sandstorm has separated a supply caravan from its guides. The nearest settlement cannot see the signal posts.",
+      "regions": ["land_of_wind"],
+      "choices": [
+        {"id":"guide_caravan","label":"Guide the caravan to shelter","effects":{"world_influence":3,"regional_effects":{"land_of_wind":{"security":2,"public_trust":3}},"skill_xp":{"survival":3},"memory":"You guided a separated caravan to shelter through the storm."}},
+        {"id":"secure_well","label":"Protect the settlement's water supply","effects":{"world_influence":2,"regional_effects":{"land_of_wind":{"public_trust":3,"prosperity":1}},"ui_stats":{"happiness":2},"memory":"You helped secure the settlement's water stores while the storm passed."}}
+      ]
+    },
+    {
+      "id": "coastal_flood",
+      "title": "The coast road floods",
+      "description": "A high tide and overnight storm have flooded the coast road. Several homes and supply sheds are cut off from the village.",
+      "regions": ["land_of_water", "land_of_waves"],
+      "choices": [
+        {"id":"rescue_neighbors","label":"Help residents reach higher ground","effects":{"world_influence":3,"regional_effects":{"land_of_waves":{"security":2,"public_trust":4},"land_of_water":{"security":2,"public_trust":3}},"skill_xp":{"survival":2,"taijutsu":1},"memory":"You helped residents move belongings and reach higher ground before the water rose."}},
+        {"id":"carry_supplies","label":"Carry dry supplies to the shelter","effects":{"world_influence":2,"money":-8,"regional_effects":{"land_of_waves":{"prosperity":2,"public_trust":2}},"memory":"You carried food and dry blankets to a shelter above the flooded road."}}
+      ]
+    },
+    {
+      "id": "border_outbreak",
+      "title": "Illness at a border checkpoint",
+      "description": "Travelers at a border checkpoint are falling ill, and the small clinic is running short on medicine and clean water.",
+      "choices": [
+        {"id":"clinic_aid","label":"Help the clinic organize care","effects":{"world_influence":3,"regional_effects":{"land_of_rivers":{"security":1,"public_trust":4}},"skill_xp":{"medicine":3,"charisma":1},"memory":"You helped the checkpoint clinic organize care and keep clean water available."}},
+        {"id":"carry_medicine","label":"Buy medicine and carry it to the checkpoint","costs":{"money":10},"effects":{"world_influence":4,"regional_effects":{"land_of_rivers":{"public_trust":5}},"memory":"You purchased medicine and carried it to the families waiting at the checkpoint."}}
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "instructor_after_hours",
+      "title": "After-hours instruction",
+      "description": "Your instructor notices that you have returned to your studies more than once. They offer to stay late and work through a difficult lesson with you.",
+      "requirements": {
+        "min_age": 8,
+        "location": "academy",
+        "action_counts": { "academy_study": 2 },
+        "npc_trust": { "academy_instructor": 0 }
+      },
+      "choices": [
+        {
+          "id": "stay_for_lesson",
+          "label": "Stay and work through the lesson",
+          "description": "Spend another personal choice on focused instruction. Build your academy record and your instructor's confidence in you.",
+          "costs": { "personal_actions": 1 },
+          "effects": {
+            "attributes": { "academy_knowledge": 3, "intelligence": 1 },
+            "skill_xp": { "ninjutsu": 2 },
+            "relationships": { "mentors": 3 },
+            "organizations": { "academy": 2 },
+            "npc_relationships": { "academy_instructor": { "trust": 3, "affinity": 2 } },
+            "memory": "Your instructor stayed after class to help you master a lesson you had struggled with."
+          }
+        },
+        {
+          "id": "take_notes_home",
+          "label": "Take the notes home and rest",
+          "description": "Keep the advice for later. You lose no action and recover a little morale.",
+          "costs": {},
+          "effects": {
+            "ui_stats": { "happiness": 2 },
+            "npc_relationships": { "academy_instructor": { "trust": 1 } },
+            "memory": "Your instructor gave you notes to review at home after seeing your steady effort."
+          }
+        }
+      ]
+    },
+    {
+      "id": "waves_bridge_cooperative",
+      "title": "The bridge crew needs a hand",
+      "description": "After helping on the road, you reach Nami Village. A bridge crew is organizing supplies and asks whether you can help the community recover.",
+      "requirements": {
+        "min_age": 10,
+        "current_region": "land_of_waves",
+        "min_region_state": { "public_trust": 51 },
+        "no_active_encounter": true
+      },
+      "choices": [
+        {
+          "id": "organize_supplies",
+          "label": "Organize supplies with the crew",
+          "description": "Spend a personal choice to improve local trade and public trust. Your help also earns a small stipend.",
+          "costs": { "personal_actions": 1 },
+          "effects": {
+            "money": 12,
+            "skill_xp": { "crafting": 2, "charisma": 1 },
+            "organizations": { "waves_bridge_crew": 3 },
+            "regional_effects": { "land_of_waves": { "prosperity": 5, "public_trust": 3 } },
+            "memory": "You organized bridge supplies with the people of Nami Village; the route became safer and busier."
+          }
+        },
+        {
+          "id": "carry_report",
+          "label": "Carry their report to the next checkpoint",
+          "description": "Spend a personal choice passing the crew's needs to local officials. Improve security without spending money.",
+          "costs": { "personal_actions": 1 },
+          "effects": {
+            "skill_xp": { "survival": 2 },
+            "world_influence": 2,
+            "regional_effects": { "land_of_waves": { "security": 4, "public_trust": 1 } },
+            "memory": "You carried the bridge crew's report to the checkpoint, prompting a safer patrol route."
+          }
+        }
+      ]
+    }
+  ]
+}

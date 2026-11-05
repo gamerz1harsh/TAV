@@ -1,0 +1,9 @@
+{
+  "center": "Sunny Sprouts Classroom",
+  "locations": {
+    "player_home": "The small blue house where Gygug lives; it has a toy chest by the front door.",
+    "classroom": "The main room filled with tables, cubbies, and bright educational posters.",
+    "playyard": "A grassy area with swings, slides, and rubber playground mats.",
+    "art_room": "Smudged with paint splatters, this room holds easels and bins of glitter glue."
+  }
+}

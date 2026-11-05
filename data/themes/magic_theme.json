@@ -1,0 +1,37 @@
+{
+  "era": "magic",
+  "colors": {
+    "background": "#1a0f2e",
+    "card_bg": "#241a3d",
+    "card_border": "#4a3a6b",
+    "accent": "#c084fc",
+    "accent_secondary": "#8b5cf6",
+    "text_primary": "#f0e6ff",
+    "text_secondary": "#a78bfa",
+    "text_muted": "#6d5a8a",
+    "success": "#34d399",
+    "warning": "#fbbf24",
+    "danger": "#f87171",
+    "info": "#60a5fa",
+    "stat_health": "#fb7185",
+    "stat_happiness": "#c084fc",
+    "stat_smarts": "#60a5fa",
+    "stat_looks": "#fbbf24"
+  },
+  "fonts": {
+    "display": "Georgia, 'Times New Roman', serif",
+    "body": "'Segoe UI', -apple-system, sans-serif",
+    "mono": "'Consolas', 'Courier New', monospace"
+  },
+  "ui_labels": {
+    "brand": "RIVERTON // ARCANE LIFE",
+    "journal_title": "CHRONICLE",
+    "snapshot_title": "ARCANE IDENTITY",
+    "operations_title": "OPEN THREADS",
+    "status_title": "CONDITION",
+    "profile_title": "IDENTITY",
+    "map_title": "REALMS",
+    "people_title": "BONDS",
+    "actions_title": "NEXT MOVES"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "player": {
+    "name": "TestPlayer",
+    "age": 18,
+    "era": "modern",
+    "life_stage": "young adult",
+    "location": "apartment",
+    "stats": {
+      "energy": 5,
+      "money": 4,
+      "skill": 0,
+      "reputation": 2
+    },
+    "ui_stats": {
+      "happiness": 50,
+      "health": 50,
+      "smarts": 50,
+      "looks": 50
+    },
+    "career_tracks": {},
+    "education": {
+      "status": "none",
+      "location": null,
+      "level": 0,
+      "grade": "C",
+      "attendance": 0,
+      "school_unlocked": false,
+      "extracurriculars": []
+    },
+    "relationship_state": {},
+    "mutation_state": {}
+  },
+  "origin": {
+    "id": "local_resident",
+    "name": "Local Resident",
+    "tag": "A familiar face",
+    "description": "Your history in Riverton gives you a voice from day one.",
+    "effects": {
+      "reputation": 2
+    },
+    "known_npc": "sam"
+  }
+}

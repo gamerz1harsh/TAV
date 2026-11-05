@@ -1,0 +1,310 @@
+{
+  "actions": [
+    {
+      "id": "adventure_expedition",
+      "label": "Set Out on an Expedition",
+      "description": "Take a day to explore the country around you. The route may reveal a local crisis, a useful contact, or a choice that changes regional standing.",
+      "category": "Adventure",
+      "action_type": "personal",
+      "requires": {"age": 8},
+      "effects": {"skill_xp": {"survival": 1}, "memory": "You set out to explore the roads and settlements of the current country."}
+    },
+    {
+      "id": "play_and_observe",
+      "label": "Explore the Village",
+      "description": "Move through familiar streets, test your confidence, and notice what adults overlook.",
+      "category": "Foundation",
+      "action_type": "personal",
+      "requires": {"age": 0},
+      "effects": {"attributes": {"willpower": 1, "academy_knowledge": 1}, "ui_stats": {"happiness": 2}, "memory": "You spent the day learning the shape of your village."}
+    },
+    {
+      "id": "market_errand",
+      "label": "Help at the Market",
+      "description": "Carry supplies and help local shopkeepers. Earn a small wage and build a reputation for reliability.",
+      "category": "Village Life",
+      "action_type": "personal",
+      "requires": {"age": 8, "location": "market_street"},
+      "effects": {"money": 18, "skill_xp": {"crafting": 1, "survival": 1}, "memory": "You helped a market shopkeeper and earned a little Ryo."}
+    },
+    {
+      "id": "smithing_practice",
+      "label": "Practice at the Village Forge",
+      "description": "Learn safe hammer control, basic repairs, and how to read the grain of shinobi-grade metal.",
+      "category": "Crafting",
+      "action_type": "personal",
+      "requires": {"age": 14, "location": "blacksmith"},
+      "effects": {"skill_xp": {"smithing": 4, "crafting": 2}, "skill_points": 1, "attributes": {"strength": 1, "willpower": 1}, "memory": "You practiced a careful repair at the village forge and improved your smithing."}
+    },
+    {
+      "id": "quiet_rest",
+      "label": "Quiet Rest",
+      "description": "Spend an unhurried day at home, letting your body and mind settle.",
+      "category": "Wellbeing",
+      "action_type": "personal",
+      "requires": {"age": 0},
+      "effects": {"ui_stats": {"health": 3, "happiness": 1}, "memory": "You had a quiet day at home and felt more rested afterward."}
+    },
+    {
+      "id": "play_with_toys",
+      "label": "Play and Explore",
+      "description": "Follow a small curiosity, make a game of it, and notice what you can do now.",
+      "category": "Foundation",
+      "action_type": "personal",
+      "requires": {"age": 0},
+      "effects": {"attributes": {"willpower": 1, "academy_knowledge": 1}, "ui_stats": {"happiness": 3, "health": 1}, "memory": "A game turned into a new discovery about the world around you."}
+    },
+    {
+      "id": "train_body",
+      "label": "Body Conditioning",
+      "description": "Run drills, repeat forms, and let consistency build a stronger base.",
+      "category": "Foundation",
+      "action_type": "personal",
+      "requires": {"age": 5, "location": "training_ground"},
+      "effects": {"attributes": {"body_conditioning": 4, "willpower": 1, "strength": 2, "vitality": 1}, "skill_xp": {"taijutsu": 3}, "skill_points": 1, "ui_stats": {"health": 1}, "memory": "You completed another set of body-conditioning drills."}
+    },
+    {
+      "id": "academy_study",
+      "label": "Academy Study",
+      "description": "Work through village history, shinobi basics, and the theory behind hand signs.",
+      "category": "Academy",
+      "action_type": "personal",
+      "requires": {"age": 6, "location": "academy"},
+      "effects": {"attributes": {"academy_knowledge": 4, "hand_seals": 1, "intelligence": 2}, "skill_xp": {"ninjutsu": 1}, "skill_points": 1, "ui_stats": {"smarts": 2}, "memory": "You studied academy material until the light faded."}
+    },
+    {
+      "id": "train_chakra_control",
+      "label": "Chakra Control",
+      "description": "Practice the slow work of sensing, shaping, and retaining chakra without waste.",
+      "category": "Chakra",
+      "action_type": "personal",
+      "requires": {"age": 6, "location": "training_ground"},
+      "effects": {"attributes": {"chakra_control": 4, "chakra_capacity": 2}, "skill_xp": {"ninjutsu": 2}, "skill_points": 1, "ui_stats": {"health": -1}, "memory": "You focused on keeping your chakra steady for one breath longer."}
+    },
+    {
+      "id": "hand_seal_drills",
+      "label": "Hand Seal Drills",
+      "description": "Repeat standard sequences until your hands move before doubt can interrupt them.",
+      "category": "Chakra",
+      "action_type": "personal",
+      "requires": {"age": 7, "attributes": {"chakra_control": 10}},
+      "effects": {"attributes": {"hand_seals": 4, "chakra_control": 1}, "skill_points": 1, "memory": "You drilled basic hand seal sequences until they felt less foreign."}
+    },
+    {
+      "id": "tree_walking_practice",
+      "label": "Tree Walking",
+      "description": "Anchor controlled chakra through the soles of your feet and climb without breaking focus.",
+      "category": "Specialist Control",
+      "action_type": "personal",
+      "requires": {"age": 7, "location": "training_ground", "unlocks": ["tree_walking"]},
+      "effects": {"mastery": {"tree_walking": 4}, "attributes": {"chakra_control": 2, "agility": 1}, "skill_xp": {"ninjutsu": 2}, "skill_points": 1, "memory": "You climbed farther before your chakra slipped from the bark."}
+    },
+    {
+      "id": "water_walking_practice",
+      "label": "Water Walking",
+      "description": "Balance output against movement on an unstable surface without forcing your chakra.",
+      "category": "Specialist Control",
+      "action_type": "personal",
+      "requires": {"age": 9, "location": "training_ground", "unlocks": ["water_walking"]},
+      "effects": {"mastery": {"water_walking": 4}, "attributes": {"chakra_control": 2, "agility": 1}, "skill_xp": {"ninjutsu": 2}, "skill_points": 1, "memory": "You held the surface of the water for a few steady steps."}
+    },
+    {
+      "id": "sparring_drills",
+      "label": "Sparring Drills",
+      "description": "Use controlled matches to find the gap between what you know and what you can execute.",
+      "category": "Academy",
+      "action_type": "personal",
+      "requires": {"age": 8, "location": "training_ground", "attributes": {"body_conditioning": 12}},
+      "effects": {"attributes": {"body_conditioning": 2, "willpower": 2, "agility": 1}, "skill_xp": {"taijutsu": 4}, "skill_points": 1, "ui_stats": {"health": -1, "happiness": 1}, "memory": "A sparring partner exposed a flaw you can now work on."}
+    },
+    {
+      "id": "endurance_run",
+      "label": "Endurance Run",
+      "description": "Build stamina on a long route through the village outskirts and return at your own pace.",
+      "category": "Body",
+      "action_type": "personal",
+      "requires": {"age": 7, "location": "training_ground"},
+      "effects": {"attributes": {"body_conditioning": 3, "willpower": 2, "vitality": 2}, "skill_xp": {"taijutsu": 2, "survival": 1}, "skill_points": 1, "ui_stats": {"health": 1, "happiness": -1}, "memory": "You finished an exhausting endurance run around the village."}
+    },
+    {
+      "id": "meditation",
+      "label": "Breath and Focus",
+      "description": "Slow your breathing and learn to notice when your chakra begins to wander.",
+      "category": "Chakra",
+      "action_type": "personal",
+      "requires": {"age": 5, "location": "training_ground"},
+      "effects": {"attributes": {"chakra_control": 2, "willpower": 2}, "skill_xp": {"ninjutsu": 1, "genjutsu": 1}, "skill_points": 1, "ui_stats": {"happiness": 1}, "memory": "You practiced quiet focus and held your attention through distraction."}
+    },
+    {
+      "id": "shuriken_practice",
+      "label": "Target Practice",
+      "description": "Practice throwing forms, adjust your stance, and learn how small corrections change a shot.",
+      "category": "Academy",
+      "action_type": "personal",
+      "requires": {"age": 8},
+      "effects": {"attributes": {"body_conditioning": 1, "academy_knowledge": 2, "hand_seals": 1}, "memory": "You spent the afternoon improving your aim at the practice range."}
+    },
+    {
+      "id": "chakra_capacity_drill",
+      "label": "Chakra Reserve Drill",
+      "description": "Cycle small amounts of chakra carefully, building reserve without sacrificing control.",
+      "category": "Chakra",
+      "action_type": "personal",
+      "requires": {"age": 8, "attributes": {"chakra_control": 10}},
+      "effects": {"attributes": {"chakra_capacity": 5, "chakra_control": 1}, "ui_stats": {"health": -1}, "memory": "You practiced circulating chakra in measured cycles to deepen your reserve."}
+    },
+    {
+      "id": "independent_study",
+      "label": "Study a Shinobi Topic",
+      "description": "Choose a subject that interests you and follow the questions wherever they lead.",
+      "category": "Academy",
+      "action_type": "personal",
+      "requires": {"age": 10, "location": "academy"},
+      "effects": {"attributes": {"academy_knowledge": 3, "willpower": 1, "intelligence": 1}, "skill_xp": {"ninjutsu": 1, "medicine": 1}, "skill_points": 1, "ui_stats": {"smarts": 1, "happiness": 1}, "memory": "You followed your curiosity into a shinobi subject of your own choosing."}
+    },
+    {
+      "id": "nature_wind_practice",
+      "label": "Wind Nature Practice",
+      "description": "Learn to make your chakra feel sharp and directional without losing its shape.",
+      "category": "Nature Shaping",
+      "action_type": "personal",
+      "requires": {"age": 10, "location": "training_ground", "unlocks": ["nature_shaping"], "chakra_nature": "wind"},
+      "effects": {"nature_affinity": {"wind": 5}, "attributes": {"chakra_control": 1}, "skill_xp": {"ninjutsu": 2}, "skill_points": 1, "memory": "You began learning how your wind nature moves through chakra."}
+    },
+    {
+      "id": "nature_fire_practice",
+      "label": "Fire Nature Practice",
+      "description": "Practice shaping warmth into steady output instead of letting it flare and scatter.",
+      "category": "Nature Shaping",
+      "action_type": "personal",
+      "requires": {"age": 10, "location": "training_ground", "unlocks": ["nature_shaping"], "chakra_nature": "fire"},
+      "effects": {"nature_affinity": {"fire": 5}, "attributes": {"chakra_control": 1}, "skill_xp": {"ninjutsu": 2}, "skill_points": 1, "memory": "You learned to keep fire-nature chakra steady through a controlled release."}
+    },
+    {
+      "id": "nature_water_practice",
+      "label": "Water Nature Practice",
+      "description": "Study how to keep chakra responsive and continuous as its shape changes.",
+      "category": "Nature Shaping",
+      "action_type": "personal",
+      "requires": {"age": 10, "location": "training_ground", "unlocks": ["nature_shaping"], "chakra_nature": "water"},
+      "effects": {"nature_affinity": {"water": 5}, "attributes": {"chakra_control": 1}, "skill_xp": {"ninjutsu": 2}, "skill_points": 1, "memory": "You practiced guiding water-nature chakra through several changing forms."}
+    },
+    {
+      "id": "nature_earth_practice",
+      "label": "Earth Nature Practice",
+      "description": "Build a stable flow that holds its shape under pressure.",
+      "category": "Nature Shaping",
+      "action_type": "personal",
+      "requires": {"age": 10, "location": "training_ground", "unlocks": ["nature_shaping"], "chakra_nature": "earth"},
+      "effects": {"nature_affinity": {"earth": 5}, "attributes": {"chakra_control": 1}, "skill_xp": {"ninjutsu": 2}, "skill_points": 1, "memory": "You practiced maintaining a grounded, even flow of earth-nature chakra."}
+    },
+    {
+      "id": "nature_lightning_practice",
+      "label": "Lightning Nature Practice",
+      "description": "Focus on precision and fine control as you guide a fast, unstable current.",
+      "category": "Nature Shaping",
+      "action_type": "personal",
+      "requires": {"age": 10, "location": "training_ground", "unlocks": ["nature_shaping"], "chakra_nature": "lightning"},
+      "effects": {"nature_affinity": {"lightning": 5}, "attributes": {"chakra_control": 1}, "skill_xp": {"ninjutsu": 2}, "skill_points": 1, "memory": "You learned to guide lightning-nature chakra without letting it break your focus."}
+    },
+    {
+      "id": "inuzuka_clan_training",
+      "label": "Inuzuka Clan Training",
+      "description": "Combine movement, senses, and physical coordination in your clan's training style.",
+      "category": "Clan Path",
+      "action_type": "personal",
+      "requires": {"age": 8, "clan": "inuzuka"},
+      "effects": {"attributes": {"body_conditioning": 3, "willpower": 1}, "memory": "You trained in the Inuzuka family's direct, physical style."}
+    },
+    {
+      "id": "yamanaka_clan_training",
+      "label": "Yamanaka Clan Focus",
+      "description": "Practice the concentration and awareness expected of a Yamanaka shinobi.",
+      "category": "Clan Path",
+      "action_type": "personal",
+      "requires": {"age": 8, "clan": "yamanaka"},
+      "effects": {"attributes": {"chakra_control": 2, "willpower": 2}, "memory": "You practiced the Yamanaka tradition of focused awareness."}
+    },
+    {
+      "id": "uchiha_clan_training",
+      "label": "Uchiha Clan Forms",
+      "description": "Build the discipline, observation, and hand-seal precision taught in your clan.",
+      "category": "Clan Path",
+      "action_type": "personal",
+      "requires": {"age": 8, "clan": "uchiha"},
+      "effects": {"attributes": {"willpower": 2, "hand_seals": 2, "academy_knowledge": 1}, "memory": "You practiced the Uchiha clan's disciplined forms and observation drills."}
+    },
+    {
+      "id": "hyuga_gentle_fist_training",
+      "label": "Gentle Fist Forms",
+      "description": "Practice close-range forms that demand precise movement and chakra control.",
+      "category": "Clan Path",
+      "action_type": "personal",
+      "requires": {"age": 8, "clan": "hyuga"},
+      "effects": {"mastery": {"gentle_fist": 4}, "attributes": {"chakra_control": 1, "body_conditioning": 1}, "memory": "You practiced the Hyuga Gentle Fist forms with careful control."}
+    },
+    {
+      "id": "nara_strategy_practice",
+      "label": "Nara Strategy Study",
+      "description": "Review situations, predict likely choices, and plan how a team should respond.",
+      "category": "Clan Path",
+      "action_type": "personal",
+      "requires": {"age": 8, "clan": "nara"},
+      "effects": {"attributes": {"academy_knowledge": 3, "willpower": 2}, "memory": "You studied a Nara strategy exercise and considered several possible outcomes."}
+    },
+    {
+      "id": "take_genin_qualification",
+      "label": "Take the Genin Qualification",
+      "description": "Put your academy study, control, and physical preparation to the test.",
+      "category": "Rank Progression",
+      "action_type": "personal",
+      "requires": {"age": 12, "unlocks": ["genin_exam"]},
+      "effects": {"rank": "Genin", "ui_stats": {"happiness": 4}, "memory": "You passed your village's Genin qualification and began your shinobi career."}
+    },
+    {
+      "id": "take_chunin_exam",
+      "label": "Enter a Chunin Exam Cycle",
+      "description": "Commit to an exam cycle that tests judgment, capability, and teamwork.",
+      "category": "Rank Progression",
+      "action_type": "personal",
+      "requires": {"age": 14, "unlocks": ["chunin_exam"]},
+      "effects": {"rank": "Chunin", "ui_stats": {"happiness": 4}, "memory": "You advanced to Chunin after demonstrating the experience and judgment your village required."}
+    },
+    {
+      "id": "take_jonin_assessment",
+      "label": "Take the Jonin Assessment",
+      "description": "Show that your skill, judgment, and record are ready for a leadership rank.",
+      "category": "Rank Progression",
+      "action_type": "personal",
+      "requires": {"age": 18, "unlocks": ["jonin_assessment"]},
+      "effects": {"rank": "Jonin", "ui_stats": {"happiness": 5}, "memory": "You earned Jonin rank after years of training and service to your village."}
+    },
+    {
+      "id": "learn_transformation",
+      "label": "Learn Transformation Technique",
+      "description": "Learn the basic hand signs and chakra shaping behind a foundational academy technique.",
+      "category": "Ninjutsu",
+      "action_type": "personal",
+      "requires": {"age": 8, "location": "academy", "unlocks": ["academy_ninjutsu_basics"]},
+      "effects": {"learn_technique": "transformation_jutsu", "attributes": {"hand_seals": 2, "academy_knowledge": 1}, "memory": "You learned the Transformation Technique through careful academy practice."}
+    },
+    {
+      "id": "learn_clone",
+      "label": "Learn Clone Technique",
+      "description": "Practice the focus needed to form a stable illusionary clone.",
+      "category": "Ninjutsu",
+      "action_type": "personal",
+      "requires": {"age": 8, "location": "academy", "unlocks": ["academy_ninjutsu_basics"]},
+      "effects": {"learn_technique": "clone_jutsu", "attributes": {"hand_seals": 2, "chakra_control": 1}, "memory": "You learned the Clone Technique and began refining its chakra shape."}
+    },
+    {
+      "id": "learn_substitution",
+      "label": "Learn Substitution Technique",
+      "description": "Study timing, preparation, and the chakra control needed to escape an attack.",
+      "category": "Ninjutsu",
+      "action_type": "personal",
+      "requires": {"age": 8, "location": "academy", "unlocks": ["academy_ninjutsu_basics"]},
+      "effects": {"learn_technique": "substitution_jutsu", "attributes": {"hand_seals": 1, "willpower": 2}, "memory": "You learned the Substitution Technique and practiced its timing."}
+    }
+  ]
+}

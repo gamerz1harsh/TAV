@@ -42,3 +42,30 @@ dist/
 *.tmp
 *.bak
 *.swp
+
+# ─── Node.js / Electron ─────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Electron build output
+electron-artifacts/
+release/
+*.asar
+*.asar.unpack
+
+# Electron builder
+dist/electron/
+dist/*-setup-*/
+dist/*.exe
+dist/*.msi
+dist/*.deb
+dist/*.rpm
+dist/*.dmg
+dist/*.zip
+
+# Electron cache
+~/.cache/electron/
+~/.electron/

@@ -1,0 +1,157 @@
+{
+  "player": {
+    "name": "Dfgdes",
+    "age": 5,
+    "era": "naruto",
+    "life_stage": "child",
+    "location": "home",
+    "stats": {
+      "energy": 5,
+      "money": 40,
+      "skill": 0,
+      "reputation": 0
+    },
+    "ui_stats": {
+      "health": 76,
+      "happiness": 72,
+      "smarts": 48,
+      "looks": 50
+    },
+    "career_tracks": {},
+    "education": {
+      "status": "none",
+      "location": null,
+      "level": 0,
+      "grade": "C",
+      "attendance": 0,
+      "school_unlocked": false,
+      "extracurriculars": []
+    },
+    "relationship_state": {},
+    "mutation_state": {},
+    "naruto": {
+      "village": {
+        "id": "sand",
+        "name": "Hidden Sand"
+      },
+      "clan": {
+        "id": "uchiha",
+        "name": "Uchiha",
+        "lineage": {
+          "id": "sharingan",
+          "name": "Sharingan",
+          "status": "dormant"
+        }
+      },
+      "chakra_nature": {
+        "id": "wind",
+        "name": "Wind"
+      },
+      "nature_ceremony_complete": true,
+      "traits": [
+        {
+          "id": "steady_chakra",
+          "name": "Steady Chakra",
+          "rarity": "uncommon",
+          "weight": 7,
+          "description": "Your chakra flow settles quickly after a mistake.",
+          "starting_effects": {
+            "attributes": {
+              "chakra_control": 3
+            }
+          },
+          "modifiers": {
+            "chakra_cost_percent": -5
+          }
+        },
+        {
+          "id": "sensitive_senses",
+          "name": "Sensitive Senses",
+          "rarity": "uncommon",
+          "weight": 7,
+          "description": "You pick up faint sounds and scents others miss.",
+          "starting_effects": {
+            "attributes": {
+              "agility": 2,
+              "intelligence": 1
+            }
+          },
+          "modifiers": {
+            "expedition_awareness": 2
+          }
+        }
+      ],
+      "attributes": {
+        "chakra_capacity": 12,
+        "chakra_control": 7,
+        "body_conditioning": 6,
+        "academy_knowledge": 15,
+        "hand_seals": 0,
+        "willpower": 18,
+        "strength": 8,
+        "agility": 10,
+        "intelligence": 9,
+        "vitality": 8,
+        "charisma": 8,
+        "luck": 8
+      },
+      "skills": {
+        "ninjutsu": 0,
+        "taijutsu": 0,
+        "genjutsu": 0,
+        "shurikenjutsu": 0,
+        "crafting": 0,
+        "smithing": 0,
+        "medicine": 0,
+        "survival": 0
+      },
+      "skill_xp": {
+        "ninjutsu": 0,
+        "taijutsu": 0,
+        "genjutsu": 0,
+        "shurikenjutsu": 0,
+        "crafting": 0,
+        "smithing": 0,
+        "medicine": 3,
+        "survival": 0
+      },
+      "chakra_current": 12,
+      "mastery": {
+        "tree_walking": 0,
+        "water_walking": 0
+      },
+      "nature_affinity": {
+        "wind": 20,
+        "fire": 0,
+        "water": 0,
+        "earth": 0,
+        "lightning": 0,
+        "sand": 0,
+        "ice": 0,
+        "yin": 0,
+        "yang": 0
+      },
+      "relationships": {
+        "family": 50,
+        "academy_peers": 20,
+        "mentors": 0
+      },
+      "techniques": [],
+      "unlocks": [],
+      "skill_points": 0,
+      "skill_tree_nodes": [],
+      "modes": {},
+      "inventory": [],
+      "equipped": {},
+      "sage_mastery": 0
+    }
+  },
+  "origin": {
+    "id": "shinobi_candidate",
+    "name": "Shinobi Candidate",
+    "tag": "World pack start",
+    "description": "A new life begins in a shinobi village.",
+    "effects": {},
+    "known_npc": null
+  }
+}

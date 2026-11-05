@@ -1,0 +1,9 @@
+{
+  "center": "Maple Street Playground",
+  "locations": {
+    "player_home": "A small, brightly colored bungalow filled with toys.",
+    "kindergarten": "The cheerful building where you learn letters and sing songs.",
+    "local_park": "Swing sets, slides, and soft grass perfect for tumbling.",
+    "bookstore": "A quiet corner shop stocked with picture books."
+  }
+}

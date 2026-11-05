@@ -1,0 +1,202 @@
+{
+  "age_events": [
+    {
+      "id": "age_5_first_day",
+      "min_age": 4,
+      "max_age": 6,
+      "life_stage": "child",
+      "era": ["modern", "magic", "sci-fi", "ancient"],
+      "weight": 3,
+      "requires": {"flags": {"school_unlocked": false}},
+      "framework": "parent_decision",
+      "title": "First day of school",
+      "text": "Your parents are talking about school. They want to know what you think.",
+      "choices": [
+        {"id": "go", "label": "Go to school", "text": "Agree to attend school.", "effects": {"flags": {"school_unlocked": true, "school_path": true}}},
+        {"id": "refuse", "label": "Refuse", "text": "Stay home and resist the school path.", "effects": {"flags": {"refused_school": true}}}
+      ],
+      "narrate": true
+    },
+    {
+      "id": "age_8_hobby",
+      "min_age": 7,
+      "max_age": 9,
+      "life_stage": "child",
+      "era": ["modern", "magic", "sci-fi", "ancient"],
+      "weight": 2,
+      "requires": {},
+      "framework": "random_encounter",
+      "title": "A new interest",
+      "text": "You discover something that captures your imagination.",
+      "choices": [
+        {"id": "music", "label": "Music", "text": "Start learning an instrument.", "effects": {"skill": 1, "flags": {"hobby_music": true}}},
+        {"id": "sports", "label": "Sports", "text": "Join a local sports team.", "effects": {"skill": 1, "flags": {"hobby_sports": true}}},
+        {"id": "art", "label": "Art", "text": "Start drawing and painting.", "effects": {"skill": 1, "flags": {"hobby_art": true}}}
+      ],
+      "narrate": true
+    },
+    {
+      "id": "age_13_identity",
+      "min_age": 12,
+      "max_age": 15,
+      "life_stage": "teen",
+      "era": ["modern", "magic", "sci-fi", "ancient"],
+      "weight": 3,
+      "requires": {},
+      "framework": "life_milestone",
+      "title": "Who are you becoming?",
+      "text": "You're starting to wonder who you really are. The answer will shape your future.",
+      "choices": [
+        {"id": "scholar", "label": "The scholar", "text": "You want to learn everything.", "effects": {"skill": 2, "flags": {"identity_scholar": true}}},
+        {"id": "rebel", "label": "The rebel", "text": "You want to break the rules.", "effects": {"reputation": 1, "flags": {"identity_rebel": true}}},
+        {"id": "social", "label": "The social one", "text": "You want to be known and liked.", "effects": {"reputation": 2, "flags": {"identity_social": true}}},
+        {"id": "quiet", "label": "The quiet one", "text": "You want to observe and understand.", "effects": {"skill": 1, "flags": {"identity_quiet": true}}}
+      ],
+      "narrate": true
+    },
+    {
+      "id": "age_16_first_job",
+      "min_age": 15,
+      "max_age": 17,
+      "life_stage": "teen",
+      "era": ["modern", "sci-fi"],
+      "weight": 3,
+      "requires": {},
+      "framework": "career_step",
+      "title": "Your first job",
+      "text": "A local business is hiring. This could be your first taste of independence.",
+      "choices": [
+        {"id": "cafe", "label": "Work at the cafe", "text": "Learn customer service and earn steady pay.", "effects": {"money": 1, "skill": 1, "flags": {"first_job_cafe": true}}},
+        {"id": "shop", "label": "Work at a shop", "text": "Learn retail and inventory.", "effects": {"money": 1, "skill": 1, "flags": {"first_job_shop": true}}},
+        {"id": "tutor", "label": "Tutor younger kids", "text": "Share what you know and build teaching skills.", "effects": {"money": 1, "skill": 2, "flags": {"first_job_tutor": true}}}
+      ],
+      "narrate": true
+    },
+    {
+      "id": "age_18_adulthood",
+      "min_age": 17,
+      "max_age": 19,
+      "life_stage": "teen",
+      "era": ["modern", "magic", "sci-fi", "ancient"],
+      "weight": 4,
+      "requires": {},
+      "framework": "life_milestone",
+      "title": "The threshold of adulthood",
+      "text": "You're about to become an adult. The choices you make now will define your path.",
+      "choices": [
+        {"id": "college", "label": "Pursue higher education", "text": "Invest in your future through study.", "effects": {"skill": 2, "money": -2, "flags": {"adult_college": true}}},
+        {"id": "work", "label": "Enter the workforce", "text": "Start building your career immediately.", "effects": {"money": 2, "flags": {"adult_work": true}}},
+        {"id": "travel", "label": "Travel and explore", "text": "See the world before settling down.", "effects": {"happiness": 2, "money": -2, "flags": {"adult_travel": true}}},
+        {"id": "family", "label": "Stay close to family", "text": "Build your life around your roots.", "effects": {"reputation": 1, "flags": {"adult_family": true}}}
+      ],
+      "narrate": true
+    },
+    {
+      "id": "age_25_career_push",
+      "min_age": 24,
+      "max_age": 28,
+      "life_stage": "young_adult",
+      "era": ["modern", "magic", "sci-fi", "ancient"],
+      "weight": 3,
+      "requires": {},
+      "framework": "career_step",
+      "title": "A career crossroads",
+      "text": "Your career is at a point where you need to make a serious commitment.",
+      "choices": [
+        {"id": "advance", "label": "Push for advancement", "text": "Work harder and seek promotion.", "effects": {"skill": 2, "energy": -2, "flags": {"career_advancing": true}}},
+        {"id": "balance", "label": "Seek work-life balance", "text": "Prioritize happiness over ambition.", "effects": {"happiness": 2, "flags": {"career_balanced": true}}},
+        {"id": "change", "label": "Change direction", "text": "Pivot to a completely different path.", "effects": {"skill": 1, "flags": {"career_changed": true}}}
+      ],
+      "narrate": true
+    },
+    {
+      "id": "age_30_relationship",
+      "min_age": 28,
+      "max_age": 33,
+      "life_stage": "young_adult",
+      "era": ["modern", "magic", "sci-fi", "ancient"],
+      "weight": 3,
+      "requires": {},
+      "framework": "relationship_test",
+      "title": "A serious relationship",
+      "text": "Someone important in your life wants to take the next step.",
+      "choices": [
+        {"id": "commit", "label": "Commit fully", "text": "Build a life together.", "effects": {"happiness": 2, "flags": {"relationship_committed": true}}},
+        {"id": "wait", "label": "Wait and see", "text": "Take more time to decide.", "effects": {"flags": {"relationship_waiting": true}}},
+        {"id": "end", "label": "End it", "text": "Move on and find a different path.", "effects": {"happiness": -1, "flags": {"relationship_ended": true}}}
+      ],
+      "narrate": true
+    },
+    {
+      "id": "age_40_midlife",
+      "min_age": 38,
+      "max_age": 45,
+      "life_stage": "adult",
+      "era": ["modern", "magic", "sci-fi", "ancient"],
+      "weight": 3,
+      "requires": {},
+      "framework": "life_milestone",
+      "title": "The midlife question",
+      "text": "You look at your life and wonder if this is really what you wanted.",
+      "choices": [
+        {"id": "accept", "label": "Accept your path", "text": "Find peace with where you are.", "effects": {"happiness": 2, "flags": {"midlife_acceptance": true}}},
+        {"id": "change", "label": "Make a dramatic change", "text": "Shake up your life completely.", "effects": {"happiness": 1, "flags": {"midlife_change": true}}},
+        {"id": "legacy", "label": "Focus on legacy", "text": "Build something that outlasts you.", "effects": {"reputation": 2, "flags": {"midlife_legacy": true}}}
+      ],
+      "narrate": true
+    },
+    {
+      "id": "age_50_family",
+      "min_age": 48,
+      "max_age": 55,
+      "life_stage": "adult",
+      "era": ["modern", "magic", "sci-fi", "ancient"],
+      "weight": 2,
+      "requires": {},
+      "framework": "relationship_test",
+      "title": "Family matters",
+      "text": "Your family needs you. The next generation is looking to you for guidance.",
+      "choices": [
+        {"id": "guide", "label": "Guide the next generation", "text": "Share your wisdom and experience.", "effects": {"reputation": 2, "happiness": 1, "flags": {"family_mentor": true}}},
+        {"id": "distance", "label": "Keep your distance", "text": "Focus on your own life.", "effects": {"flags": {"family_distant": true}}}
+      ],
+      "narrate": true
+    },
+    {
+      "id": "age_60_retirement",
+      "min_age": 58,
+      "max_age": 65,
+      "life_stage": "senior",
+      "era": ["modern", "magic", "sci-fi", "ancient"],
+      "weight": 4,
+      "requires": {},
+      "framework": "life_milestone",
+      "title": "The retirement question",
+      "text": "You're approaching the end of your working years. What comes next?",
+      "choices": [
+        {"id": "retire", "label": "Retire fully", "text": "Step back and enjoy your remaining years.", "effects": {"happiness": 2, "flags": {"retired": true}}},
+        {"id": "continue", "label": "Keep working", "text": "Stay active and engaged.", "effects": {"money": 1, "flags": {"continued_working": true}}},
+        {"id": "volunteer", "label": "Volunteer", "text": "Give back to your community.", "effects": {"reputation": 2, "happiness": 1, "flags": {"volunteering": true}}}
+      ],
+      "narrate": true
+    },
+    {
+      "id": "age_70_legacy",
+      "min_age": 68,
+      "max_age": 80,
+      "life_stage": "senior",
+      "era": ["modern", "magic", "sci-fi", "ancient"],
+      "weight": 3,
+      "requires": {},
+      "framework": "life_milestone",
+      "title": "Your legacy",
+      "text": "You think about what you'll leave behind. What matters most?",
+      "choices": [
+        {"id": "family", "label": "Your family", "text": "Make sure your family is taken care of.", "effects": {"happiness": 2, "flags": {"legacy_family": true}}},
+        {"id": "work", "label": "Your work", "text": "Ensure your work continues to matter.", "effects": {"reputation": 2, "flags": {"legacy_work": true}}},
+        {"id": "community", "label": "Your community", "text": "Leave your community better than you found it.", "effects": {"reputation": 3, "flags": {"legacy_community": true}}}
+      ],
+      "narrate": true
+    }
+  ]
+}

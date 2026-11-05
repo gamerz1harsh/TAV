@@ -1,0 +1,9 @@
+{
+  "center": "Nursery",
+  "locations": {
+    "crib_area": "Your safe, soft sleeping space where you wake up every morning.",
+    "playroom": "A brightly colored area filled with soft toys and stacking blocks for supervised play.",
+    "diaper_changing_station": "The functional corner where Mom takes care of your needs."
+  },
+  "map_name": "The Family Nursery"
+}

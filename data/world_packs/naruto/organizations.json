@@ -1,0 +1,42 @@
+{
+  "organizations": [
+    {"id":"leaf_village","name":"Hidden Leaf Village","kind":"village","description":"The civic body that governs the village and assigns shinobi missions.","levels":["Outlying Settlement","Recognized Village","Major Hidden Village","Regional Power"]},
+    {"id":"ninja_academy","name":"Ninja Academy","kind":"school","description":"The academy trains students and prepares them for village service.","levels":["Local Class","Village Academy","Regional Institute","Premier Academy"]},
+    {"id":"player_clan","name":"Your Clan","kind":"clan","description":"Family ties can support training, obligations, and inherited traditions.","levels":["Household","Recognized Branch","Respected Clan","Village Pillar"]},
+    {"id":"shinobi_team","name":"Shinobi Team","kind":"team","description":"A team grows through shared assignments, trust, and coordinated training.","levels":["Unformed","New Team","Field Proven","Trusted Unit"]}
+  ],
+  "foundings": [
+    {
+      "id": "found_academy",
+      "label": "Establish a Shinobi Academy",
+      "description": "Gather instructors, secure a training ground, and establish a school that can educate future generations.",
+      "requirements": {"age": 16, "rank_at_least": "Chunin", "world_influence_min": 120, "combat_power_min": 320, "money_min": 1500},
+      "costs": {"money": 1500},
+      "entity": {"id": "player_academy", "name": "The Shinobi Academy", "kind": "school", "description": "A school founded by you, with its curriculum and reputation still to be shaped."}
+    },
+    {
+      "id": "found_sect",
+      "label": "Found a Shinobi Sect",
+      "description": "Create an independent order with a shared discipline, school of combat, and rules for its members.",
+      "requirements": {"age": 18, "rank_at_least": "Chunin", "world_influence_min": 180, "combat_power_min": 500, "money_min": 3000},
+      "costs": {"money": 3000},
+      "entity": {"id": "player_sect", "name": "The New Shinobi Sect", "kind": "sect", "description": "An independent shinobi order founded by you."}
+    },
+    {
+      "id": "found_hidden_village",
+      "label": "Found a Hidden Village",
+      "description": "Unite a settlement, recruit capable shinobi, and establish a village with its own institutions.",
+      "requirements": {"age": 22, "rank_at_least": "Jonin", "world_influence_min": 350, "combat_power_min": 1200, "money_min": 10000},
+      "costs": {"money": 10000},
+      "entity": {"id": "player_village", "name": "Your Hidden Village", "kind": "village", "description": "A new village whose security, prosperity, and public trust are shaped by your leadership."}
+    },
+    {
+      "id": "found_nation",
+      "label": "Establish a Shinobi Nation",
+      "description": "Turn a coalition of villages and settlements into a recognized nation with the power to shape regional history.",
+      "requirements": {"age": 28, "rank_at_least": "Jonin", "world_influence_min": 600, "combat_power_min": 2200, "money_min": 25000},
+      "costs": {"money": 25000},
+      "entity": {"id": "player_nation", "name": "Your Shinobi Nation", "kind": "nation", "description": "A nation founded through years of influence, alliances, and strength."}
+    }
+  ]
+}

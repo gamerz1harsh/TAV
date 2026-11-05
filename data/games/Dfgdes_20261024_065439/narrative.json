@@ -1,0 +1,225 @@
+{
+  "memories": [
+    "Age 0: You began your shinobi life in Hidden Sand.",
+    "Age 0: You spent the day learning the shape of your village.",
+    "Age 0: A game turned into a new discovery about the world around you.",
+    "Age 0: A game turned into a new discovery about the world around you.",
+    "Age 1: A new year of shinobi life begins.",
+    "Age 2: A new year of shinobi life begins.",
+    "Age 3: A new year of shinobi life begins.",
+    "Age 3: You helped the checkpoint clinic organize care and keep clean water available.",
+    "Age 4: A new year of shinobi life begins.",
+    "Age 5: A new year of shinobi life begins.",
+    "Age 5: At the age-five chakra ceremony, your natural affinity was revealed as Wind.",
+    "Age 5: A game turned into a new discovery about the world around you.",
+    "Age 5: A game turned into a new discovery about the world around you."
+  ],
+  "season_summary": "",
+  "starting_scenario": "",
+  "narration_context": {
+    "year": 6,
+    "season": "",
+    "actions_remaining": 3,
+    "completed": false,
+    "active_event": null,
+    "player": {
+      "name": "Dfgdes",
+      "age": 5,
+      "location": "home",
+      "origin": "Shinobi Candidate",
+      "stats": {
+        "energy": 5,
+        "money": 40,
+        "skill": 0,
+        "reputation": 0
+      },
+      "ui_stats": {
+        "health": 76,
+        "happiness": 72,
+        "smarts": 48,
+        "looks": 50
+      }
+    },
+    "relationships": [
+      {
+        "id": "family_guardian",
+        "name": "Aiko Mori",
+        "role": "Parent",
+        "location": "home",
+        "affinity": 35,
+        "trust": 45
+      }
+    ],
+    "flags": {
+      "world_pack": "naruto"
+    },
+    "recent_memories": [
+      "Age 5: A new year of shinobi life begins.",
+      "Age 5: At the age-five chakra ceremony, your natural affinity was revealed as Wind.",
+      "Age 5: A game turned into a new discovery about the world around you.",
+      "Age 5: A game turned into a new discovery about the world around you."
+    ],
+    "story_beats": {
+      "season_summary": "",
+      "starting_scenario": ""
+    },
+    "menu_slots": [
+      {
+        "slot": "relations",
+        "label": "Relations",
+        "category": "social"
+      },
+      {
+        "slot": "status",
+        "label": "Wellbeing",
+        "category": "status"
+      },
+      {
+        "slot": "education",
+        "label": "Education",
+        "category": "education"
+      },
+      {
+        "slot": "career",
+        "label": "Career",
+        "category": "career"
+      },
+      {
+        "slot": "lifestyle",
+        "label": "Daily Life",
+        "category": "lifestyle"
+      },
+      {
+        "slot": "special",
+        "label": "Opportunities",
+        "category": "events"
+      }
+    ],
+    "world": {
+      "era": "naruto",
+      "pack_id": "naruto",
+      "pack_version": 4,
+      "phase": "academy preparation",
+      "rank": "Academy Student",
+      "unlocks": {},
+      "village": "sand",
+      "current_region": "land_of_wind",
+      "home_region": "land_of_wind",
+      "region_state": {
+        "land_of_fire": {
+          "security": 52,
+          "prosperity": 48,
+          "public_trust": 50
+        },
+        "land_of_wind": {
+          "security": 52,
+          "prosperity": 48,
+          "public_trust": 50
+        },
+        "land_of_water": {
+          "security": 52,
+          "prosperity": 48,
+          "public_trust": 50
+        },
+        "land_of_waves": {
+          "security": 52,
+          "prosperity": 48,
+          "public_trust": 50
+        },
+        "land_of_rivers": {
+          "security": 53,
+          "prosperity": 48,
+          "public_trust": 54
+        },
+        "land_of_iron": {
+          "security": 52,
+          "prosperity": 48,
+          "public_trust": 50
+        }
+      },
+      "encounters_seen_this_year": {},
+      "influence": 3,
+      "title": "Known Face",
+      "quests": [],
+      "chronicle": [
+        {
+          "year": 1,
+          "text": "You spent the day learning the shape of your village."
+        },
+        {
+          "year": 1,
+          "text": "A game turned into a new discovery about the world around you."
+        },
+        {
+          "year": 1,
+          "text": "A game turned into a new discovery about the world around you."
+        },
+        {
+          "year": 4,
+          "text": "You helped the checkpoint clinic organize care and keep clean water available."
+        },
+        {
+          "year": 6,
+          "text": "A game turned into a new discovery about the world around you."
+        },
+        {
+          "year": 6,
+          "text": "A game turned into a new discovery about the world around you."
+        }
+      ],
+      "organizations": {
+        "leaf_village": {
+          "influence": 0,
+          "level": 0
+        },
+        "ninja_academy": {
+          "influence": 0,
+          "level": 0
+        },
+        "player_clan": {
+          "influence": 0,
+          "level": 0
+        },
+        "shinobi_team": {
+          "influence": 0,
+          "level": 0
+        }
+      },
+      "active_encounter": null,
+      "action_counts": {
+        "play_and_observe": 1,
+        "play_with_toys": 4
+      },
+      "opportunities_seen": [],
+      "opportunities_pending": [],
+      "legacy": {
+        "generation": 1,
+        "generations": [],
+        "heirs": []
+      },
+      "last_action_result": {
+        "is_training": true,
+        "critical": false,
+        "critical_chance": 8,
+        "label": "Play and Explore",
+        "attribute_gains": {
+          "academy_knowledge": 3,
+          "willpower": 1
+        },
+        "skill_xp_gains": {},
+        "nature_affinity_gains": {},
+        "technique_mastery_gains": {},
+        "mastery_gain": 0,
+        "technique": null,
+        "year": 6
+      },
+      "disaster_year": 5,
+      "last_narration": "Thinking Process: 1. **Analyze the Request:** Narrate a resolved anime life-sim event in the character's perspective. Constraints: Do not change outcomes, invent rewards, or add choices. Write at most two short sentences. 2. **Analyze the Context/Data:** * Event Type: Ceremony (",
+      "nature_ceremony": {
+        "title": "The Age-Five Chakra Ceremony",
+        "nature": "Wind",
+        "year": 6
+      }
+    }
+  }
+}

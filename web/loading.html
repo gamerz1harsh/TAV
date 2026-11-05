@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Sim - Starting…</title>
+    <link rel="stylesheet" href="loading.css">
+</head>
+<body>
+    <div class="loading-container">
+        <div class="spinner">⟳</div>
+        <h1 class="loading-title">Anime Sim</h1>
+        <p class="loading-subtitle">A small-town life simulator</p>
+        <p class="loading-status" id="loading-status">Starting the game engine…</p>
+        <div class="loading-bar">
+            <div class="loading-progress" id="loading-progress"></div>
+        </div>
+        <p class="loading-hint" id="loading-hint">This may take a few moments.</p>
+    </div>
+    <script>
+        // The loading page is also shown when the server fails.
+        // The error message is passed via query param ?error=...
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get('error');
+        if (error) {
+            document.getElementById('loading-status').textContent = 'Connection failed';
+            document.getElementById('loading-hint').textContent = error;
+            document.getElementById('loading-hint').style.color = '#f85149';
+        }
+
+        // Animate the spinner
+        const spinner = document.querySelector('.spinner');
+        let rot = 0;
+        setInterval(() => {
+            rot = (rot + 6) % 360;
+            spinner.style.transform = `rotate(${rot}deg)`;
+        }, 50);
+
+        // Animate progress bar (indeterminate)
+        const progress = document.getElementById('loading-progress');
+        let progressWidth = 0;
+        let direction = 1;
+        setInterval(() => {
+            progressWidth += direction * 2;
+            if (progressWidth >= 100) direction = -1;
+            if (progressWidth <= 0) direction = 1;
+            progress.style.width = `${progressWidth}%`;
+        }, 50);
+    </script>
+</body>
+</html>

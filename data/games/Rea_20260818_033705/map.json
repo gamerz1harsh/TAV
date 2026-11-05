@@ -1,0 +1,9 @@
+{
+  "center": "Community Center Plaza",
+  "locations": {
+    "reass_home": "Your cozy little bungalow filled with books and potted herbs.",
+    "community_center": "A bright, bustling hub hosting various workshops and gatherings.",
+    "local_coffee_shop": "The aroma of espresso drifts from the counter, perfect for a quiet chat.",
+    "bookstorefront": "Dusty shelves overflow with novels; a scent of aged paper is everywhere."
+  }
+}

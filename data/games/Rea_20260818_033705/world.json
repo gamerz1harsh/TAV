@@ -1,0 +1,167 @@
+{
+  "npcs": [
+    {
+      "id": "maya",
+      "name": "Maya Ortiz",
+      "role": "Your roommate",
+      "location": "apartment",
+      "affinity": 2,
+      "trust": 1,
+      "description": "A practical designer who values people showing up."
+    },
+    {
+      "id": "leo",
+      "name": "Leo Chen",
+      "role": "Classmate",
+      "location": "college",
+      "affinity": 3,
+      "trust": 1,
+      "description": "An ambitious student who knows every deadline."
+    },
+    {
+      "id": "priya",
+      "name": "Priya Shah",
+      "role": "Cafe manager",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A sharp observer who notices consistent work."
+    },
+    {
+      "id": "dr_ellis",
+      "name": "Dr. Ellis Reed",
+      "role": "Career mentor",
+      "location": "college",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A patient lecturer with local connections."
+    },
+    {
+      "id": "sam",
+      "name": "Sam Walker",
+      "role": "Community organizer",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A determined organizer working on housing."
+    },
+    {
+      "id": "nora",
+      "name": "Nora Blake",
+      "role": "Local rival",
+      "location": "cafe",
+      "affinity": -1,
+      "trust": 0,
+      "description": "A competitive regular with a sharp opinion."
+    },
+    {
+      "id": "npc001",
+      "name": "Eleanor",
+      "role": "Community Organizer",
+      "location": "community_center",
+      "affinity": 3,
+      "trust": 2,
+      "description": "She runs the knitting circle and has a cheerful demeanor. She seems eager to welcome new faces into her activities."
+    },
+    {
+      "id": "npc002",
+      "name": "Marcus",
+      "role": "Barista/Friend",
+      "location": "local_coffee_shop",
+      "affinity": 2,
+      "trust": 3,
+      "description": "A reliable face at the shop who always remembers your usual order. He often has local gossip to share."
+    },
+    {
+      "id": "npc003",
+      "name": "Professor Albright",
+      "role": "Bookstore Owner/Acquaintance",
+      "location": "bookstorefront",
+      "affinity": 1,
+      "trust": 2,
+      "description": "A reserved academic type who speaks mostly about literature. He runs a small, specialized book exchange."
+    }
+  ],
+  "flags": {},
+  "dynamic_locations": {
+    "reass_home": "Your cozy little bungalow filled with books and potted herbs.",
+    "community_center": "A bright, bustling hub hosting various workshops and gatherings.",
+    "local_coffee_shop": "The aroma of espresso drifts from the counter, perfect for a quiet chat.",
+    "bookstorefront": "Dusty shelves overflow with novels; a scent of aged paper is everywhere."
+  },
+  "dynamic_npcs": [
+    {
+      "id": "npc001",
+      "name": "Eleanor",
+      "role": "Community Organizer",
+      "location": "community_center",
+      "affinity": 3,
+      "trust": 2,
+      "description": "She runs the knitting circle and has a cheerful demeanor. She seems eager to welcome new faces into her activities."
+    },
+    {
+      "id": "npc002",
+      "name": "Marcus",
+      "role": "Barista/Friend",
+      "location": "local_coffee_shop",
+      "affinity": 2,
+      "trust": 3,
+      "description": "A reliable face at the shop who always remembers your usual order. He often has local gossip to share."
+    },
+    {
+      "id": "npc003",
+      "name": "Professor Albright",
+      "role": "Bookstore Owner/Acquaintance",
+      "location": "bookstorefront",
+      "affinity": 1,
+      "trust": 2,
+      "description": "A reserved academic type who speaks mostly about literature. He runs a small, specialized book exchange."
+    }
+  ],
+  "starting_map": {
+    "center": "Community Center Plaza",
+    "locations": {
+      "reass_home": "Your cozy little bungalow filled with books and potted herbs.",
+      "community_center": "A bright, bustling hub hosting various workshops and gatherings.",
+      "local_coffee_shop": "The aroma of espresso drifts from the counter, perfect for a quiet chat.",
+      "bookstorefront": "Dusty shelves overflow with novels; a scent of aged paper is everywhere."
+    }
+  },
+  "starting_scenario": "After decades of working at the local library, you finally have time to slow down. Today is your first outing to the community center since retiring, where you hope to find some new hobbies and friendships. The afternoon air smells faintly of freshly baked bread and autumn leaves.",
+  "world": {
+    "era": "modern",
+    "phase": "baseline",
+    "unlocks": {},
+    "global_flags": {},
+    "factions": {
+      "corporate": {
+        "power": 50,
+        "trust": 0
+      },
+      "community": {
+        "power": 50,
+        "trust": 0
+      },
+      "government": {
+        "power": 50,
+        "trust": 0
+      },
+      "criminal": {
+        "power": 30,
+        "trust": 0
+      }
+    },
+    "menu_swaps": {},
+    "rumors": [],
+    "active_crises": [],
+    "world_events": [],
+    "history": []
+  },
+  "parents": {
+    "strictness": 0.75,
+    "support": 0.45,
+    "name": "Parents",
+    "style": "strict",
+    "memory": []
+  }
+}

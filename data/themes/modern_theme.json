@@ -1,0 +1,37 @@
+{
+  "era": "modern",
+  "colors": {
+    "background": "#0d1117",
+    "card_bg": "#161b22",
+    "card_border": "#30363d",
+    "accent": "#58a6ff",
+    "accent_secondary": "#1f6feb",
+    "text_primary": "#f0f6fc",
+    "text_secondary": "#c9d1d9",
+    "text_muted": "#8b949e",
+    "success": "#238636",
+    "warning": "#d29922",
+    "danger": "#f85149",
+    "info": "#58a6ff",
+    "stat_health": "#fb7185",
+    "stat_happiness": "#c084fc",
+    "stat_smarts": "#60a5fa",
+    "stat_looks": "#fbbf24"
+  },
+  "fonts": {
+    "display": "Georgia, 'Times New Roman', serif",
+    "body": "'Segoe UI', -apple-system, sans-serif",
+    "mono": "'Consolas', 'Courier New', monospace"
+  },
+  "ui_labels": {
+    "brand": "RIVERTON // MODERN LIFE",
+    "journal_title": "LIFE LOG",
+    "snapshot_title": "LIFE SNAPSHOT",
+    "operations_title": "NEXT MOVES",
+    "status_title": "STATUS",
+    "profile_title": "PROFILE",
+    "map_title": "MAP",
+    "people_title": "PEOPLE HERE",
+    "actions_title": "ACTIONS"
+  }
+}

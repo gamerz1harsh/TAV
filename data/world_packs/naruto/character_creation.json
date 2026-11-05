@@ -1,0 +1,70 @@
+{
+  "villages": [
+    {
+      "id": "leaf",
+      "name": "Hidden Leaf",
+      "description": "A large village where academy training and team assignments shape many paths."
+    },
+    {
+      "id": "sand",
+      "name": "Hidden Sand",
+      "description": "A hard land that rewards endurance, resourcefulness, and careful chakra use."
+    },
+    {
+      "id": "mist",
+      "name": "Hidden Mist",
+      "description": "A coastal village with a guarded history and a culture of disciplined survival."
+    }
+  ],
+  "clans": [
+    {
+      "id": "civilian",
+      "name": "Civilian-born",
+      "description": "You begin without a clan technique but can define your own route.",
+      "starting_effects": {"attributes": {"academy_knowledge": 2}}
+    },
+    {
+      "id": "inuzuka",
+      "name": "Inuzuka",
+      "description": "A practical clan tradition gives you an early grounding in physical conditioning.",
+      "starting_effects": {"attributes": {"body_conditioning": 5}}
+    },
+    {
+      "id": "yamanaka",
+      "name": "Yamanaka",
+      "description": "A family of specialists that values focus, observation, and a trained mind.",
+      "starting_effects": {"attributes": {"willpower": 4, "chakra_control": 2}}
+    },
+    {
+      "id": "uchiha",
+      "name": "Uchiha",
+      "description": "A storied clan with a dormant Sharingan lineage and a strong tradition of fire nature training.",
+      "lineage": {"id": "sharingan", "name": "Sharingan", "status": "dormant"},
+      "starting_effects": {"attributes": {"willpower": 2, "academy_knowledge": 2}}
+    },
+    {
+      "id": "hyuga",
+      "name": "Hyuga",
+      "description": "A disciplined clan with dormant Byakugan lineage and a precise approach to chakra control.",
+      "lineage": {"id": "byakugan", "name": "Byakugan", "status": "dormant"},
+      "starting_effects": {"attributes": {"chakra_control": 3, "willpower": 1}}
+    },
+    {
+      "id": "nara",
+      "name": "Nara",
+      "description": "A thoughtful clan known for patience, observation, and planning several moves ahead.",
+      "starting_effects": {"attributes": {"academy_knowledge": 3, "willpower": 3}}
+    }
+  ],
+  "chakra_natures": [
+    {"id": "wind", "name": "Wind", "description": "Sharp, mobile, and difficult to keep contained."},
+    {"id": "fire", "name": "Fire", "description": "Direct, forceful, and suited to determined intent."},
+    {"id": "water", "name": "Water", "description": "Adaptive, measured, and responsive to changing ground."},
+    {"id": "earth", "name": "Earth", "description": "Steady, patient, and built around durable control."},
+    {"id": "lightning", "name": "Lightning", "description": "Fast, precise, and demanding of concentration."},
+    {"id": "sand", "name": "Sand", "description": "A rare shaping affinity that turns loose earth and wind into a controlled defense.", "weight": 0.35},
+    {"id": "ice", "name": "Ice", "description": "A rare release that combines wind and water into precise, resilient forms.", "weight": 0.3},
+    {"id": "yin", "name": "Yin", "description": "A disciplined affinity for shaping imagination, perception, and spiritual energy.", "weight": 0.55},
+    {"id": "yang", "name": "Yang", "description": "A disciplined affinity for shaping vitality, growth, and physical energy.", "weight": 0.55}
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "memories": [
+    "You arrived in Riverton as a local resident."
+  ],
+  "season_summary": "",
+  "starting_scenario": "",
+  "narration_context": {
+    "year": 1,
+    "season": "",
+    "actions_remaining": 3,
+    "completed": false,
+    "active_event": null,
+    "player": {
+      "name": "TestPlayer",
+      "age": 18,
+      "location": "apartment",
+      "origin": "Local Resident",
+      "stats": {
+        "energy": 5,
+        "money": 4,
+        "skill": 0,
+        "reputation": 2
+      },
+      "ui_stats": {
+        "happiness": 50,
+        "health": 50,
+        "smarts": 50,
+        "looks": 50
+      }
+    },
+    "relationships": [
+      {
+        "id": "maya",
+        "name": "Maya Ortiz",
+        "role": "Your roommate",
+        "location": "apartment",
+        "affinity": 2,
+        "trust": 1
+      }
+    ],
+    "flags": {},
+    "recent_memories": [
+      "You arrived in Riverton as a local resident."
+    ],
+    "story_beats": {
+      "season_summary": "",
+      "starting_scenario": ""
+    },
+    "menu_slots": [
+      {
+        "slot": "relations",
+        "label": "Relations",
+        "category": "social"
+      },
+      {
+        "slot": "status",
+        "label": "Wellbeing",
+        "category": "status"
+      },
+      {
+        "slot": "education",
+        "label": "Education",
+        "category": "education"
+      },
+      {
+        "slot": "career",
+        "label": "Career",
+        "category": "career"
+      },
+      {
+        "slot": "lifestyle",
+        "label": "Daily Life",
+        "category": "lifestyle"
+      },
+      {
+        "slot": "special",
+        "label": "Opportunities",
+        "category": "events"
+      }
+    ],
+    "world": {
+      "era": "modern",
+      "phase": "baseline",
+      "unlocks": {}
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "entries": [
+    {"id":"five_nations","title":"The Five Great Shinobi Nations","summary":"Five major nations support hidden villages, each with its own political interests, leaders, and shinobi traditions.","tags":["world","history"]},
+    {"id":"leaf_village","title":"Hidden Leaf Village","summary":"The Hidden Leaf is the shinobi village of the Land of Fire. The Hokage leads it, while clans, academy teams, missions, and village councils shape daily life.","tags":["leaf","village"]},
+    {"id":"academy","title":"The Ninja Academy","summary":"Students learn fundamentals such as chakra control, teamwork, field judgment, and the basic techniques required for graduation.","tags":["leaf","academy","education"]},
+    {"id":"chakra","title":"Chakra","summary":"Chakra combines physical and spiritual energy. Control, reserves, technique requirements, and the user's condition all matter when using jutsu.","tags":["training","technique"]},
+    {"id":"clan_lineages","title":"Clan Lineages","summary":"Some abilities are associated with inherited bloodlines. Their presence does not guarantee awakening; experience, stress, and the story can shape whether they emerge.","tags":["clan","lineage"]},
+    {"id":"missions","title":"Village Missions","summary":"The village assigns work according to rank, skill, trust, and political need. Mission outcomes can change reputation and relationships.","tags":["career","mission"]},
+    {"id":"land_of_waves","title":"Land of Waves","summary":"A small coastal nation whose people depend on trade and a major bridge. Outside interests can make local infrastructure a political flashpoint.","tags":["waves","expedition"]}
+  ]
+}

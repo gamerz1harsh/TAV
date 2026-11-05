@@ -1,0 +1,116 @@
+{
+  "player": {
+    "name": "rdvrer",
+    "age": 7,
+    "era": "naruto",
+    "life_stage": "child",
+    "location": "academy",
+    "stats": {
+      "energy": 5,
+      "money": 0,
+      "skill": 0,
+      "reputation": 0
+    },
+    "ui_stats": {
+      "health": 76,
+      "happiness": 62,
+      "smarts": 48,
+      "looks": 50
+    },
+    "career_tracks": {},
+    "education": {
+      "status": "none",
+      "location": null,
+      "level": 0,
+      "grade": "C",
+      "attendance": 0,
+      "school_unlocked": false,
+      "extracurriculars": []
+    },
+    "relationship_state": {},
+    "mutation_state": {},
+    "naruto": {
+      "village": {
+        "id": "leaf",
+        "name": "Hidden Leaf"
+      },
+      "clan": {
+        "id": "uchiha",
+        "name": "Uchiha",
+        "lineage": {
+          "id": "sharingan",
+          "name": "Sharingan",
+          "status": "dormant"
+        }
+      },
+      "chakra_nature": {
+        "id": "water",
+        "name": "Water"
+      },
+      "perks": [
+        {
+          "id": "quick_learner",
+          "name": "Quick Learner"
+        }
+      ],
+      "attributes": {
+        "chakra_capacity": 14,
+        "chakra_control": 8,
+        "body_conditioning": 13,
+        "academy_knowledge": 11,
+        "hand_seals": 0,
+        "willpower": 12,
+        "strength": 8,
+        "agility": 8,
+        "intelligence": 8,
+        "vitality": 8
+      },
+      "mastery": {
+        "tree_walking": 0,
+        "water_walking": 0
+      },
+      "nature_affinity": {
+        "wind": 0,
+        "fire": 0,
+        "water": 0,
+        "earth": 0,
+        "lightning": 0
+      },
+      "relationships": {
+        "family": 52,
+        "academy_peers": 20,
+        "mentors": 0
+      },
+      "techniques": [],
+      "unlocks": [],
+      "skills": {
+        "ninjutsu": 0,
+        "taijutsu": 0,
+        "genjutsu": 0,
+        "shurikenjutsu": 0,
+        "crafting": 0,
+        "smithing": 0,
+        "medicine": 0,
+        "survival": 0
+      },
+      "skill_xp": {
+        "ninjutsu": 0,
+        "taijutsu": 0,
+        "genjutsu": 0,
+        "shurikenjutsu": 0,
+        "crafting": 0,
+        "smithing": 0,
+        "medicine": 0,
+        "survival": 0
+      }
+    }
+  },
+  "origin": {
+    "id": "shinobi_candidate",
+    "name": "Shinobi Candidate",
+    "tag": "World pack start",
+    "description": "A new life begins in a shinobi village.",
+    "effects": {},
+    "known_npc": null
+  }
+}

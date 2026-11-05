@@ -1,0 +1,37 @@
+{
+  "era": "sci-fi",
+  "colors": {
+    "background": "#0a0e1a",
+    "card_bg": "#111827",
+    "card_border": "#1f2937",
+    "accent": "#22d3ee",
+    "accent_secondary": "#0891b2",
+    "text_primary": "#e2e8f0",
+    "text_secondary": "#94a3b8",
+    "text_muted": "#64748b",
+    "success": "#10b981",
+    "warning": "#f59e0b",
+    "danger": "#ef4444",
+    "info": "#38bdf8",
+    "stat_health": "#fb7185",
+    "stat_happiness": "#c084fc",
+    "stat_smarts": "#38bdf8",
+    "stat_looks": "#fbbf24"
+  },
+  "fonts": {
+    "display": "Georgia, 'Times New Roman', serif",
+    "body": "'Segoe UI', -apple-system, sans-serif",
+    "mono": "'Consolas', 'Courier New', monospace"
+  },
+  "ui_labels": {
+    "brand": "RIVERTON // FUTURE LIFE",
+    "journal_title": "MISSION LOG",
+    "snapshot_title": "CREW FILE",
+    "operations_title": "ACTIVE CHANNELS",
+    "status_title": "READINESS",
+    "profile_title": "CREW PROFILE",
+    "map_title": "STATION MAP",
+    "people_title": "CREW",
+    "actions_title": "COMMANDS"
+  }
+}

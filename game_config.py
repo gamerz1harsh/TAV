@@ -195,9 +195,15 @@ def create_game_folder(player_name: str) -> Path:
     safe_name = _sanitize_name(player_name)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     folder_name = f"{safe_name}_{timestamp}"
-    game_folder = GAMES_DIR / folder_name
-    game_folder.mkdir(exist_ok=False)
-    return game_folder
+    suffix = 0
+    while True:
+        candidate_name = folder_name if suffix == 0 else f"{folder_name}_{suffix}"
+        game_folder = GAMES_DIR / candidate_name
+        try:
+            game_folder.mkdir(exist_ok=False)
+            return game_folder
+        except FileExistsError:
+            suffix += 1
 
 
 def get_game_folder(player_name: str, folder_name: str | None = None) -> Path | None:

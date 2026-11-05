@@ -1,0 +1,95 @@
+{
+  "memories": [
+    "You arrived in Riverton as a scholarship student.",
+    "The soft glow of the morning sun streams into your room as you wake up in a cozy crib. Mom is already humming softly while changing a fresh diaper, making little cooing noises just for you. Today promises a day full of tummy time and cuddles at home.",
+    "You visited A brightly colored area filled with soft toys and stacking blocks for supervised play..",
+    "You visited Apartment.",
+    "You had a good conversation with Maya Ortiz.",
+    "A new chapter with Maya Ortiz."
+  ],
+  "season_summary": "",
+  "starting_scenario": "The soft glow of the morning sun streams into your room as you wake up in a cozy crib. Mom is already humming softly while changing a fresh diaper, making little cooing noises just for you. Today promises a day full of tummy time and cuddles at home.",
+  "narration_context": {
+    "year": 1,
+    "season": "",
+    "actions_remaining": 2,
+    "completed": false,
+    "active_event": "Tension at home",
+    "player": {
+      "name": "Da",
+      "age": 0,
+      "location": "apartment",
+      "origin": "Scholarship Student",
+      "stats": {
+        "energy": 5,
+        "money": 5,
+        "skill": 4,
+        "reputation": 3
+      },
+      "ui_stats": {
+        "happiness": 50,
+        "health": 50,
+        "smarts": 50,
+        "looks": 50
+      }
+    },
+    "relationships": [
+      {
+        "id": "maya",
+        "name": "Maya Ortiz",
+        "role": "Your roommate",
+        "location": "apartment",
+        "affinity": 3,
+        "trust": 1
+      }
+    ],
+    "flags": {},
+    "recent_memories": [
+      "You visited A brightly colored area filled with soft toys and stacking blocks for supervised play..",
+      "You visited Apartment.",
+      "You had a good conversation with Maya Ortiz.",
+      "A new chapter with Maya Ortiz."
+    ],
+    "story_beats": {
+      "season_summary": "",
+      "starting_scenario": "The soft glow of the morning sun streams into your room as you wake up in a cozy crib. Mom is already humming softly while changing a fresh diaper, making little cooing noises just for you. Today promises a day full of tummy time and cuddl\u2026"
+    },
+    "menu_slots": [
+      {
+        "slot": "relations",
+        "label": "Relations",
+        "category": "social"
+      },
+      {
+        "slot": "status",
+        "label": "Stats",
+        "category": "status"
+      },
+      {
+        "slot": "education",
+        "label": "Education",
+        "category": "education"
+      },
+      {
+        "slot": "career",
+        "label": "Career",
+        "category": "career"
+      },
+      {
+        "slot": "lifestyle",
+        "label": "Lifestyle",
+        "category": "lifestyle"
+      },
+      {
+        "slot": "special",
+        "label": "Era Events",
+        "category": "events"
+      }
+    ],
+    "world": {
+      "era": "modern",
+      "phase": "baseline",
+      "unlocks": {}
+    }
+  }
+}

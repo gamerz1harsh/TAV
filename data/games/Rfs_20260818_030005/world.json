@@ -1,0 +1,88 @@
+{
+  "npcs": [
+    {
+      "id": "maya",
+      "name": "Maya Ortiz",
+      "role": "Your roommate",
+      "location": "apartment",
+      "affinity": 2,
+      "trust": 1,
+      "description": "A practical designer who values people showing up."
+    },
+    {
+      "id": "leo",
+      "name": "Leo Chen",
+      "role": "Classmate",
+      "location": "college",
+      "affinity": 3,
+      "trust": 1,
+      "description": "An ambitious student who knows every deadline."
+    },
+    {
+      "id": "priya",
+      "name": "Priya Shah",
+      "role": "Cafe manager",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A sharp observer who notices consistent work."
+    },
+    {
+      "id": "dr_ellis",
+      "name": "Dr. Ellis Reed",
+      "role": "Career mentor",
+      "location": "college",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A patient lecturer with local connections."
+    },
+    {
+      "id": "sam",
+      "name": "Sam Walker",
+      "role": "Community organizer",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A determined organizer working on housing."
+    },
+    {
+      "id": "nora",
+      "name": "Nora Blake",
+      "role": "Local rival",
+      "location": "cafe",
+      "affinity": -1,
+      "trust": 0,
+      "description": "A competitive regular with a sharp opinion."
+    }
+  ],
+  "flags": {
+    "school_path": true
+  },
+  "dynamic_locations": {
+    "apartment": "Your cozy apartment",
+    "cafe": "Juniper Cafe - a warm local spot",
+    "college": "Riverton Community College"
+  },
+  "dynamic_npcs": [],
+  "starting_map": {
+    "center": "Juniper Cafe",
+    "locations": {
+      "apartment": "Your cozy apartment",
+      "cafe": "Juniper Cafe - a warm local spot",
+      "college": "Riverton Community College"
+    }
+  },
+  "starting_scenario": "A modest day in Riverton: the cafe and college hum with possibility.",
+  "world": {
+    "era": "modern",
+    "phase": "baseline",
+    "unlocks": {}
+  },
+  "parents": {
+    "strictness": 0.75,
+    "support": 0.45,
+    "name": "Parents",
+    "style": "strict",
+    "memory": []
+  }
+}

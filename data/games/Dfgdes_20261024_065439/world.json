@@ -1,0 +1,463 @@
+{
+  "npcs": [
+    {
+      "id": "family_guardian",
+      "name": "Aiko Mori",
+      "role": "Parent",
+      "age": 29,
+      "location": "home",
+      "affinity": 35,
+      "trust": 45,
+      "personality": [
+        "protective",
+        "observant"
+      ],
+      "description": "Your parent worries about the risks of shinobi life but wants to see you thrive.",
+      "memories": [
+        "They remember the day you first talked about the academy."
+      ],
+      "region_id": "land_of_wind",
+      "interaction_counts": {},
+      "reaction": "They trust you and are willing to rely on you."
+    },
+    {
+      "id": "academy_peer",
+      "name": "Ren Akiyama",
+      "role": "Academy peer",
+      "age": 5,
+      "location": "academy",
+      "affinity": 10,
+      "trust": 5,
+      "personality": [
+        "competitive",
+        "loyal"
+      ],
+      "description": "A quick, competitive student who respects effort more than boasting.",
+      "memories": [
+        "You have seen each other around the academy, but hardly know one another."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "academy_instructor",
+      "name": "Instructor Daichi",
+      "role": "Academy instructor",
+      "age": 27,
+      "location": "academy",
+      "affinity": 0,
+      "trust": 0,
+      "personality": [
+        "patient",
+        "demanding"
+      ],
+      "description": "A patient instructor who gives useful advice when a student shows consistent effort.",
+      "memories": [
+        "They recognize your name from the academy roster."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "village_smith",
+      "name": "Tetsu the Smith",
+      "role": "Blacksmith",
+      "age": 51,
+      "location": "blacksmith",
+      "affinity": 0,
+      "trust": 0,
+      "personality": [
+        "patient",
+        "meticulous"
+      ],
+      "description": "A careful village smith who judges a tool by how it holds up under real use.",
+      "memories": [
+        "The village smith has seen every kind of rushed repair."
+      ],
+      "region_id": "land_of_wind",
+      "local_location": "blacksmith",
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "naruto_uzumaki",
+      "name": "Naruto Uzumaki",
+      "role": "Academy peer",
+      "age": 5,
+      "location": "academy_leaf",
+      "local_location": "academy",
+      "region_id": "land_of_fire",
+      "affinity": 5,
+      "trust": 0,
+      "personality": [
+        "energetic",
+        "stubborn",
+        "lonely"
+      ],
+      "description": "A loud academy student who refuses to give up on being acknowledged.",
+      "memories": [
+        "The class knows Naruto as the student who turns every quiet lesson into an opportunity to be noticed."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "sasuke_uchiha",
+      "name": "Sasuke Uchiha",
+      "role": "Academy peer",
+      "age": 5,
+      "location": "academy_leaf",
+      "local_location": "academy",
+      "region_id": "land_of_fire",
+      "affinity": 0,
+      "trust": 0,
+      "personality": [
+        "reserved",
+        "driven",
+        "observant"
+      ],
+      "description": "A talented, distant student carrying the weight of his clan's loss.",
+      "memories": [
+        "Sasuke keeps to himself and rarely speaks unless there is a reason."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "sakura_haruno",
+      "name": "Sakura Haruno",
+      "role": "Academy peer",
+      "age": 5,
+      "location": "academy_leaf",
+      "local_location": "academy",
+      "region_id": "land_of_fire",
+      "affinity": 3,
+      "trust": 0,
+      "personality": [
+        "focused",
+        "curious",
+        "competitive"
+      ],
+      "description": "A sharp student who studies hard and notices more than she lets on.",
+      "memories": [
+        "Sakura is often comparing notes or asking precise questions after class."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "hinata_hyuga",
+      "name": "Hinata Hyuga",
+      "role": "Academy peer",
+      "age": 5,
+      "location": "academy_leaf",
+      "local_location": "academy",
+      "region_id": "land_of_fire",
+      "affinity": 5,
+      "trust": 2,
+      "personality": [
+        "gentle",
+        "shy",
+        "determined"
+      ],
+      "description": "A quiet Hyuga student working to find confidence in her own way.",
+      "memories": [
+        "Hinata watches the others carefully and speaks softly when she feels safe."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "shikamaru_nara",
+      "name": "Shikamaru Nara",
+      "role": "Academy peer",
+      "age": 5,
+      "location": "academy_leaf",
+      "local_location": "academy",
+      "region_id": "land_of_fire",
+      "affinity": 0,
+      "trust": 0,
+      "personality": [
+        "analytical",
+        "dry-witted",
+        "reluctant"
+      ],
+      "description": "A strategic thinker who would rather watch a situation than rush into it.",
+      "memories": [
+        "Shikamaru notices patterns quickly, though he rarely volunteers to make extra work for himself."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "iruka_umino",
+      "name": "Iruka Umino",
+      "role": "Academy instructor",
+      "age": 27,
+      "location": "academy_leaf",
+      "local_location": "academy",
+      "region_id": "land_of_fire",
+      "affinity": 10,
+      "trust": 10,
+      "personality": [
+        "patient",
+        "protective",
+        "fair"
+      ],
+      "description": "An academy instructor who takes his students' futures personally.",
+      "memories": [
+        "Iruka believes steady effort can change the course of a student's life."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "mission_clerk",
+      "name": "Mika Tanaka",
+      "role": "Mission Clerk",
+      "age": 37,
+      "location": "hokage_tower",
+      "affinity": 0,
+      "trust": 0,
+      "personality": [
+        "organized",
+        "practical",
+        "busy"
+      ],
+      "description": "A mission-desk clerk who matches assignments to readiness and village needs.",
+      "memories": [
+        "They have not yet had a reason to remember you."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "clinic_nin",
+      "name": "Shizune",
+      "role": "Medical-nin",
+      "age": 33,
+      "location": "clinic_leaf",
+      "local_location": "clinic",
+      "region_id": "land_of_fire",
+      "affinity": 0,
+      "trust": 0,
+      "personality": [
+        "attentive",
+        "calm",
+        "demanding"
+      ],
+      "description": "A skilled medic who expects people to take recovery and field safety seriously.",
+      "memories": [
+        "Shizune is careful about who she trusts with medical work."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "hokage",
+      "name": "Hiruzen Sarutobi",
+      "role": "Hokage",
+      "age": 73,
+      "location": "hokage_tower_leaf",
+      "local_location": "hokage_tower",
+      "region_id": "land_of_fire",
+      "affinity": 0,
+      "trust": 0,
+      "personality": [
+        "measured",
+        "warm",
+        "politically astute"
+      ],
+      "description": "The village leader balances the needs of its clans, civilians, and shinobi.",
+      "memories": [
+        "He has heard many young shinobi make promises about the future."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "training_partner",
+      "name": "Kenta Mori",
+      "role": "Academy peer",
+      "age": 5,
+      "location": "training_ground",
+      "affinity": 4,
+      "trust": 8,
+      "personality": [
+        "sporting",
+        "focused",
+        "good-humored"
+      ],
+      "description": "A steady training partner who prefers clean technique over showy wins.",
+      "combat_power": 16,
+      "memories": [
+        "Kenta has offered to spar when you feel ready."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "kakashi_hatake",
+      "name": "Kakashi Hatake",
+      "role": "Jonin instructor",
+      "age": 31,
+      "location": "training_ground_leaf",
+      "local_location": "training_ground",
+      "region_id": "land_of_fire",
+      "affinity": 0,
+      "trust": 0,
+      "personality": [
+        "wry",
+        "perceptive",
+        "hard to impress"
+      ],
+      "description": "A renowned jonin whose lessons emphasize teamwork, awareness, and learning from failure.",
+      "combat_power": 68,
+      "memories": [
+        "Kakashi has not yet worked with you directly."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    }
+  ],
+  "flags": {
+    "world_pack": "naruto"
+  },
+  "dynamic_locations": {},
+  "dynamic_npcs": [],
+  "starting_map": {},
+  "starting_scenario": "",
+  "world": {
+    "era": "naruto",
+    "pack_id": "naruto",
+    "pack_version": 4,
+    "phase": "academy preparation",
+    "rank": "Academy Student",
+    "unlocks": {},
+    "village": "sand",
+    "current_region": "land_of_wind",
+    "home_region": "land_of_wind",
+    "region_state": {
+      "land_of_fire": {
+        "security": 52,
+        "prosperity": 48,
+        "public_trust": 50
+      },
+      "land_of_wind": {
+        "security": 52,
+        "prosperity": 48,
+        "public_trust": 50
+      },
+      "land_of_water": {
+        "security": 52,
+        "prosperity": 48,
+        "public_trust": 50
+      },
+      "land_of_waves": {
+        "security": 52,
+        "prosperity": 48,
+        "public_trust": 50
+      },
+      "land_of_rivers": {
+        "security": 53,
+        "prosperity": 48,
+        "public_trust": 54
+      },
+      "land_of_iron": {
+        "security": 52,
+        "prosperity": 48,
+        "public_trust": 50
+      }
+    },
+    "encounters_seen_this_year": {},
+    "influence": 3,
+    "title": "Known Face",
+    "quests": [],
+    "chronicle": [
+      {
+        "year": 1,
+        "text": "You spent the day learning the shape of your village."
+      },
+      {
+        "year": 1,
+        "text": "A game turned into a new discovery about the world around you."
+      },
+      {
+        "year": 1,
+        "text": "A game turned into a new discovery about the world around you."
+      },
+      {
+        "year": 4,
+        "text": "You helped the checkpoint clinic organize care and keep clean water available."
+      },
+      {
+        "year": 6,
+        "text": "A game turned into a new discovery about the world around you."
+      },
+      {
+        "year": 6,
+        "text": "A game turned into a new discovery about the world around you."
+      }
+    ],
+    "organizations": {
+      "leaf_village": {
+        "influence": 0,
+        "level": 0
+      },
+      "ninja_academy": {
+        "influence": 0,
+        "level": 0
+      },
+      "player_clan": {
+        "influence": 0,
+        "level": 0
+      },
+      "shinobi_team": {
+        "influence": 0,
+        "level": 0
+      }
+    },
+    "active_encounter": null,
+    "action_counts": {
+      "play_and_observe": 1,
+      "play_with_toys": 4
+    },
+    "opportunities_seen": [],
+    "opportunities_pending": [],
+    "legacy": {
+      "generation": 1,
+      "generations": [],
+      "heirs": []
+    },
+    "last_action_result": {
+      "is_training": true,
+      "critical": false,
+      "critical_chance": 8,
+      "label": "Play and Explore",
+      "attribute_gains": {
+        "academy_knowledge": 3,
+        "willpower": 1
+      },
+      "skill_xp_gains": {},
+      "nature_affinity_gains": {},
+      "technique_mastery_gains": {},
+      "mastery_gain": 0,
+      "technique": null,
+      "year": 6
+    },
+    "disaster_year": 5,
+    "last_narration": "Thinking Process: 1. **Analyze the Request:** Narrate a resolved anime life-sim event in the character's perspective. Constraints: Do not change outcomes, invent rewards, or add choices. Write at most two short sentences. 2. **Analyze the Context/Data:** * Event Type: Ceremony (",
+    "nature_ceremony": {
+      "title": "The Age-Five Chakra Ceremony",
+      "nature": "Wind",
+      "year": 6
+    }
+  },
+  "parents": {
+    "strictness": 0.5,
+    "support": 0.6,
+    "name": "Family",
+    "style": "balanced",
+    "memory": []
+  }
+}

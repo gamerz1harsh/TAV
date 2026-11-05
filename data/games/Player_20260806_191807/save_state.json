@@ -1,0 +1,147 @@
+{
+  "player": {
+    "name": "Player",
+    "location": "apartment",
+    "stats": {
+      "energy": 5,
+      "money": 5,
+      "skill": 4,
+      "reputation": 3
+    },
+    "era": "modern",
+    "age": 38,
+    "ui_stats": {
+      "happiness": 60,
+      "health": 70,
+      "smarts": 55,
+      "looks": 50
+    }
+  },
+  "origin": {
+    "id": "scholarship_student",
+    "name": "Scholarship Student",
+    "tag": "Academic head start",
+    "description": "You arrived with academic momentum, but very little financial room.",
+    "effects": {
+      "skill": 2,
+      "money": -2
+    },
+    "known_npc": "leo"
+  },
+  "year": 1,
+  "season_index": 0,
+  "actions_remaining": 2,
+  "npcs": [
+    {
+      "id": "maya",
+      "name": "Maya Ortiz",
+      "role": "Your roommate",
+      "location": "apartment",
+      "affinity": 3,
+      "trust": 1,
+      "description": "A practical designer who values people showing up."
+    },
+    {
+      "id": "leo",
+      "name": "Leo Chen",
+      "role": "Classmate",
+      "location": "college",
+      "affinity": 3,
+      "trust": 1,
+      "description": "An ambitious student who knows every deadline."
+    },
+    {
+      "id": "priya",
+      "name": "Priya Shah",
+      "role": "Cafe manager",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A sharp observer who notices consistent work."
+    },
+    {
+      "id": "dr_ellis",
+      "name": "Dr. Ellis Reed",
+      "role": "Career mentor",
+      "location": "college",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A patient lecturer with local connections."
+    },
+    {
+      "id": "sam",
+      "name": "Sam Walker",
+      "role": "Community organizer",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A determined organizer working on housing."
+    },
+    {
+      "id": "nora",
+      "name": "Nora Blake",
+      "role": "Local rival",
+      "location": "cafe",
+      "affinity": -1,
+      "trust": 0,
+      "description": "A competitive regular with a sharp opinion."
+    }
+  ],
+  "flags": {},
+  "memories": [
+    "You arrived in Riverton as a scholarship student.",
+    "You had a good conversation with Maya Ortiz.",
+    "A new chapter with Maya Ortiz."
+  ],
+  "active_random_event": {
+    "id": "maya_tension",
+    "title": "Tension at home",
+    "text": "The apartment feels cold. Maya has been avoiding you, and a note on the counter asks for space.",
+    "requires": {
+      "location": "apartment",
+      "npc": {
+        "maya": {
+          "affinity": -2
+        }
+      }
+    },
+    "choices": [
+      {
+        "id": "apologize",
+        "label": "Leave a sincere note",
+        "effects": {
+          "affinity": {
+            "maya": 2
+          },
+          "trust": {
+            "maya": 1
+          }
+        }
+      },
+      {
+        "id": "ignore",
+        "label": "Give her space",
+        "effects": {
+          "affinity": {
+            "maya": -1
+          }
+        }
+      }
+    ],
+    "npc_id": "maya",
+    "milestone_id": "maya_affinity_neg2",
+    "_is_milestone": true
+  },
+  "random_seen_this_season": true,
+  "seen_random_events": [],
+  "completed": false,
+  "completed_milestones": [
+    "maya_affinity_neg2"
+  ],
+  "milestone_events_pending": [],
+  "dynamic_locations": {},
+  "dynamic_npcs": [],
+  "starting_scenario": "",
+  "starting_map": {},
+  "game_folder": "Player_20260806_191807"
+}

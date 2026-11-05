@@ -1,0 +1,17 @@
+{
+  "brand": "SHINOBI LIFE",
+  "subtitle": "NARUTO WORLD PACK",
+  "navigation": [
+    {"id": "dashboard", "label": "Life"},
+    {"id": "character", "label": "Character"},
+    {"id": "stats", "label": "Stats"},
+    {"id": "training", "label": "Training"},
+    {"id": "techniques", "label": "Techniques"},
+    {"id": "abilities", "label": "Skill Trees"},
+    {"id": "equipment", "label": "Equipment"},
+    {"id": "people", "label": "People"},
+    {"id": "village", "label": "Village"},
+    {"id": "legacy", "label": "Legacy"},
+    {"id": "memories", "label": "Memories"}
+  ]
+}
