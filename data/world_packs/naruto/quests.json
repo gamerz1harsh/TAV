@@ -1,0 +1,9 @@
+{
+  "templates": [
+    {"id":"academy_delivery","name":"A Small Academy Errand","type":"personal_quest","giver_roles":["Academy instructor","Academy peer"],"min_age":6,"objective":{"type":"perform_action","target":"academy_study","count":1},"reward":{"money":8,"skill_xp":{"ninjutsu":1},"world_influence":1},"completion":"The academy receives the notes it needed, and your instructor remembers you followed through."},
+    {"id":"clinic_supply_run","name":"Clinic Supply Run","type":"village_mission","giver_roles":["Medical-nin","Parent"],"min_age":8,"objective":{"type":"visit_location","target":"clinic","count":1},"reward":{"money":10,"skill_xp":{"medicine":2},"world_influence":2},"completion":"The clinic gets its supplies before the next patient arrives."},
+    {"id":"river_border_report","name":"Report from the River Road","type":"expedition_mission","giver_roles":["Mission Clerk","Academy instructor"],"min_age":10,"objective":{"type":"visit_region","target":"land_of_rivers","count":1},"reward":{"money":22,"skill_xp":{"survival":2,"intelligence":1},"world_influence":3},"completion":"Your report reaches the village and changes how patrols cover the river crossing."},
+    {"id":"teamwork_trial","name":"A Teamwork Trial","type":"relationship_quest","giver_roles":["Academy peer"],"min_age":8,"objective":{"type":"interact_with_npc","target":"academy_peer","count":1},"reward":{"skill_xp":{"taijutsu":2},"world_influence":1},"completion":"Your teammate trusts your judgment a little more after you keep your word."},
+    {"id":"lost_courier_search","name":"Find the Missing Courier","type":"village_mission","giver_roles":["Mission Clerk","Hokage"],"min_age":12,"objective":{"type":"visit_region","target":"land_of_waves","count":1},"reward":{"money":30,"skill_xp":{"survival":3,"ninjutsu":2},"world_influence":5},"completion":"The courier returns with a warning that changes the village's border plans."}
+  ]
+}

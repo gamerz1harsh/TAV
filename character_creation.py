@@ -6,6 +6,8 @@ from __future__ import annotations
 
 from typing import Any, Dict, Tuple
 
+from game_schema import ERA_ALIASES, normalize_era
+
 
 ERA_PRESETS: Dict[str, Dict[str, Any]] = {
     "modern": {
@@ -21,7 +23,7 @@ ERA_PRESETS: Dict[str, Dict[str, Any]] = {
             "looks": 50,
         },
     },
-    "medieval": {
+    "magic": {
         "age_range": (12, 45),
         "stats": {
             "energy": 55,
@@ -34,7 +36,7 @@ ERA_PRESETS: Dict[str, Dict[str, Any]] = {
             "looks": 40,
         },
     },
-    "futuristic": {
+    "sci-fi": {
         "age_range": (18, 80),
         "stats": {
             "energy": 60,
@@ -47,6 +49,19 @@ ERA_PRESETS: Dict[str, Dict[str, Any]] = {
             "looks": 55,
         },
     },
+    "ancient": {
+        "age_range": (12, 55),
+        "stats": {
+            "energy": 55,
+            "money": 20,
+            "skill": 45,
+            "reputation": 35,
+            "happiness": 45,
+            "health": 65,
+            "smarts": 50,
+            "looks": 40,
+        },
+    },
 }
 
 
@@ -56,7 +71,10 @@ def enumerate_eras() -> list[str]:
 
 
 def validate_era(era: str) -> bool:
-    return era in ERA_PRESETS
+    if not isinstance(era, str):
+        return False
+    key = era.strip().lower()
+    return key in ERA_PRESETS or key in ERA_ALIASES
 
 
 def build_character_template(
@@ -71,7 +89,7 @@ def build_character_template(
     Additional UI stats (happiness, health, smarts, looks) are included to
     support the bar-display shown in the reference screenshot.
     """
-    era_key = era if validate_era(era) else "modern"
+    era_key = normalize_era(era) if validate_era(era) else "modern"
     preset = ERA_PRESETS[era_key]
     age_min, age_max = preset["age_range"]
     if age is None:

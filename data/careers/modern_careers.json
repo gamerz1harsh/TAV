@@ -1,0 +1,782 @@
+{
+  "careers": [
+    {
+      "id": "singer",
+      "name": "Singer",
+      "description": "Build a musical career from lessons to recording contracts.",
+      "era": ["modern", "magic", "sci-fi"],
+      "stages": [
+        {
+          "id": "singer_lessons",
+          "name": "Take singing lessons",
+          "requirements": {"age": 8, "money": 2},
+          "unlocks": ["singer_practice"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "singer_lessons_event",
+            "title": "Your first singing lesson",
+            "text": "A local teacher agrees to take you on. Your voice has potential.",
+            "choices": [
+              {"id": "commit", "label": "Commit to weekly lessons", "effects": {"skill": 2, "money": -1, "flags": {"singer_lessons": true}}},
+              {"id": "casual", "label": "Try one lesson", "effects": {"skill": 1}}
+            ]
+          }
+        },
+        {
+          "id": "singer_practice",
+          "name": "Practice regularly",
+          "requirements": {"flags": ["singer_lessons"], "stat": {"skill": 2}},
+          "unlocks": ["singer_perform"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "singer_practice_event",
+            "title": "Practice makes progress",
+            "text": "Your voice is getting stronger. The teacher says you're ready to perform.",
+            "choices": [
+              {"id": "daily", "label": "Practice daily", "effects": {"skill": 2, "energy": -2, "flags": {"singer_practiced": true}}},
+              {"id": "weekly", "label": "Practice weekly", "effects": {"skill": 1, "energy": -1}}
+            ]
+          }
+        },
+        {
+          "id": "singer_perform",
+          "name": "Perform locally",
+          "requirements": {"flags": ["singer_practiced"], "stat": {"skill": 3, "reputation": 1}},
+          "unlocks": ["singer_attention"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "singer_perform_event",
+            "title": "Your first performance",
+            "text": "A small cafe offers you a stage. This is your chance to be heard.",
+            "choices": [
+              {"id": "accept", "label": "Accept the gig", "effects": {"reputation": 2, "money": 1, "flags": {"singer_performed": true}}},
+              {"id": "decline", "label": "Not ready yet", "effects": {"skill": 1}}
+            ]
+          }
+        },
+        {
+          "id": "singer_attention",
+          "name": "Gain attention",
+          "requirements": {"flags": ["singer_performed"], "stat": {"reputation": 3}},
+          "unlocks": ["singer_career"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "singer_attention_event",
+            "title": "Someone noticed",
+            "text": "A talent scout heard your last performance. They want to talk.",
+            "choices": [
+              {"id": "meet", "label": "Meet the scout", "effects": {"flags": {"singer_scout": true}, "reputation": 2}},
+              {"id": "ignore", "label": "Stay local", "effects": {"reputation": 1}}
+            ]
+          }
+        },
+        {
+          "id": "singer_career",
+          "name": "Singer career unlocked",
+          "requirements": {"flags": ["singer_scout"]},
+          "unlocks": [],
+          "event_framework": "career_step",
+          "event": {
+            "id": "singer_career_event",
+            "title": "A real opportunity",
+            "text": "The scout offers you a recording contract. This could change everything.",
+            "choices": [
+              {"id": "sign", "label": "Sign the contract", "effects": {"money": 5, "reputation": 3, "flags": {"singer_contract": true}}},
+              {"id": "negotiate", "label": "Negotiate terms", "effects": {"money": 3, "reputation": 2, "flags": {"singer_contract": true}}}
+            ]
+          }
+        }
+      ],
+      "job_list": [
+        {
+          "id": "singer_job",
+          "name": "Local Singer",
+          "requirements": {"flags": ["singer_performed"]},
+          "pay": 2,
+          "energy_cost": 1,
+          "skill_gain": 1,
+          "reputation_gain": 1,
+          "hint": "Perform at local venues to build your name."
+        },
+        {
+          "id": "recording_artist",
+          "name": "Recording Artist",
+          "requirements": {"flags": ["singer_contract"]},
+          "pay": 4,
+          "energy_cost": 2,
+          "skill_gain": 2,
+          "reputation_gain": 2,
+          "hint": "Record albums and tour with a label."
+        }
+      ]
+    },
+    {
+      "id": "politician",
+      "name": "Politician",
+      "description": "Build political influence through community work and trust.",
+      "era": ["modern", "ancient"],
+      "stages": [
+        {
+          "id": "pol_community",
+          "name": "Join community work",
+          "requirements": {"age": 16, "stat": {"reputation": 1}},
+          "unlocks": ["pol_trust"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "pol_community_event",
+            "title": "A community meeting",
+            "text": "A local organizer invites you to a community meeting. People are listening.",
+            "choices": [
+              {"id": "join", "label": "Join the effort", "effects": {"reputation": 2, "flags": {"pol_community": true}}},
+              {"id": "observe", "label": "Just observe", "effects": {"reputation": 1}}
+            ]
+          }
+        },
+        {
+          "id": "pol_trust",
+          "name": "Earn trust",
+          "requirements": {"flags": ["pol_community"], "stat": {"reputation": 3}},
+          "unlocks": ["pol_leadership"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "pol_trust_event",
+            "title": "People trust you",
+            "text": "Residents are starting to come to you with their concerns. You have influence now.",
+            "choices": [
+              {"id": "listen", "label": "Listen to everyone", "effects": {"reputation": 2, "flags": {"pol_trusted": true}}},
+              {"id": "select", "label": "Choose your allies", "effects": {"reputation": 1, "flags": {"pol_selective": true}}}
+            ]
+          }
+        },
+        {
+          "id": "pol_leadership",
+          "name": "Take leadership",
+          "requirements": {"flags": ["pol_trusted"], "stat": {"reputation": 5}},
+          "unlocks": ["pol_career"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "pol_leadership_event",
+            "title": "A leadership role",
+            "text": "The community asks you to lead a campaign. This is your political debut.",
+            "choices": [
+              {"id": "accept", "label": "Lead the campaign", "effects": {"reputation": 3, "flags": {"pol_leader": true}}},
+              {"id": "support", "label": "Support from behind", "effects": {"reputation": 1}}
+            ]
+          }
+        },
+        {
+          "id": "pol_career",
+          "name": "Political career unlocked",
+          "requirements": {"flags": ["pol_leader"]},
+          "unlocks": [],
+          "event_framework": "career_step",
+          "event": {
+            "id": "pol_career_event",
+            "title": "A seat at the table",
+            "text": "A local party offers you a position. Politics is now your path.",
+            "choices": [
+              {"id": "accept", "label": "Accept the position", "effects": {"reputation": 3, "money": 2, "flags": {"pol_career": true}}},
+              {"id": "independent", "label": "Run independently", "effects": {"reputation": 2, "flags": {"pol_independent": true}}}
+            ]
+          }
+        }
+      ],
+      "job_list": [
+        {
+          "id": "community_organizer",
+          "name": "Community Organizer",
+          "requirements": {"flags": ["pol_community"]},
+          "pay": 1,
+          "energy_cost": 1,
+          "skill_gain": 0,
+          "reputation_gain": 2,
+          "hint": "Organize community events and build your base."
+        },
+        {
+          "id": "campaign_manager",
+          "name": "Campaign Manager",
+          "requirements": {"flags": ["pol_leader"]},
+          "pay": 3,
+          "energy_cost": 2,
+          "skill_gain": 1,
+          "reputation_gain": 2,
+          "hint": "Run campaigns and manage political operations."
+        },
+        {
+          "id": "elected_official",
+          "name": "Elected Official",
+          "requirements": {"flags": ["pol_career"]},
+          "pay": 5,
+          "energy_cost": 2,
+          "skill_gain": 1,
+          "reputation_gain": 3,
+          "hint": "Hold public office and shape policy."
+        }
+      ]
+    },
+    {
+      "id": "athlete",
+      "name": "Athlete",
+      "description": "Train from a young age to become a professional athlete.",
+      "era": ["modern", "ancient", "sci-fi"],
+      "stages": [
+        {
+          "id": "ath_train",
+          "name": "Start training",
+          "requirements": {"age": 6},
+          "unlocks": ["ath_compete"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "ath_train_event",
+            "title": "First training session",
+            "text": "A coach spots your natural ability and offers to train you.",
+            "choices": [
+              {"id": "commit", "label": "Commit to training", "effects": {"skill": 2, "energy": -1, "flags": {"ath_training": true}}},
+              {"id": "casual", "label": "Train casually", "effects": {"skill": 1}}
+            ]
+          }
+        },
+        {
+          "id": "ath_compete",
+          "name": "Compete locally",
+          "requirements": {"flags": ["ath_training"], "stat": {"skill": 3}},
+          "unlocks": ["ath_attention"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "ath_compete_event",
+            "title": "Your first competition",
+            "text": "You're entered in a local competition. The crowd is watching.",
+            "choices": [
+              {"id": "win", "label": "Give it everything", "effects": {"reputation": 2, "skill": 1, "flags": {"ath_competed": true}}},
+              {"id": "steady", "label": "Play it safe", "effects": {"reputation": 1, "skill": 1}}
+            ]
+          }
+        },
+        {
+          "id": "ath_attention",
+          "name": "Gain attention",
+          "requirements": {"flags": ["ath_competed"], "stat": {"reputation": 3}},
+          "unlocks": ["ath_career"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "ath_attention_event",
+            "title": "A scout approaches",
+            "text": "A professional scout saw your performance. They want to talk about your future.",
+            "choices": [
+              {"id": "meet", "label": "Meet the scout", "effects": {"flags": {"ath_scout": true}, "reputation": 2}},
+              {"id": "wait", "label": "Wait for more offers", "effects": {"reputation": 1}}
+            ]
+          }
+        },
+        {
+          "id": "ath_career",
+          "name": "Athlete career unlocked",
+          "requirements": {"flags": ["ath_scout"]},
+          "unlocks": [],
+          "event_framework": "career_step",
+          "event": {
+            "id": "ath_career_event",
+            "title": "A professional offer",
+            "text": "A team offers you a contract. This is the big leagues.",
+            "choices": [
+              {"id": "sign", "label": "Sign the contract", "effects": {"money": 5, "reputation": 3, "flags": {"ath_pro": true}}},
+              {"id": "negotiate", "label": "Negotiate for more", "effects": {"money": 4, "reputation": 2, "flags": {"ath_pro": true}}}
+            ]
+          }
+        }
+      ],
+      "job_list": [
+        {
+          "id": "local_athlete",
+          "name": "Local Athlete",
+          "requirements": {"flags": ["ath_competed"]},
+          "pay": 1,
+          "energy_cost": 2,
+          "skill_gain": 2,
+          "reputation_gain": 1,
+          "hint": "Compete in local events to build your record."
+        },
+        {
+          "id": "pro_athlete",
+          "name": "Professional Athlete",
+          "requirements": {"flags": ["ath_pro"]},
+          "pay": 5,
+          "energy_cost": 3,
+          "skill_gain": 2,
+          "reputation_gain": 3,
+          "hint": "Play professionally and build your legacy."
+        }
+      ]
+    },
+    {
+      "id": "scientist",
+      "name": "Scientist",
+      "description": "Pursue knowledge and research to make breakthroughs.",
+      "era": ["modern", "sci-fi"],
+      "stages": [
+        {
+          "id": "sci_study",
+          "name": "Study science",
+          "requirements": {"age": 12, "stat": {"skill": 2}},
+          "unlocks": ["sci_research"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "sci_study_event",
+            "title": "A love of science",
+            "text": "Your science teacher notices your curiosity and encourages you to go further.",
+            "choices": [
+              {"id": "deep", "label": "Dive deep into science", "effects": {"skill": 2, "flags": {"sci_studying": true}}},
+              {"id": "balanced", "label": "Keep it balanced", "effects": {"skill": 1}}
+            ]
+          }
+        },
+        {
+          "id": "sci_research",
+          "name": "Start research",
+          "requirements": {"flags": ["sci_studying"], "stat": {"skill": 4}},
+          "unlocks": ["sci_breakthrough"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "sci_research_event",
+            "title": "Your first research project",
+            "text": "A professor invites you to join a research project. Real science awaits.",
+            "choices": [
+              {"id": "join", "label": "Join the project", "effects": {"skill": 2, "reputation": 1, "flags": {"sci_researching": true}}},
+              {"id": "own", "label": "Start your own project", "effects": {"skill": 1, "flags": {"sci_independent": true}}}
+            ]
+          }
+        },
+        {
+          "id": "sci_breakthrough",
+          "name": "Make a breakthrough",
+          "requirements": {"flags": ["sci_researching"], "stat": {"skill": 6}},
+          "unlocks": ["sci_career"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "sci_breakthrough_event",
+            "title": "A discovery",
+            "text": "Your research yields a significant finding. The scientific community takes notice.",
+            "choices": [
+              {"id": "publish", "label": "Publish your findings", "effects": {"reputation": 3, "flags": {"sci_published": true}}},
+              {"id": "patent", "label": "Patent the discovery", "effects": {"money": 3, "flags": {"sci_patented": true}}}
+            ]
+          }
+        },
+        {
+          "id": "sci_career",
+          "name": "Scientist career unlocked",
+          "requirements": {"flags": ["sci_published"]},
+          "unlocks": [],
+          "event_framework": "career_step",
+          "event": {
+            "id": "sci_career_event",
+            "title": "A research position",
+            "text": "A research institute offers you a permanent position. Your scientific career begins.",
+            "choices": [
+              {"id": "accept", "label": "Accept the position", "effects": {"money": 4, "reputation": 2, "flags": {"sci_career": true}}},
+              {"id": "independent", "label": "Stay independent", "effects": {"reputation": 2, "flags": {"sci_independent_career": true}}}
+            ]
+          }
+        }
+      ],
+      "job_list": [
+        {
+          "id": "lab_assistant",
+          "name": "Lab Assistant",
+          "requirements": {"flags": ["sci_researching"]},
+          "pay": 2,
+          "energy_cost": 1,
+          "skill_gain": 2,
+          "reputation_gain": 0,
+          "hint": "Work in a lab and build your research skills."
+        },
+        {
+          "id": "research_scientist",
+          "name": "Research Scientist",
+          "requirements": {"flags": ["sci_career"]},
+          "pay": 4,
+          "energy_cost": 2,
+          "skill_gain": 2,
+          "reputation_gain": 1,
+          "hint": "Conduct research and publish findings."
+        }
+      ]
+    },
+    {
+      "id": "artist",
+      "name": "Artist",
+      "description": "Develop your artistic voice and build a creative career.",
+      "era": ["modern", "magic", "ancient"],
+      "stages": [
+        {
+          "id": "art_skill",
+          "name": "Develop your art",
+          "requirements": {"age": 8},
+          "unlocks": ["art_show"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "art_skill_event",
+            "title": "Finding your medium",
+            "text": "You discover a natural talent for art. A teacher encourages you to develop it.",
+            "choices": [
+              {"id": "paint", "label": "Focus on painting", "effects": {"skill": 2, "flags": {"art_painting": true}}},
+              {"id": "sculpt", "label": "Try sculpture", "effects": {"skill": 2, "flags": {"art_sculpting": true}}}
+            ]
+          }
+        },
+        {
+          "id": "art_show",
+          "name": "Show your work",
+          "requirements": {"flags": ["art_painting"], "stat": {"skill": 3}},
+          "unlocks": ["art_recognition"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "art_show_event",
+            "title": "Your first exhibition",
+            "text": "A local gallery offers to show your work. This is your public debut.",
+            "choices": [
+              {"id": "exhibit", "label": "Exhibit your work", "effects": {"reputation": 2, "flags": {"art_exhibited": true}}},
+              {"id": "private", "label": "Sell privately", "effects": {"money": 2}}
+            ]
+          }
+        },
+        {
+          "id": "art_recognition",
+          "name": "Gain recognition",
+          "requirements": {"flags": ["art_exhibited"], "stat": {"reputation": 3}},
+          "unlocks": ["art_career"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "art_recognition_event",
+            "title": "A collector notices",
+            "text": "A serious art collector wants to buy your work. Your art has value.",
+            "choices": [
+              {"id": "sell", "label": "Sell to the collector", "effects": {"money": 4, "reputation": 2, "flags": {"art_sold": true}}},
+              {"id": "keep", "label": "Keep your work", "effects": {"reputation": 1, "flags": {"art_kept": true}}}
+            ]
+          }
+        },
+        {
+          "id": "art_career",
+          "name": "Artist career unlocked",
+          "requirements": {"flags": ["art_sold"]},
+          "unlocks": [],
+          "event_framework": "career_step",
+          "event": {
+            "id": "art_career_event",
+            "title": "A gallery representation",
+            "text": "A gallery offers to represent you. Your artistic career is official.",
+            "choices": [
+              {"id": "accept", "label": "Accept representation", "effects": {"money": 3, "reputation": 3, "flags": {"art_career": true}}},
+              {"id": "independent", "label": "Stay independent", "effects": {"reputation": 2, "flags": {"art_independent": true}}}
+            ]
+          }
+        }
+      ],
+      "job_list": [
+        {
+          "id": "local_artist",
+          "name": "Local Artist",
+          "requirements": {"flags": ["art_exhibited"]},
+          "pay": 1,
+          "energy_cost": 1,
+          "skill_gain": 1,
+          "reputation_gain": 1,
+          "hint": "Sell your art locally and build your name."
+        },
+        {
+          "id": "professional_artist",
+          "name": "Professional Artist",
+          "requirements": {"flags": ["art_career"]},
+          "pay": 3,
+          "energy_cost": 1,
+          "skill_gain": 1,
+          "reputation_gain": 2,
+          "hint": "Create and sell art through your gallery."
+        }
+      ]
+    },
+    {
+      "id": "chef",
+      "name": "Chef",
+      "description": "Master the culinary arts and build a restaurant career.",
+      "era": ["modern", "magic", "ancient"],
+      "stages": [
+        {
+          "id": "chef_cook",
+          "name": "Learn to cook",
+          "requirements": {"age": 10},
+          "unlocks": ["chef_kitchen"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "chef_cook_event",
+            "title": "A passion for cooking",
+            "text": "You discover a love for cooking. A family member teaches you the basics.",
+            "choices": [
+              {"id": "learn", "label": "Learn everything you can", "effects": {"skill": 2, "flags": {"chef_learning": true}}},
+              {"id": "casual", "label": "Cook for fun", "effects": {"skill": 1}}
+            ]
+          }
+        },
+        {
+          "id": "chef_kitchen",
+          "name": "Work in a kitchen",
+          "requirements": {"flags": ["chef_learning"], "stat": {"skill": 3}},
+          "unlocks": ["chef_recognition"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "chef_kitchen_event",
+            "title": "Your first kitchen job",
+            "text": "A restaurant offers you a position in the kitchen. The heat is real.",
+            "choices": [
+              {"id": "accept", "label": "Take the kitchen job", "effects": {"money": 1, "skill": 2, "flags": {"chef_working": true}}},
+              {"id": "stage", "label": "Stage for experience", "effects": {"skill": 2, "flags": {"chef_staging": true}}}
+            ]
+          }
+        },
+        {
+          "id": "chef_recognition",
+          "name": "Gain recognition",
+          "requirements": {"flags": ["chef_working"], "stat": {"skill": 5}},
+          "unlocks": ["chef_career"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "chef_recognition_event",
+            "title": "A dish that gets noticed",
+            "text": "A dish you created gets rave reviews. The restaurant owner wants to promote you.",
+            "choices": [
+              {"id": "promote", "label": "Accept the promotion", "effects": {"money": 2, "reputation": 2, "flags": {"chef_promoted": true}}},
+              {"id": "own", "label": "Dream of your own place", "effects": {"reputation": 1, "flags": {"chef_own_restaurant": true}}}
+            ]
+          }
+        },
+        {
+          "id": "chef_career",
+          "name": "Chef career unlocked",
+          "requirements": {"flags": ["chef_promoted"]},
+          "unlocks": [],
+          "event_framework": "career_step",
+          "event": {
+            "id": "chef_career_event",
+            "title": "Head chef position",
+            "text": "You're offered the head chef position. Your culinary career is established.",
+            "choices": [
+              {"id": "accept", "label": "Become head chef", "effects": {"money": 4, "reputation": 2, "flags": {"chef_career": true}}},
+              {"id": "open", "label": "Open your own restaurant", "effects": {"money": -3, "reputation": 3, "flags": {"chef_owner": true}}}
+            ]
+          }
+        }
+      ],
+      "job_list": [
+        {
+          "id": "line_cook",
+          "name": "Line Cook",
+          "requirements": {"flags": ["chef_working"]},
+          "pay": 2,
+          "energy_cost": 2,
+          "skill_gain": 1,
+          "reputation_gain": 0,
+          "hint": "Work the line and build your culinary skills."
+        },
+        {
+          "id": "head_chef",
+          "name": "Head Chef",
+          "requirements": {"flags": ["chef_career"]},
+          "pay": 4,
+          "energy_cost": 2,
+          "skill_gain": 1,
+          "reputation_gain": 2,
+          "hint": "Lead a kitchen and create signature dishes."
+        }
+      ]
+    },
+    {
+      "id": "merchant",
+      "name": "Merchant",
+      "description": "Build wealth through trade, business, and negotiation.",
+      "era": ["modern", "ancient", "sci-fi"],
+      "stages": [
+        {
+          "id": "mer_trade",
+          "name": "Learn to trade",
+          "requirements": {"age": 14, "money": 1},
+          "unlocks": ["mer_business"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "mer_trade_event",
+            "title": "Your first trade",
+            "text": "You make your first small trade and discover a talent for business.",
+            "choices": [
+              {"id": "invest", "label": "Invest your earnings", "effects": {"money": 1, "skill": 1, "flags": {"mer_trading": true}}},
+              {"id": "save", "label": "Save your earnings", "effects": {"money": 2}}
+            ]
+          }
+        },
+        {
+          "id": "mer_business",
+          "name": "Start a business",
+          "requirements": {"flags": ["mer_trading"], "money": 3},
+          "unlocks": ["mer_network"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "mer_business_event",
+            "title": "A small business",
+            "text": "You have enough capital to start a small business. The risk is real.",
+            "choices": [
+              {"id": "start", "label": "Start the business", "effects": {"money": -2, "flags": {"mer_business": true}}},
+              {"id": "wait", "label": "Wait for more capital", "effects": {"money": 1}}
+            ]
+          }
+        },
+        {
+          "id": "mer_network",
+          "name": "Build a network",
+          "requirements": {"flags": ["mer_business"], "stat": {"reputation": 2}},
+          "unlocks": ["mer_career"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "mer_network_event",
+            "title": "A valuable connection",
+            "text": "A wealthy merchant offers to mentor you. Your network is growing.",
+            "choices": [
+              {"id": "accept", "label": "Accept the mentorship", "effects": {"skill": 2, "reputation": 2, "flags": {"mer_mentored": true}}},
+              {"id": "independent", "label": "Go it alone", "effects": {"skill": 1, "flags": {"mer_independent": true}}}
+            ]
+          }
+        },
+        {
+          "id": "mer_career",
+          "name": "Merchant career unlocked",
+          "requirements": {"flags": ["mer_mentored"]},
+          "unlocks": [],
+          "event_framework": "career_step",
+          "event": {
+            "id": "mer_career_event",
+            "title": "A merchant empire",
+            "text": "Your business has grown into a real enterprise. You are a merchant of note.",
+            "choices": [
+              {"id": "expand", "label": "Expand your business", "effects": {"money": 5, "reputation": 2, "flags": {"mer_career": true}}},
+              {"id": "diversify", "label": "Diversify your holdings", "effects": {"money": 3, "reputation": 3, "flags": {"mer_diversified": true}}}
+            ]
+          }
+        }
+      ],
+      "job_list": [
+        {
+          "id": "shopkeeper",
+          "name": "Shopkeeper",
+          "requirements": {"flags": ["mer_business"]},
+          "pay": 2,
+          "energy_cost": 1,
+          "skill_gain": 1,
+          "reputation_gain": 1,
+          "hint": "Run your shop and build customer relationships."
+        },
+        {
+          "id": "merchant_prince",
+          "name": "Merchant Prince",
+          "requirements": {"flags": ["mer_career"]},
+          "pay": 5,
+          "energy_cost": 1,
+          "skill_gain": 1,
+          "reputation_gain": 2,
+          "hint": "Manage your business empire and expand your influence."
+        }
+      ]
+    },
+    {
+      "id": "healer",
+      "name": "Healer",
+      "description": "Learn to heal others and build a medical or mystical practice.",
+      "era": ["modern", "magic", "ancient"],
+      "stages": [
+        {
+          "id": "heal_learn",
+          "name": "Learn healing",
+          "requirements": {"age": 12, "stat": {"skill": 2}},
+          "unlocks": ["heal_practice"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "heal_learn_event",
+            "title": "A calling to heal",
+            "text": "You help someone in need and discover a talent for healing.",
+            "choices": [
+              {"id": "study", "label": "Study medicine", "effects": {"skill": 2, "flags": {"heal_studying": true}}},
+              {"id": "natural", "label": "Learn natural remedies", "effects": {"skill": 2, "flags": {"heal_natural": true}}}
+            ]
+          }
+        },
+        {
+          "id": "heal_practice",
+          "name": "Practice healing",
+          "requirements": {"flags": ["heal_studying"], "stat": {"skill": 4}},
+          "unlocks": ["heal_reputation"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "heal_practice_event",
+            "title": "Your first patient",
+            "text": "Someone trusts you with their health. Your healing practice begins.",
+            "choices": [
+              {"id": "help", "label": "Help them", "effects": {"reputation": 2, "flags": {"heal_practicing": true}}},
+              {"id": "refer", "label": "Refer them elsewhere", "effects": {"reputation": 1}}
+            ]
+          }
+        },
+        {
+          "id": "heal_reputation",
+          "name": "Build a reputation",
+          "requirements": {"flags": ["heal_practicing"], "stat": {"reputation": 3}},
+          "unlocks": ["heal_career"],
+          "event_framework": "career_step",
+          "event": {
+            "id": "heal_reputation_event",
+            "title": "A reputation grows",
+            "text": "People are seeking you out for healing. Your name is becoming known.",
+            "choices": [
+              {"id": "clinic", "label": "Open a small practice", "effects": {"money": 2, "reputation": 2, "flags": {"heal_clinic": true}}},
+              {"id": "travel", "label": "Travel to heal", "effects": {"reputation": 3, "flags": {"heal_traveler": true}}}
+            ]
+          }
+        },
+        {
+          "id": "heal_career",
+          "name": "Healer career unlocked",
+          "requirements": {"flags": ["heal_clinic"]},
+          "unlocks": [],
+          "event_framework": "career_step",
+          "event": {
+            "id": "heal_career_event",
+            "title": "A respected healer",
+            "text": "Your practice is thriving. You are now a respected healer in the community.",
+            "choices": [
+              {"id": "expand", "label": "Expand your practice", "effects": {"money": 4, "reputation": 2, "flags": {"heal_career": true}}},
+              {"id": "teach", "label": "Teach others to heal", "effects": {"reputation": 3, "flags": {"heal_teacher": true}}}
+            ]
+          }
+        }
+      ],
+      "job_list": [
+        {
+          "id": "healer_apprentice",
+          "name": "Healer Apprentice",
+          "requirements": {"flags": ["heal_practicing"]},
+          "pay": 1,
+          "energy_cost": 1,
+          "skill_gain": 2,
+          "reputation_gain": 1,
+          "hint": "Learn from experienced healers and build your skills."
+        },
+        {
+          "id": "practicing_healer",
+          "name": "Practicing Healer",
+          "requirements": {"flags": ["heal_career"]},
+          "pay": 3,
+          "energy_cost": 1,
+          "skill_gain": 1,
+          "reputation_gain": 2,
+          "hint": "Run your healing practice and help the community."
+        }
+      ]
+    }
+  ]
+}

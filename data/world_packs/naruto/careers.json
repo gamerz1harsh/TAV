@@ -1,0 +1,74 @@
+{
+  "jobs": [
+    {
+      "id": "market_helper",
+      "name": "Market Helper",
+      "kind": "Village work",
+      "description": "Carry stock, help shopkeepers, and build a reputation for showing up when promised.",
+      "location": "market_street",
+      "application_location": "hokage_tower",
+      "contact_id": "mission_clerk",
+      "min_age": 8,
+      "min_rank": "Academy Student",
+      "pay": 18,
+      "work_xp": 1,
+      "promotions": [
+        {"title": "Trusted Runner", "work_xp": 3, "pay": 26},
+        {"title": "Shop Steward", "work_xp": 8, "pay": 38}
+      ]
+    },
+    {
+      "id": "academy_assistant",
+      "name": "Academy Assistant",
+      "kind": "Education",
+      "description": "Support lessons, prepare training materials, and help younger students learn safely.",
+      "location": "academy",
+      "application_location": "hokage_tower",
+      "contact_id": "mission_clerk",
+      "min_age": 16,
+      "min_rank": "Chunin",
+      "pay": 32,
+      "work_xp": 1,
+      "promotions": [
+        {"title": "Senior Assistant", "work_xp": 4, "pay": 45},
+        {"title": "Academy Instructor", "work_xp": 10, "pay": 62}
+      ]
+    },
+    {
+      "id": "village_shinobi",
+      "name": "Village Shinobi",
+      "kind": "Shinobi service",
+      "description": "Serve the village through field assignments, patrols, and work matched to your rank.",
+      "location": "hokage_tower",
+      "application_location": "hokage_tower",
+      "contact_id": "mission_clerk",
+      "min_age": 12,
+      "min_rank": "Genin",
+      "pay": 28,
+      "work_xp": 1,
+      "promotions": [
+        {"title": "Reliable Operative", "work_xp": 4, "pay": 42},
+        {"title": "Squad Leader", "work_xp": 10, "pay": 60}
+      ]
+    },
+    {
+      "id": "village_smith",
+      "name": "Village Smith Apprentice",
+      "kind": "Crafting profession",
+      "description": "Repair field tools, learn the village forge, and earn a path toward mastering shinobi equipment.",
+      "location": "blacksmith",
+      "application_location": "blacksmith",
+      "contact_id": "village_smith",
+      "min_age": 16,
+      "min_rank": "Academy Student",
+      "requirements": {"skills": {"smithing": 2}},
+      "pay": 22,
+      "work_xp": 1,
+      "skill_xp": {"smithing": 4, "crafting": 2},
+      "promotions": [
+        {"title": "Journeyman Armorer", "work_xp": 4, "pay": 36},
+        {"title": "Village Master Smith", "work_xp": 10, "pay": 58}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+# RIVERTON V1 — COMPREHENSIVE LIFE SIMULATION PLAN
+
+## 1. CORE PHILOSOPHY
+
+- **Age-based time progression** — not just "Year 1, Year 2" but actual aging from birth to death
+- **Life-stage-driven gameplay** — childhood, teen, young adult, adult, senior each have completely different mechanics
+- **Event-driven world** — the world changes based on what you do, not just your stats
+- **Data-driven everything** — all content (events, jobs, careers, NPCs, eras) lives in structured JSON files, not hardcoded Python
+- **LLM as narrator, not author** — the engine stays authoritative, the LLM narrates and shapes options
+
+## 2. DATA ARCHITECTURE
+
+### 2.1 File Structure
+
+```
+data/
+├── game_config.json              # Global config (seasons, base locations, origins)
+├── eras/
+│   ├── modern.json               # Era profile: theme, menu slots, locations, jobs, events
+│   ├── magic.json
+│   ├── sci-fi.json
+│   ├── ancient.json
+│   └── post-collapse.json
+├── events/
+│   ├── age_events.json           # Age-triggered event frameworks (0-80+)
+│   ├── life_events.json          # Major life events (marriage, death, birth, etc.)
+│   ├── world_events.json         # World-changing events
+│   └── random_events.json        # Generic random events
+├── careers/
+│   ├── singer.json               # Career chain definition
+│   ├── politician.json
+│   ├── athlete.json
+│   ├── scientist.json
+│   ├── artist.json
+│   ├── chef.json
+│   ├── merchant.json
+│   ├── healer.json
+│   ├── magical_specialist.json
+│   └── ... (expandable)
+├── jobs/
+│   ├── modern_jobs.json          # Era-specific job listings
+│   ├── magic_jobs.json
+│   ├── sci-fi_jobs.json
+│   └── ancient_jobs.json
+├── npcs/
+│   ├── modern_npcs.json          # Era-specific NPC templates
+│   ├── magic_npcs.json
+│   └── ...
+├── themes/
+│   ├── modern_theme.json         # Color scheme, fonts, UI labels
+│   ├── magic_theme.json
+│   ├── sci-fi_theme.json
+│   └── ancient_theme.json
+└── games/
+    └── {player_name}_{timestamp}/
+        ├── save_state.json
+        ├── player.json
+        ├── world.json
+        ├── relationships.json
+        ├── progression.json
+        ├── menu.json
+        ├── narrative.json
+        ├── events.json
+        ├── npc_memory_{id}.json   # Per-NPC memory files
+        └── career_progress.json   # Career chain state
+```
+
+### 2.2 Era-Based Event Files
+
+Events are split into era-specific pools. The engine only loads events for the current era + age range.
+
+```json
+// data/events/age_events.json
+{
+  "age_events": [
+    {
+      "id": "age_5_first_day",
+      "min_age": 4,
+      "max_age": 6,
+      "life_stage": "child",
+      "era": ["modern", "magic", "sci-fi", "ancient"],
+      "weight": 3,
+      "requires": {"flags": {"school_unlocked": false}},
+      "framework": "parent_decision",
+      "title": "First day of school",
+      "text": "Your parents are talking about school.",
+      "choices": [
+        {"id": "go", "label": "Go to school", "effects": {"flags": {"school_unlocked": true}}},
+        {"id": "refuse", "label": "Refuse", "effects": {"flags": {"refused_school": true}}}
+      ],
+      "narrate": true
+    }
+  ]
+}
+```
+
+### 2.3 Event Frameworks
+
+Reusable logic templates that events reference. New events = just add JSON, no Python changes.
+
+```python
+FRAMEWORKS = {
+    "parent_decision": {"handler": "handle_parent_decision", "requires": ["parents"]},
+    "career_step": {"handler": "handle_career_step", "requires": ["career_tracks"]},
+    "relationship_test": {"handler": "handle_relationship_test", "requires": ["npcs"]},
+    "world_event": {"handler": "handle_world_event", "requires": ["world"]},
+    "life_milestone": {"handler": "handle_life_milestone", "requires": ["player"]},
+    "random_encounter": {"handler": "handle_random_encounter", "requires": []},
+}
+```
+
+## 3. CAREER CHAIN SYSTEM
+
+### 3.1 Career Chain Definition
+
+Each career is a JSON file with stages. Each stage has requirements, unlocks, effects, and an event.
+
+```json
+// data/careers/singer.json
+{
+  "id": "singer",
+  "name": "Singer",
+  "era": ["modern", "magic", "sci-fi"],
+  "stages": [
+    {
+      "id": "singer_lessons",
+      "name": "Take singing lessons",
+      "requirements": {"age": 8, "money": 2},
+      "unlocks": ["singer_practice"],
+      "effects": {"skill": 1, "money": -1},
+      "event_framework": "career_step",
+      "event": { ... }
+    }
+  ],
+  "job_list": [
+    {
+      "id": "singer_job",
+      "name": "Local Singer",
+      "requirements": {"flags": {"singer_performed": true}},
+      "pay": 2, "energy_cost": 1, "skill_gain": 1, "reputation_gain": 1
+    }
+  ]
+}
+```
+
+### 3.2 How Career Chains Work
+
+1. Career chains are hidden — no visible job buttons
+2. Each stage has requirements (age, skill, money, flags, relationships)
+3. When requirements are met, the career step event triggers via Event Director
+4. The LLM narrates the event text and shapes choices
+5. The framework handler applies state changes
+6. Unlocking a stage reveals the next stage's requirements
+7. Job listings appear only when the player has unlocked the relevant stage
+
+## 4. DYNAMIC UI — ERA-BASED COLOR SCHEMES
+
+### 4.1 Theme System
+
+Each era has a theme JSON with colors, fonts, and UI labels. Applied at app level.
+
+```json
+// data/themes/magic_theme.json
+{
+  "era": "magic",
+  "colors": {
+    "background": "#1a0f2e",
+    "card_bg": "#241a3d",
+    "card_border": "#4a3a6b",
+    "accent": "#c084fc",
+    "accent_secondary": "#8b5cf6",
+    "text_primary": "#f0e6ff",
+    "text_secondary": "#a78bfa",
+    "text_muted": "#6d5a8a",
+    "success": "#34d399",
+    "warning": "#fbbf24",
+    "danger": "#f87171",
+    "info": "#60a5fa"
+  },
+  "fonts": {"display": "Georgia, serif", "body": "Segoe UI, sans-serif"},
+  "ui_labels": {
+    "brand": "RIVERTON // ARCANE LIFE",
+    "journal_title": "CHRONICLE",
+    "snapshot_title": "ARCANE IDENTITY",
+    "operations_title": "OPEN THREADS"
+  },
+  "menu_slots": [...]
+}
+```
+
+### 4.2 UI Layout — No Clutter
+
+- Tabbed panels for Career, Relationships, World
+- Collapsible sections for Map and NPCs
+- Menu slots stay at 6 max, each clickable
+- Bottom action bar has contextual buttons
+
+## 5. LIFE STAGE PROGRESSION
+
+```python
+LIFE_STAGES = {
+    "infant": {"min_age": 0, "max_age": 2, "actions": ["cry", "sleep", "eat"]},
+    "toddler": {"min_age": 3, "max_age": 4, "actions": ["play", "learn_words", "explore"]},
+    "child": {"min_age": 5, "max_age": 12, "actions": ["school", "play", "hobby", "friends"]},
+    "teen": {"min_age": 13, "max_age": 19, "actions": ["school", "part_time", "identity", "romance", "rebel"]},
+    "young_adult": {"min_age": 20, "max_age": 34, "actions": ["career", "romance", "move", "study", "travel"]},
+    "adult": {"min_age": 35, "max_age": 59, "actions": ["career", "family", "invest", "mentor", "crisis"]},
+    "senior": {"min_age": 60, "max_age": 100, "actions": ["retire", "reflect", "legacy", "health", "family"]},
+}
+```
+
+## 6. WORLD MUTATION SYSTEM
+
+```python
+world_state = {
+    "era": "modern",
+    "phase": "baseline",  # baseline, changed, transformed, collapsed
+    "global_flags": {},
+    "factions": {
+        "corporate": {"power": 50, "trust": 0},
+        "community": {"power": 50, "trust": 0},
+        "government": {"power": 50, "trust": 0},
+        "criminal": {"power": 30, "trust": 0},
+    },
+    "unlocks": {},
+    "rumors": [],
+    "active_crises": [],
+    "world_events": [],
+}
+```
+
+## 7. NPC MEMORY SYSTEM
+
+Per-NPC memory files store interactions, attitudes, grudges, favors owed, promises.
+
+```json
+// data/games/{player}/npc_memory_priya.json
+{
+  "npc_id": "priya",
+  "memories": [
+    {
+      "id": "mem_001",
+      "timestamp": "2026-08-18T03:20:00",
+      "type": "interaction",
+      "text": "Player helped Priya with a rush order",
+      "importance": 3,
+      "player_action": "help",
+      "player_attitude": "helpful",
+      "npc_reaction": "grateful",
+      "relationship_delta": {"trust": 1, "affinity": 1}
+    }
+  ],
+  "attitude": {
+    "overall": "friendly",
+    "trust_level": 3,
+    "affinity_level": 2,
+    "grudges": [],
+    "favors_owed": 1,
+    "promises_made": []
+  }
+}
+```
+
+## 8. EFFICIENCY OPTIMIZATIONS
+
+1. **Event Queue** — delayed and chained events
+2. **Lazy Loading** — era data loaded on demand
+3. **Cached Derived State** — avoid recomputing available actions
+4. **Object Pooling** — reuse UI widgets
+5. **Compact Prompt Building** — only feed relevant state to LLM
+
+## 9. V1 FEATURE LIST
+
+### Phase 1: Foundation
+- [ ] Event Framework System
+- [ ] Era Data Loader
+- [ ] Event Queue
+- [ ] Theme Manager
+- [ ] Per-NPC Memory Files
+- [ ] Derived State Cache
+
+### Phase 2: Life Simulation
+- [ ] Full Life Stage System
+- [ ] Age-Based Event Triggers
+- [ ] Parent Pressure System
+- [ ] School as Location
+- [ ] Teen Identity System
+
+### Phase 3: Career & Jobs
+- [ ] Career Chain System
+- [ ] Job List System
+- [ ] Career Progress UI
+- [ ] Mentor System
+
+### Phase 4: World & Era
+- [ ] World Mutation System
+- [ ] Gene Warrior Path
+- [ ] Era-Specific Events
+- [ ] Menu SWAP System
+
+### Phase 5: UI & Experience
+- [ ] Tabbed Panels
+- [ ] Collapsible Sections
+- [ ] Era Theme Switching
+- [ ] LLM Narration Integration
+- [ ] Object Pooling
+
+### Phase 6: Content Expansion
+- [ ] 100+ age-based event frameworks
+- [ ] 10+ career chains
+- [ ] 5 eras fully fleshed out
+- [ ] 20+ NPC templates per era
+- [ ] 15+ world-changing events
+
+## 10. IMPLEMENTATION ORDER
+
+1. **Week 1-2**: Event Framework System + Era Data Loader + Theme Manager
+2. **Week 3-4**: Life Stage System + Age-Based Events + Parent Pressure
+3. **Week 5-6**: Career Chain System + Job List + Career Progress UI
+4. **Week 7-8**: World Mutation + Gene Warrior + Menu SWAP
+5. **Week 9-10**: UI Restructure (tabs, collapsible, object pooling) + LLM Narration
+6. **Week 11-12**: Content Expansion (100+ events, 10+ careers, 5 eras)

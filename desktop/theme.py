@@ -253,3 +253,47 @@ QMenuBar::item {
 QMenuBar::item:selected {
     background: #30363d;
     color: #f0f6fc;
+}
+QMenu {
+    background: #161b22;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 4px;
+}
+QMenu::item {
+    padding: 8px 32px 8px 12px;
+    border-radius: 4px;
+}
+QMenu::item:selected {
+    background: #1f6feb;
+    color: #ffffff;
+}
+QMenu::separator {
+    height: 1px;
+    background: #30363d;
+    margin: 4px 8px;
+}
+
+/* Status bar */
+QStatusBar {
+    background: #161b22;
+    color: #8b949e;
+    border-top: 1px solid #30363d;
+    font-size: 11px;
+}
+QStatusBar::item {
+    border: none;
+}
+
+/* Dialog styling */
+QDialog {
+    background: #0d1117;
+}
+QDialog QLabel {
+    color: #c9d1d9;
+}
+QDialogButtonBox QPushButton {
+    min-width: 80px;
+}
+"""

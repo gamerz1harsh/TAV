@@ -1,0 +1,44 @@
+{
+  "player": {
+    "name": "Rfs",
+    "age": 0,
+    "era": "modern",
+    "life_stage": "young adult",
+    "location": "apartment",
+    "stats": {
+      "energy": 5,
+      "money": 5,
+      "skill": 4,
+      "reputation": 3
+    },
+    "ui_stats": {
+      "happiness": 50,
+      "health": 50,
+      "smarts": 50,
+      "looks": 50
+    },
+    "career_tracks": {},
+    "education": {
+      "status": "none",
+      "location": null,
+      "level": 0,
+      "grade": "C",
+      "attendance": 0,
+      "school_unlocked": false,
+      "extracurriculars": []
+    },
+    "relationship_state": {},
+    "mutation_state": {}
+  },
+  "origin": {
+    "id": "scholarship_student",
+    "name": "Scholarship Student",
+    "tag": "Academic head start",
+    "description": "You arrived with academic momentum, but very little financial room.",
+    "effects": {
+      "skill": 2,
+      "money": -2
+    },
+    "known_npc": "leo"
+  }
+}

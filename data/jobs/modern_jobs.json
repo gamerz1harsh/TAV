@@ -1,0 +1,114 @@
+{
+  "jobs": [
+    {
+      "id": "cafe_worker",
+      "name": "Cafe Worker",
+      "requirements": {"age": 16},
+      "pay": 1,
+      "energy_cost": 1,
+      "skill_gain": 1,
+      "reputation_gain": 0,
+      "hint": "Work at a local cafe and build customer service skills."
+    },
+    {
+      "id": "retail_associate",
+      "name": "Retail Associate",
+      "requirements": {"age": 16},
+      "pay": 1,
+      "energy_cost": 1,
+      "skill_gain": 1,
+      "reputation_gain": 0,
+      "hint": "Work in a shop and learn retail operations."
+    },
+    {
+      "id": "tutor",
+      "name": "Tutor",
+      "requirements": {"age": 16, "stat": {"skill": 2}},
+      "pay": 1,
+      "energy_cost": 1,
+      "skill_gain": 2,
+      "reputation_gain": 1,
+      "hint": "Share your knowledge and build teaching skills."
+    },
+    {
+      "id": "office_assistant",
+      "name": "Office Assistant",
+      "requirements": {"age": 18, "stat": {"skill": 2}},
+      "pay": 2,
+      "energy_cost": 1,
+      "skill_gain": 1,
+      "reputation_gain": 1,
+      "hint": "Work in an office and learn professional skills."
+    },
+    {
+      "id": "delivery_driver",
+      "name": "Delivery Driver",
+      "requirements": {"age": 18},
+      "pay": 2,
+      "energy_cost": 2,
+      "skill_gain": 0,
+      "reputation_gain": 0,
+      "hint": "Deliver goods around town and earn steady pay."
+    },
+    {
+      "id": "construction_worker",
+      "name": "Construction Worker",
+      "requirements": {"age": 18, "stat": {"energy": 3}},
+      "pay": 3,
+      "energy_cost": 3,
+      "skill_gain": 1,
+      "reputation_gain": 0,
+      "hint": "Build and repair structures for good pay."
+    },
+    {
+      "id": "teacher",
+      "name": "Teacher",
+      "requirements": {"age": 22, "stat": {"skill": 4}},
+      "pay": 3,
+      "energy_cost": 2,
+      "skill_gain": 1,
+      "reputation_gain": 2,
+      "hint": "Educate the next generation."
+    },
+    {
+      "id": "nurse",
+      "name": "Nurse",
+      "requirements": {"age": 22, "stat": {"skill": 4}},
+      "pay": 3,
+      "energy_cost": 2,
+      "skill_gain": 1,
+      "reputation_gain": 2,
+      "hint": "Care for the sick and injured."
+    },
+    {
+      "id": "software_developer",
+      "name": "Software Developer",
+      "requirements": {"age": 20, "stat": {"skill": 5}},
+      "pay": 4,
+      "energy_cost": 2,
+      "skill_gain": 2,
+      "reputation_gain": 1,
+      "hint": "Build software and earn high pay."
+    },
+    {
+      "id": "manager",
+      "name": "Manager",
+      "requirements": {"age": 25, "stat": {"skill": 4, "reputation": 3}},
+      "pay": 4,
+      "energy_cost": 2,
+      "skill_gain": 1,
+      "reputation_gain": 2,
+      "hint": "Lead a team and manage operations."
+    },
+    {
+      "id": "entrepreneur",
+      "name": "Entrepreneur",
+      "requirements": {"age": 20, "money": 5, "stat": {"skill": 3}},
+      "pay": 3,
+      "energy_cost": 2,
+      "skill_gain": 1,
+      "reputation_gain": 2,
+      "hint": "Start and run your own business."
+    }
+  ]
+}

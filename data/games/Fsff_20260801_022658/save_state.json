@@ -1,0 +1,174 @@
+{
+  "player": {
+    "name": "Fsff",
+    "location": "apartment",
+    "stats": {
+      "energy": 5,
+      "money": 5,
+      "skill": 4,
+      "reputation": 3
+    },
+    "era": "modern",
+    "age": 3
+  },
+  "origin": {
+    "id": "scholarship_student",
+    "name": "Scholarship Student",
+    "tag": "Academic head start",
+    "description": "You arrived with academic momentum, but very little financial room.",
+    "effects": {
+      "skill": 2,
+      "money": -2
+    },
+    "known_npc": "leo"
+  },
+  "year": 1,
+  "season_index": 0,
+  "actions_remaining": 3,
+  "npcs": [
+    {
+      "id": "maya",
+      "name": "Maya Ortiz",
+      "role": "Your roommate",
+      "location": "apartment",
+      "affinity": 2,
+      "trust": 1,
+      "description": "A practical designer who values people showing up."
+    },
+    {
+      "id": "leo",
+      "name": "Leo Chen",
+      "role": "Classmate",
+      "location": "college",
+      "affinity": 3,
+      "trust": 1,
+      "description": "An ambitious student who knows every deadline."
+    },
+    {
+      "id": "priya",
+      "name": "Priya Shah",
+      "role": "Cafe manager",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A sharp observer who notices consistent work."
+    },
+    {
+      "id": "dr_ellis",
+      "name": "Dr. Ellis Reed",
+      "role": "Career mentor",
+      "location": "college",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A patient lecturer with local connections."
+    },
+    {
+      "id": "sam",
+      "name": "Sam Walker",
+      "role": "Community organizer",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A determined organizer working on housing."
+    },
+    {
+      "id": "nora",
+      "name": "Nora Blake",
+      "role": "Local rival",
+      "location": "cafe",
+      "affinity": -1,
+      "trust": 0,
+      "description": "A competitive regular with a sharp opinion."
+    },
+    {
+      "id": "npc_01",
+      "name": "Mama Elena",
+      "role": "Caregiver/Mother",
+      "location": "player_home",
+      "affinity": 3,
+      "trust": 3,
+      "description": "She has a gentle laugh and always makes sure you are safe. She packs the best snacks for playdates."
+    },
+    {
+      "id": "npc_02",
+      "name": "Ms. Lily",
+      "role": "Kindergarten Teacher",
+      "location": "kindergarten",
+      "affinity": 3,
+      "trust": 3,
+      "description": "She wears a brightly patterned apron and knows all the best songs for circle time."
+    },
+    {
+      "id": "npc_03",
+      "name": "Leo",
+      "role": "Playmate/Neighbor",
+      "location": "local_park",
+      "affinity": 2,
+      "trust": 2,
+      "description": "He loves chasing butterflies and building massive block towers. He often has a blue t-shirt on."
+    }
+  ],
+  "flags": {},
+  "memories": [
+    "You arrived in Riverton as a scholarship student.",
+    "The sun shines brightly over Maple Lane as you wake up in your cozy little house. Today is a perfect day to play, and after breakfast, Mama will take you down to the local playground for fun!"
+  ],
+  "active_random_event": null,
+  "random_seen_this_season": false,
+  "seen_random_events": [],
+  "completed": false,
+  "completed_milestones": [],
+  "milestone_events_pending": [],
+  "dynamic_locations": {
+    "player_home": "A small, brightly colored bungalow filled with toys.",
+    "kindergarten": "The cheerful building where you learn letters and sing songs.",
+    "local_park": "Swing sets, slides, and soft grass perfect for tumbling.",
+    "bookstore": "A quiet corner shop stocked with picture books."
+  },
+  "dynamic_npcs": [
+    {
+      "id": "npc_01",
+      "name": "Mama Elena",
+      "role": "Caregiver/Mother",
+      "location": "player_home",
+      "affinity": 3,
+      "trust": 3,
+      "description": "She has a gentle laugh and always makes sure you are safe. She packs the best snacks for playdates."
+    },
+    {
+      "id": "npc_02",
+      "name": "Ms. Lily",
+      "role": "Kindergarten Teacher",
+      "location": "kindergarten",
+      "affinity": 3,
+      "trust": 3,
+      "description": "She wears a brightly patterned apron and knows all the best songs for circle time."
+    },
+    {
+      "id": "npc_03",
+      "name": "Leo",
+      "role": "Playmate/Neighbor",
+      "location": "local_park",
+      "affinity": 2,
+      "trust": 2,
+      "description": "He loves chasing butterflies and building massive block towers. He often has a blue t-shirt on."
+    }
+  ],
+  "starting_scenario": "The sun shines brightly over Maple Lane as you wake up in your cozy little house. Today is a perfect day to play, and after breakfast, Mama will take you down to the local playground for fun!",
+  "starting_map": {
+    "center": "Maple Street Playground",
+    "locations": {
+      "player_home": "A small, brightly colored bungalow filled with toys.",
+      "kindergarten": "The cheerful building where you learn letters and sing songs.",
+      "local_park": "Swing sets, slides, and soft grass perfect for tumbling.",
+      "bookstore": "A quiet corner shop stocked with picture books."
+    }
+  },
+  "game_folder": "Fsff_20260801_022658",
+  "ui_stats": {
+    "happiness": 60,
+    "health": 70,
+    "smarts": 55,
+    "looks": 50
+  }
+}

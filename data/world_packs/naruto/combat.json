@@ -1,0 +1,16 @@
+{
+  "styles": [
+    {"id":"strike","name":"Strike","description":"A measured basic attack. Strength and taijutsu help determine impact."},
+    {"id":"guard","name":"Guard","description":"Protect yourself through the opponent's response. You deal little damage this turn."},
+    {"id":"technique","name":"Technique","description":"Use a learned technique; its chakra cost is paid before its effect."}
+  ],
+  "opponents": [
+    {"id":"academy_spar","npc_id":"training_partner","mode":"sparring","location":"training_ground","min_age":8,"base_hp":24,"chakra_nature":"wind","description":"A supervised academy spar. The goal is to learn, not injure."}
+  ],
+  "rules": {
+    "max_rounds": 8,
+    "retreat_health_cost": 3,
+    "win_rewards": {"skill_xp":{"taijutsu":3},"ui_stats":{"happiness":3,"health":-1},"world_influence":1,"organizations":{"shinobi_team":1}},
+    "loss_rewards": {"skill_xp":{"taijutsu":1},"ui_stats":{"health":-8,"happiness":-2}}
+  }
+}

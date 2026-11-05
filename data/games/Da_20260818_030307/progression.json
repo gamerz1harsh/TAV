@@ -1,0 +1,61 @@
+{
+  "year": 1,
+  "season_index": 0,
+  "actions_remaining": 2,
+  "completed": false,
+  "completed_milestones": [
+    "maya_affinity_neg2"
+  ],
+  "milestone_events_pending": [],
+  "seen_random_events": [],
+  "active_random_event": {
+    "id": "maya_tension",
+    "title": "Tension at home",
+    "text": "The apartment feels cold. Maya has been avoiding you, and a note on the counter asks for space.",
+    "requires": {
+      "location": "apartment",
+      "npc": {
+        "maya": {
+          "affinity": -2
+        }
+      }
+    },
+    "choices": [
+      {
+        "id": "apologize",
+        "label": "Leave a sincere note",
+        "effects": {
+          "affinity": {
+            "maya": 2
+          },
+          "trust": {
+            "maya": 1
+          }
+        }
+      },
+      {
+        "id": "ignore",
+        "label": "Give her space",
+        "effects": {
+          "affinity": {
+            "maya": -1
+          }
+        }
+      }
+    ],
+    "npc_id": "maya",
+    "milestone_id": "maya_affinity_neg2",
+    "_is_milestone": true
+  },
+  "random_seen_this_season": true,
+  "education": {
+    "status": "none",
+    "location": null,
+    "forced": false,
+    "school_unlocked": false,
+    "grade": "C",
+    "attendance": 0,
+    "extracurriculars": []
+  },
+  "career_tracks": {}
+}

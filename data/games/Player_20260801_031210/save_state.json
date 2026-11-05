@@ -1,0 +1,105 @@
+{
+  "player": {
+    "name": "Player",
+    "location": "apartment",
+    "stats": {
+      "energy": 5,
+      "money": 5,
+      "skill": 4,
+      "reputation": 3
+    },
+    "era": "modern",
+    "age": 38,
+    "ui_stats": {
+      "happiness": 60,
+      "health": 70,
+      "smarts": 55,
+      "looks": 50
+    }
+  },
+  "origin": {
+    "id": "scholarship_student",
+    "name": "Scholarship Student",
+    "tag": "Academic head start",
+    "description": "You arrived with academic momentum, but very little financial room.",
+    "effects": {
+      "skill": 2,
+      "money": -2
+    },
+    "known_npc": "leo"
+  },
+  "year": 1,
+  "season_index": 0,
+  "actions_remaining": 3,
+  "npcs": [
+    {
+      "id": "maya",
+      "name": "Maya Ortiz",
+      "role": "Your roommate",
+      "location": "apartment",
+      "affinity": 2,
+      "trust": 1,
+      "description": "A practical designer who values people showing up."
+    },
+    {
+      "id": "leo",
+      "name": "Leo Chen",
+      "role": "Classmate",
+      "location": "college",
+      "affinity": 3,
+      "trust": 1,
+      "description": "An ambitious student who knows every deadline."
+    },
+    {
+      "id": "priya",
+      "name": "Priya Shah",
+      "role": "Cafe manager",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A sharp observer who notices consistent work."
+    },
+    {
+      "id": "dr_ellis",
+      "name": "Dr. Ellis Reed",
+      "role": "Career mentor",
+      "location": "college",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A patient lecturer with local connections."
+    },
+    {
+      "id": "sam",
+      "name": "Sam Walker",
+      "role": "Community organizer",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A determined organizer working on housing."
+    },
+    {
+      "id": "nora",
+      "name": "Nora Blake",
+      "role": "Local rival",
+      "location": "cafe",
+      "affinity": -1,
+      "trust": 0,
+      "description": "A competitive regular with a sharp opinion."
+    }
+  ],
+  "flags": {},
+  "memories": [
+    "You arrived in Riverton as a scholarship student."
+  ],
+  "active_random_event": null,
+  "random_seen_this_season": false,
+  "seen_random_events": [],
+  "completed": false,
+  "completed_milestones": [],
+  "milestone_events_pending": [],
+  "dynamic_locations": {},
+  "dynamic_npcs": [],
+  "starting_scenario": "",
+  "starting_map": {},
+  "game_folder": "Player_20260801_031210"
+}

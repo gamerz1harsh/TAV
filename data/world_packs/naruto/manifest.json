@@ -1,0 +1,22 @@
+{
+  "id": "naruto",
+  "name": "Naruto: Shinobi Life",
+  "version": 4,
+  "description": "A living shinobi simulation with villages, clans, chakra progression, relationships, missions, and expeditions.",
+  "files": [
+    "character_creation.json",
+    "actions.json",
+    "progression.json",
+    "people.json",
+    "shops.json",
+    "careers.json",
+    "traits.json",
+    "regions.json",
+    "lore.json",
+    "quests.json",
+    "events.json",
+    "organizations.json",
+    "combat.json",
+    "ui.json"
+  ]
+}

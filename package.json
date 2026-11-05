@@ -1,0 +1,43 @@
+{
+  "name": "anime-sim",
+  "version": "2.0.0",
+  "description": "Anime Sim: a modular anime life simulation powered by Electron and a Python rules engine",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-builder --dir --publish=never",
+    "dist": "electron-builder --publish=never"
+  },
+  "devDependencies": {
+    "electron": "^35.0.0"
+  },
+  "build": {
+    "appId": "com.animesim.desktop",
+    "productName": "Anime Sim",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "web/**/*",
+      "api/**/*",
+      "**/*.py",
+      "data/**/*",
+      "requirements.txt"
+    ],
+    "extraResources": [
+      {
+        "from": ".",
+        "to": ".",
+        "filter": [
+          "data/**/*",
+          "api/**/*",
+          "**/*.py"
+        ]
+      }
+    ]
+  },
+  "allowScripts": {
+    "electron@35.7.5": true
+  }
+}

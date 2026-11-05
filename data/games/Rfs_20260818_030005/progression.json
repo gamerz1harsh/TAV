@@ -1,0 +1,18 @@
+{
+  "year": 1,
+  "season_index": 0,
+  "actions_remaining": 3,
+  "completed": false,
+  "completed_milestones": [],
+  "milestone_events_pending": [],
+  "seen_random_events": [],
+  "active_random_event": null,
+  "random_seen_this_season": false,
+  "education": {
+    "status": "enrolled",
+    "location": "school",
+    "forced": true,
+    "school_unlocked": true
+  },
+  "career_tracks": {}
+}

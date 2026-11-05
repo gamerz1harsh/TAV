@@ -1,0 +1,124 @@
+{
+  "npcs": [
+    {
+      "id": "maya",
+      "name": "Maya Ortiz",
+      "role": "Your roommate",
+      "location": "apartment",
+      "affinity": 3,
+      "trust": 1,
+      "description": "A practical designer who values people showing up."
+    },
+    {
+      "id": "leo",
+      "name": "Leo Chen",
+      "role": "Classmate",
+      "location": "college",
+      "affinity": 3,
+      "trust": 1,
+      "description": "An ambitious student who knows every deadline."
+    },
+    {
+      "id": "priya",
+      "name": "Priya Shah",
+      "role": "Cafe manager",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A sharp observer who notices consistent work."
+    },
+    {
+      "id": "dr_ellis",
+      "name": "Dr. Ellis Reed",
+      "role": "Career mentor",
+      "location": "college",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A patient lecturer with local connections."
+    },
+    {
+      "id": "sam",
+      "name": "Sam Walker",
+      "role": "Community organizer",
+      "location": "cafe",
+      "affinity": 0,
+      "trust": 0,
+      "description": "A determined organizer working on housing."
+    },
+    {
+      "id": "nora",
+      "name": "Nora Blake",
+      "role": "Local rival",
+      "location": "cafe",
+      "affinity": -1,
+      "trust": 0,
+      "description": "A competitive regular with a sharp opinion."
+    },
+    {
+      "id": "npc1",
+      "name": "Mom",
+      "role": "Primary Caregiver",
+      "location": "Nursery",
+      "affinity": 3,
+      "trust": 3,
+      "description": "Your loving mother. She has a gentle smile and always knows the perfect lullaby."
+    },
+    {
+      "id": "npc2",
+      "name": "Dad",
+      "role": "Secondary Caregiver",
+      "location": "Playroom",
+      "affinity": 3,
+      "trust": 3,
+      "description": "Your father, who loves reading stories to you. He often makes silly faces to make you giggle."
+    }
+  ],
+  "flags": {},
+  "dynamic_locations": {
+    "crib_area": "Your safe, soft sleeping space where you wake up every morning.",
+    "playroom": "A brightly colored area filled with soft toys and stacking blocks for supervised play.",
+    "diaper_changing_station": "The functional corner where Mom takes care of your needs."
+  },
+  "dynamic_npcs": [
+    {
+      "id": "npc1",
+      "name": "Mom",
+      "role": "Primary Caregiver",
+      "location": "Nursery",
+      "affinity": 3,
+      "trust": 3,
+      "description": "Your loving mother. She has a gentle smile and always knows the perfect lullaby."
+    },
+    {
+      "id": "npc2",
+      "name": "Dad",
+      "role": "Secondary Caregiver",
+      "location": "Playroom",
+      "affinity": 3,
+      "trust": 3,
+      "description": "Your father, who loves reading stories to you. He often makes silly faces to make you giggle."
+    }
+  ],
+  "starting_map": {
+    "center": "Nursery",
+    "locations": {
+      "crib_area": "Your safe, soft sleeping space where you wake up every morning.",
+      "playroom": "A brightly colored area filled with soft toys and stacking blocks for supervised play.",
+      "diaper_changing_station": "The functional corner where Mom takes care of your needs."
+    },
+    "map_name": "The Family Nursery"
+  },
+  "starting_scenario": "The soft glow of the morning sun streams into your room as you wake up in a cozy crib. Mom is already humming softly while changing a fresh diaper, making little cooing noises just for you. Today promises a day full of tummy time and cuddles at home.",
+  "world": {
+    "era": "modern",
+    "phase": "baseline",
+    "unlocks": {}
+  },
+  "parents": {
+    "strictness": 0.75,
+    "support": 0.45,
+    "name": "Parents",
+    "style": "strict",
+    "memory": []
+  }
+}

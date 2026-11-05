@@ -1,0 +1,120 @@
+{
+  "memories": [
+    "Age 0: You began your shinobi life in Hidden Leaf.",
+    "Age 1: A new year of shinobi life begins.",
+    "Age 1: You spent the day learning the shape of your village.",
+    "Age 1: You had a quiet day at home and felt more rested afterward.",
+    "Age 1: You spent the day learning the shape of your village.",
+    "Age 2: A new year of shinobi life begins.",
+    "Age 3: A new year of shinobi life begins.",
+    "Age 4: A new year of shinobi life begins.",
+    "Age 5: A new year of shinobi life begins.",
+    "Age 6: A new year of shinobi life begins.",
+    "Age 7: A new year of shinobi life begins.",
+    "Age 7: You focused on keeping your chakra steady for one breath longer.",
+    "Age 7: You completed another set of body-conditioning drills.",
+    "Age 7: You finished an exhausting endurance run around the village.",
+    "Age 7: You made time to talk with Aiko Mori.",
+    "Age 7: You sent Aiko Mori a note. They know you thought of them.",
+    "Age 7: You went to Ninja Academy."
+  ],
+  "season_summary": "",
+  "starting_scenario": "",
+  "narration_context": {
+    "year": 8,
+    "season": "",
+    "actions_remaining": 0,
+    "completed": false,
+    "active_event": null,
+    "player": {
+      "name": "rdvrer",
+      "age": 7,
+      "location": "academy",
+      "origin": "Shinobi Candidate",
+      "stats": {
+        "energy": 5,
+        "money": 0,
+        "skill": 0,
+        "reputation": 0
+      },
+      "ui_stats": {
+        "health": 76,
+        "happiness": 62,
+        "smarts": 48,
+        "looks": 50
+      }
+    },
+    "relationships": [
+      {
+        "id": "academy_peer",
+        "name": "Ren Akiyama",
+        "role": "Academy peer",
+        "location": "academy",
+        "affinity": 10,
+        "trust": 5
+      },
+      {
+        "id": "academy_instructor",
+        "name": "Instructor Daichi",
+        "role": "Academy instructor",
+        "location": "academy",
+        "affinity": 0,
+        "trust": 0
+      }
+    ],
+    "flags": {
+      "world_pack": "naruto"
+    },
+    "recent_memories": [
+      "Age 7: You finished an exhausting endurance run around the village.",
+      "Age 7: You made time to talk with Aiko Mori.",
+      "Age 7: You sent Aiko Mori a note. They know you thought of them.",
+      "Age 7: You went to Ninja Academy."
+    ],
+    "story_beats": {
+      "season_summary": "",
+      "starting_scenario": ""
+    },
+    "menu_slots": [
+      {
+        "slot": "relations",
+        "label": "Relations",
+        "category": "social"
+      },
+      {
+        "slot": "status",
+        "label": "Wellbeing",
+        "category": "status"
+      },
+      {
+        "slot": "education",
+        "label": "Education",
+        "category": "education"
+      },
+      {
+        "slot": "career",
+        "label": "Career",
+        "category": "career"
+      },
+      {
+        "slot": "lifestyle",
+        "label": "Daily Life",
+        "category": "lifestyle"
+      },
+      {
+        "slot": "special",
+        "label": "Opportunities",
+        "category": "events"
+      }
+    ],
+    "world": {
+      "era": "naruto",
+      "pack_id": "naruto",
+      "pack_version": 1,
+      "phase": "academy preparation",
+      "rank": "Academy Student",
+      "unlocks": {},
+      "village": "leaf"
+    }
+  }
+}

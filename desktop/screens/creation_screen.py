@@ -1,25 +1,28 @@
-"""Component: Character Creation Screen UI Module."""
+"""Character setup for starting a Naruto world-pack life."""
 from __future__ import annotations
 
 from PySide6.QtCore import Qt, Signal
-from PySide6.QtGui import QAction, QKeySequence
 from PySide6.QtWidgets import (
-    QApplication, QButtonGroup, QCheckBox, QComboBox, QDialog, QDialogButtonBox, QFormLayout,
-    QFrame, QGridLayout, QGroupBox, QHBoxLayout, QLabel, QLineEdit, QMainWindow,
-    QMessageBox, QPushButton, QProgressBar, QScrollArea, QStackedWidget, QTextEdit, QVBoxLayout, QWidget,
+    QApplication,
+    QComboBox,
+    QFormLayout,
+    QFrame,
+    QHBoxLayout,
+    QLabel,
+    QLineEdit,
+    QPushButton,
+    QScrollArea,
+    QSpinBox,
+    QVBoxLayout,
+    QWidget,
 )
 
-# Assuming these are available from the parent scope/project structure
-from game_engine import ORIGINS 
-from character_creation import enumerate_eras
+from world_pack import get_world_pack
 
 
 class CreationScreen(QWidget):
-    """
-    Encapsulates the entire widget layout and user input controls for creating a new character.
-    Signals are emitted to communicate intent back to the main application controller (RivertonWindow).
-    """
-    # Signals emitted when user clicks primary action buttons
+    """A focused identity setup using the selected pack's declared options."""
+
     generate_requested = Signal()
     begin_requested = Signal()
     back_requested = Signal()
@@ -27,111 +30,140 @@ class CreationScreen(QWidget):
     def __init__(self) -> None:
         super().__init__()
         self.setObjectName("central")
-        self.setup_ui()
+        self.pack = get_world_pack("naruto")
+        self.setStyleSheet("""
+            QWidget { background: #111820; color: #e7eee8; font-family: 'Bahnschrift', 'Yu Gothic UI', sans-serif; }
+            QLabel#eyebrow { color: #63c6bb; font-size: 10px; font-weight: 800; letter-spacing: 2px; }
+            QLabel#title { color: #e7eee8; font-size: 32px; font-weight: 850; }
+            QLabel#muted { color: #99aaa5; }
+            QFrame#setupCard { background: #1d2a32; border: 1px solid #34474c; border-radius: 14px; }
+            QLineEdit, QComboBox, QSpinBox { background: #142027; color: #e7eee8; border: 1px solid #34474c; border-radius: 8px; padding: 9px 11px; min-height: 20px; }
+            QLineEdit:focus, QComboBox:focus, QSpinBox:focus { border-color: #63c6bb; }
+            QPushButton { background: #24343c; color: #e7eee8; border: 1px solid #34474c; border-radius: 8px; padding: 11px 16px; font-weight: 700; }
+            QPushButton:hover { border-color: #63c6bb; }
+            QPushButton#primary { background: #9fce91; color: #17231e; border-color: #9fce91; font-weight: 900; }
+            QPushButton#primary:hover { background: #b4dca7; }
+            QScrollArea { border: 0; background: transparent; }
+        """)
+        self._build()
 
-    def setup_ui(self) -> None:
-        layout = QVBoxLayout(self)
-        layout.setContentsMargins(52, 24, 52, 24)
-        layout.setSpacing(12)
+    def _build(self) -> None:
+        outer = QVBoxLayout(self)
+        outer.setContentsMargins(34, 26, 34, 26)
+        outer.setSpacing(16)
+        eyebrow = QLabel("NARUTO WORLD PACK  /  NEW LIFE")
+        eyebrow.setObjectName("eyebrow")
+        outer.addWidget(eyebrow)
+        title = QLabel("Create your shinobi")
+        title.setObjectName("title")
+        outer.addWidget(title)
+        intro = QLabel("Choose the roots of your character. Your village, family, and nature create a starting point; birth traits are rolled by the world simulation.")
+        intro.setObjectName("muted")
+        intro.setWordWrap(True)
+        outer.addWidget(intro)
 
-        header = QLabel("Create Your Character")
-        header.setObjectName("title")
-        header.setStyleSheet("font-size: 36px;")
-        layout.addWidget(header)
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        content = QWidget()
+        row = QHBoxLayout(content)
+        row.setSpacing(16)
 
-        # --- Form Layout (Inputs) ---
+        identity = self._card()
+        identity_layout = QVBoxLayout(identity)
+        identity_layout.setContentsMargins(20, 20, 20, 20)
+        identity_layout.setSpacing(14)
+        identity_title = QLabel("IDENTITY")
+        identity_title.setObjectName("eyebrow")
+        identity_layout.addWidget(identity_title)
         form = QFormLayout()
+        form.setVerticalSpacing(12)
+        form.setLabelAlignment(Qt.AlignmentFlag.AlignLeft)
         self.name_input = QLineEdit()
-        self.name_input.setPlaceholderText("Your name")
+        self.name_input.setPlaceholderText("Name")
         self.name_input.setMaxLength(32)
         form.addRow("Name", self.name_input)
+        self.age_input = QSpinBox()
+        self.age_input.setRange(0, 30)
+        self.age_input.setValue(0)
+        form.addRow("Starting age", self.age_input)
+        self.village_input = self._options_combo(self.pack["character_creation"]["villages"])
+        form.addRow("Village", self.village_input)
+        self.clan_input = self._options_combo(self.pack["character_creation"]["clans"])
+        form.addRow("Family", self.clan_input)
+        self.nature_input = self._options_combo(self.pack["character_creation"]["chakra_natures"])
+        form.addRow("Chakra nature", self.nature_input)
+        identity_layout.addLayout(form)
+        identity_layout.addStretch()
+        row.addWidget(identity, 3)
 
-        # Defaulting Era input to the first available era
-        default_era = enumerate_eras()[0]
-        self.era_input = QLineEdit(default_era)
-        self.era_input.setPlaceholderText(f"Era ({', '.join(enumerate_eras())})")
-        form.addRow("Era", self.era_input)
+        preview = self._card()
+        preview_layout = QVBoxLayout(preview)
+        preview_layout.setContentsMargins(22, 22, 22, 22)
+        preview_layout.setSpacing(12)
+        preview_label = QLabel("THE FIRST CHAPTER")
+        preview_label.setObjectName("eyebrow")
+        preview_layout.addWidget(preview_label)
+        preview_title = QLabel("A village,\na family,\na path.")
+        preview_title.setStyleSheet("font-size: 27px; font-weight: 850; color: #e7eee8;")
+        preview_layout.addWidget(preview_title)
+        preview_text = QLabel("Your first years are open. Train your body, learn chakra control, study at the academy, and decide who earns your trust. Two random traits are drawn at birth; you do not choose a starting perk.")
+        preview_text.setObjectName("muted")
+        preview_text.setWordWrap(True)
+        preview_layout.addWidget(preview_text)
+        preview_layout.addSpacing(6)
+        for text in ("3 personal actions and 2 social actions each year through age 12", "5 personal actions and 3 social actions from ages 13 to 17", "7 personal actions and 4 social actions from age 18 onward"):
+            item = QLabel(f"-   {text}")
+            item.setWordWrap(True)
+            item.setStyleSheet("color: #b7c6be; padding: 5px 0;")
+            preview_layout.addWidget(item)
+        preview_layout.addStretch()
+        row.addWidget(preview, 2)
+        scroll.setWidget(content)
+        outer.addWidget(scroll, 1)
 
-        self.age_input = QLineEdit("")
-        self.age_input.setPlaceholderText("Age (optional)")
-        form.addRow("Age", self.age_input)
-
-        self.start_year_box = QComboBox()
-        self.start_year_box.addItems(["1", "2"])
-        form.addRow("Start year", self.start_year_box)
-
-        self.llm_box = QCheckBox("Generate starting scenario, map, and NPCs using local LLM")
-        self.llm_box.setChecked(False)
-        form.addRow("Use LLM", self.llm_box)
-
-        layout.addLayout(form)
-
-        # --- Origin Group (Buttons) ---
-        origin_label = QLabel("ORIGIN")
-        origin_label.setObjectName("eyebrow")
-        layout.addWidget(origin_label)
-        self.origin_group = QButtonGroup(self)
-        self.origin_group.setExclusive(True)
-        origin_grid = QGridLayout()
-        origin_grid.setHorizontalSpacing(12)
-        origin_grid.setVerticalSpacing(12)
-        for index, origin in enumerate(ORIGINS):
-            button = QPushButton(f"{origin['tag']}\n\n{origin['name']}\n{origin['description']}")
-            button.setObjectName("origin")
-            button.setProperty("class", "origin")
-            button.setCheckable(True)
-            button.setMinimumHeight(120)
-            button.setCursor(Qt.CursorShape.PointingHandCursor)
-            button.setProperty("origin_id", origin["id"])
-            self.origin_group.addButton(button)
-            origin_grid.addWidget(button, index // 2, index % 2)
-            if index == 0:
-                button.setChecked(True)
-        layout.addLayout(origin_grid)
-
-        # --- Controls (Buttons) ---
         controls = QHBoxLayout()
-        generate = QPushButton("Generate")
-        generate.setCursor(Qt.CursorShape.PointingHandCursor)
-        generate.clicked.connect(self.generate_requested.emit) # Emit signal instead of calling method
-        controls.addWidget(generate)
-
-        begin = QPushButton("Begin without generation")
-        begin.setCursor(Qt.CursorShape.PointingHandCursor)
-        begin.clicked.connect(self.begin_requested.emit) # Emit signal instead of calling method
-        controls.addWidget(begin)
-
         back = QPushButton("Back")
-        back.setObjectName("quiet")
-        back.setProperty("class", "quiet")
-        back.setCursor(Qt.CursorShape.PointingHandCursor)
-        back.clicked.connect(self.back_requested.emit) # Emit signal instead of calling method
+        back.clicked.connect(self.back_requested.emit)
         controls.addWidget(back)
-
         controls.addStretch()
-        layout.addLayout(controls)
+        self.begin_button = QPushButton("Begin life")
+        self.begin_button.setObjectName("primary")
+        self.begin_button.setMinimumWidth(190)
+        self.begin_button.setMinimumHeight(46)
+        self.begin_button.clicked.connect(self.begin_requested.emit)
+        controls.addWidget(self.begin_button)
+        outer.addLayout(controls)
 
+    @staticmethod
+    def _card() -> QFrame:
+        frame = QFrame()
+        frame.setObjectName("setupCard")
+        return frame
+
+    @staticmethod
+    def _options_combo(options: list[dict]) -> QComboBox:
+        combo = QComboBox()
+        for option in options:
+            combo.addItem(option.get("name", option["id"]), option["id"])
+        return combo
 
     def get_creation_data(self) -> dict:
-        """
-        Gathers all current user selections needed to create the character template dictionary 
-        in the main application logic.
-        """
-        # Determine origin ID from the checked button
-        button = self.origin_group.checkedButton()
-        origin_id = button.property("origin_id") if button else None
-
         return {
             "name": self.name_input.text(),
-            "era": self.era_input.text(),
-            "age": self.age_input.text(),
-            "start_year": int(self.start_year_box.currentText()),
-            "use_llm": self.llm_box.isChecked(),
-            "origin": origin_id,
+            "age": str(self.age_input.value()),
+            "start_year": 1,
+            "world_pack": "naruto",
+            "world_options": {
+                "age": self.age_input.value(),
+                "village": self.village_input.currentData(),
+                "clan": self.clan_input.currentData(),
+                "chakra_nature": self.nature_input.currentData(),
+            },
         }
 
-# Example usage of the class structure (for testing purposes, not run in main)
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app = QApplication([])
     screen = CreationScreen()
     screen.show()
+    raise SystemExit(app.exec())

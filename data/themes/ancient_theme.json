@@ -1,0 +1,37 @@
+{
+  "era": "ancient",
+  "colors": {
+    "background": "#1a1208",
+    "card_bg": "#241a0e",
+    "card_border": "#4a3820",
+    "accent": "#d4a574",
+    "accent_secondary": "#a67c52",
+    "text_primary": "#f5efe3",
+    "text_secondary": "#c8b8a0",
+    "text_muted": "#8a7a60",
+    "success": "#7cb342",
+    "warning": "#f9a825",
+    "danger": "#e53935",
+    "info": "#4fc3f7",
+    "stat_health": "#fb7185",
+    "stat_happiness": "#c084fc",
+    "stat_smarts": "#60a5fa",
+    "stat_looks": "#fbbf24"
+  },
+  "fonts": {
+    "display": "Georgia, 'Times New Roman', serif",
+    "body": "'Segoe UI', -apple-system, sans-serif",
+    "mono": "'Consolas', 'Courier New', monospace"
+  },
+  "ui_labels": {
+    "brand": "RIVERTON // ANCIENT LIFE",
+    "journal_title": "HOUSEHOLD RECORD",
+    "snapshot_title": "HOUSEHOLD IDENTITY",
+    "operations_title": "MATTERS AT HAND",
+    "status_title": "STANDING",
+    "profile_title": "HOUSEHOLD",
+    "map_title": "TERRITORY",
+    "people_title": "ALLIANCES",
+    "actions_title": "DECISIONS"
+  }
+}

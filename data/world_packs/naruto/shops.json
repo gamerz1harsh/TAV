@@ -1,0 +1,77 @@
+{
+  "currency": "Ryo",
+  "shops": [
+    {
+      "id": "leaf_market",
+      "name": "Hidden Leaf Supply Row",
+      "region_id": "land_of_fire",
+      "location": "market_street",
+      "items": [
+        {"id":"leaf_kunai","name":"Leaf-Made Kunai","category":"Equipment","slot":"weapon","tier":1,"price":28,"combat_power_per_tier":3,"modifiers_per_tier":{"agility":1,"strength":1},"skill_modifiers_per_tier":{"shurikenjutsu":1},"forge_base_cost":24,"description":"A balanced field kunai stamped by a Leaf armorer. Its grip supports precise throwing technique."},
+        {"id":"reinforced_shinobi_vest","name":"Reinforced Shinobi Vest","category":"Equipment","slot":"armor","tier":1,"price":72,"combat_power_per_tier":2,"modifiers_per_tier":{"vitality":2},"forge_base_cost":32,"description":"A light vest with layered protection that improves with careful forging."},
+        {"id":"chakra_notebook","name":"Chakra Notes","category":"Study","price":20,"description":"A beginner's notebook for recording control exercises and observations."},
+        {"id":"field_medicine","name":"Field Medicine Kit","category":"Medical","price":24,"description":"Bandages, antiseptic, and a pocket guide to basic field care."},
+        {"id":"iron_ingot","name":"Refined Iron Ingot","category":"Material","price":22,"description":"One ingot of forge-ready iron used for a single equipment upgrade."}
+      ]
+    },
+    {
+      "id": "sand_market",
+      "name": "Sunagakure Tool Exchange",
+      "region_id": "land_of_wind",
+      "location": "market_street",
+      "items": [
+        {"id":"windproof_chakra_cloak","name":"Windproof Chakra Cloak","category":"Equipment","slot":"armor","tier":1,"price":66,"combat_power_per_tier":2,"modifiers_per_tier":{"vitality":1,"chakra_control":1},"forge_base_cost":30,"description":"A desert cloak that keeps fine sand from disrupting chakra control."},
+        {"id":"sand_scout_blade","name":"Sand Scout's Short Blade","category":"Equipment","slot":"weapon","tier":1,"price":42,"combat_power_per_tier":4,"modifiers_per_tier":{"strength":1},"forge_base_cost":28,"description":"A compact blade designed for close work and long journeys."},
+        {"id":"iron_ingot","name":"Desert-Forged Iron Ingot","category":"Material","price":26,"description":"Dense iron prepared for upgrading equipment at a village forge."},
+        {"id":"field_medicine","name":"Dryland Medical Kit","category":"Medical","price":27,"description":"Supplies selected to survive heat, grit, and long patrol routes."}
+      ]
+    },
+    {
+      "id": "mist_market",
+      "name": "Kirigakure Harbor Market",
+      "region_id": "land_of_water",
+      "location": "market_street",
+      "items": [
+        {"id":"mist_hook_blade","name":"Mist Hook Blade","category":"Equipment","slot":"weapon","tier":1,"price":48,"combat_power_per_tier":4,"modifiers_per_tier":{"agility":1},"forge_base_cost":31,"description":"A hooked blade balanced for wet decks and close-quarters engagements."},
+        {"id":"waterproof_field_wrap","name":"Waterproof Field Wrap","category":"Equipment","slot":"armor","tier":1,"price":58,"combat_power_per_tier":2,"modifiers_per_tier":{"vitality":1,"agility":1},"forge_base_cost":27,"description":"A reinforced wrap that stays secure in rain and sea spray."},
+        {"id":"iron_ingot","name":"Harbor Steel Ingot","category":"Material","price":25,"description":"A salt-treated ingot accepted by the local village forge."},
+        {"id":"field_medicine","name":"Coastal Medical Kit","category":"Medical","price":25,"description":"Water-resistant medical supplies for patrols through the mist."}
+      ]
+    },
+    {
+      "id": "wave_market",
+      "name": "Nami Village Traders",
+      "region_id": "land_of_waves",
+      "location": "market_street",
+      "items": [
+        {"id":"wave_scout_sling","name":"Wave Country Scout Sling","category":"Equipment","slot":"tool","tier":1,"price":16,"combat_power_per_tier":2,"modifiers_per_tier":{"agility":1},"forge_base_cost":18,"description":"A modest ranged tool made for fishing paths and coastal watch."},
+        {"id":"iron_ingot","name":"Reclaimed Iron Ingot","category":"Material","price":30,"description":"A serviceable reclaimed ingot for a village forging attempt."},
+        {"id":"field_medicine","name":"Travel Medicine Pouch","category":"Medical","price":30,"description":"Basic supplies bundled for travellers far from a major clinic."}
+      ]
+    },
+    {
+      "id": "river_market",
+      "name": "River Country Waystation",
+      "region_id": "land_of_rivers",
+      "location": "market_street",
+      "items": [
+        {"id":"courier_recurve","name":"Courier Recurve Bow","category":"Equipment","slot":"tool","tier":1,"price":44,"combat_power_per_tier":3,"modifiers_per_tier":{"agility":1,"intelligence":1},"forge_base_cost":24,"description":"A compact bow favored by couriers who travel changing river routes."},
+        {"id":"river_guard_vest","name":"River Guard Vest","category":"Equipment","slot":"armor","tier":1,"price":52,"combat_power_per_tier":2,"modifiers_per_tier":{"vitality":1,"strength":1},"forge_base_cost":25,"description":"A reinforced vest designed to dry quickly after a crossing."},
+        {"id":"iron_ingot","name":"Waystation Iron Ingot","category":"Material","price":24,"description":"A standard ingot accepted at regional forges."},
+        {"id":"field_medicine","name":"Courier's Medical Roll","category":"Medical","price":23,"description":"A compact wrap and medicine kit for long routes between villages."}
+      ]
+    },
+    {
+      "id": "iron_market",
+      "name": "Samurai Crossing Armory",
+      "region_id": "land_of_iron",
+      "location": "market_street",
+      "items": [
+        {"id":"iron_country_tachi","name":"Iron Country Tachi","category":"Equipment","slot":"weapon","tier":1,"price":86,"combat_power_per_tier":6,"modifiers_per_tier":{"strength":2},"forge_base_cost":40,"description":"A disciplined, heavy-bladed weapon made for neutral-country guards."},
+        {"id":"samurai_lamellar","name":"Mountain Lamellar Guard","category":"Equipment","slot":"armor","tier":1,"price":104,"combat_power_per_tier":4,"modifiers_per_tier":{"vitality":2,"willpower":1},"forge_base_cost":44,"description":"Layered protection made to withstand snow, steel, and long watches."},
+        {"id":"iron_ingot","name":"Tempered Iron Ingot","category":"Material","price":34,"description":"High-grade forging stock suitable for repeated tier upgrades."},
+        {"id":"field_medicine","name":"Mountain Patrol Kit","category":"Medical","price":32,"description":"A durable medical kit packed for cold-weather patrols."}
+      ]
+    }
+  ]
+}

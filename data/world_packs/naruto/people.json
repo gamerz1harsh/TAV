@@ -1,0 +1,383 @@
+{
+  "places": [
+    {
+      "id": "home",
+      "name": "Family Home",
+      "region_id": "land_of_fire",
+      "local_facility": true,
+      "description": "A familiar place to recover, talk with your family, and remember there is more to life than training."
+    },
+    {
+      "id": "academy",
+      "name": "Ninja Academy",
+      "region_id": "land_of_fire",
+      "local_facility": true,
+      "description": "Lessons, classmates, instructors, and the first tests of a future shinobi."
+    },
+    {
+      "id": "training_ground",
+      "name": "Training Grounds",
+      "region_id": "land_of_fire",
+      "local_facility": true,
+      "description": "A quiet clearing for conditioning, chakra control, and practice with a partner."
+    },
+    {
+      "id": "market_street",
+      "name": "Market Street",
+      "region_id": "land_of_fire",
+      "local_facility": true,
+      "description": "A lively stretch of the village where neighbors meet and local news travels."
+    },
+    {
+      "id": "blacksmith",
+      "name": "Village Forge",
+      "region_id": "land_of_fire",
+      "local_facility": true,
+      "description": "A working forge for repairing field gear and tempering equipment into higher tiers."
+    },
+    {
+      "id": "clinic",
+      "name": "Village Clinic",
+      "region_id": "land_of_fire",
+      "local_facility": true,
+      "description": "Medical-nin treat injuries and teach basic field care."
+    },
+    {
+      "id": "hokage_tower",
+      "name": "Hokage Tower",
+      "region_id": "land_of_fire",
+      "local_facility": true,
+      "description": "The administrative center where village service and shinobi careers begin."
+    },
+    {
+      "id": "academy_leaf",
+      "name": "Hidden Leaf Academy",
+      "region_id": "land_of_fire",
+      "map_visible": false,
+      "description": "The academy attended by the young shinobi of the Hidden Leaf."
+    },
+    {
+      "id": "training_ground_leaf",
+      "name": "Hidden Leaf Training Ground",
+      "region_id": "land_of_fire",
+      "map_visible": false,
+      "description": "A training clearing used by Hidden Leaf instructors and teams."
+    },
+    {
+      "id": "clinic_leaf",
+      "name": "Hidden Leaf Clinic",
+      "region_id": "land_of_fire",
+      "map_visible": false,
+      "description": "The medical-nin clinic serving the Hidden Leaf."
+    },
+    {
+      "id": "hokage_tower_leaf",
+      "name": "Hokage Tower",
+      "region_id": "land_of_fire",
+      "map_visible": false,
+      "description": "The seat of Hidden Leaf administration."
+    },
+    {
+      "id": "leaf",
+      "name": "Hidden Leaf Village",
+      "region_id": "land_of_fire",
+      "description": "The main streets and public spaces of Konohagakure."
+    },
+    {
+      "id": "sand",
+      "name": "Hidden Sand Village",
+      "region_id": "land_of_wind",
+      "description": "A fortified settlement among the dunes of the Land of Wind."
+    },
+    {
+      "id": "mist",
+      "name": "Hidden Mist Village",
+      "region_id": "land_of_water",
+      "description": "The fog-bound streets and harbor approaches of Kirigakure."
+    },
+    {
+      "id": "nami_village",
+      "name": "Nami Village",
+      "region_id": "land_of_waves",
+      "description": "A small coastal settlement whose livelihoods depend on safe passage."
+    },
+    {
+      "id": "river_outpost",
+      "name": "River Country Outpost",
+      "region_id": "land_of_rivers",
+      "description": "A courier and patrol stop at the crossroads of the river routes."
+    },
+    {
+      "id": "samurai_crossing",
+      "name": "Samurai Crossing",
+      "region_id": "land_of_iron",
+      "description": "A guarded mountain pass watched by samurai of the neutral country."
+    }
+  ],
+  "people": [
+    {
+      "id": "family_guardian",
+      "name": "Aiko Mori",
+      "role": "Parent",
+      "age": 34,
+      "location": "home",
+      "affinity": 35,
+      "trust": 45,
+      "personality": ["protective", "observant"],
+      "description": "Your parent worries about the risks of shinobi life but wants to see you thrive.",
+      "memories": ["They remember the day you first talked about the academy."]
+    },
+    {
+      "id": "academy_peer",
+      "name": "Ren Akiyama",
+      "role": "Academy peer",
+      "age": 10,
+      "location": "academy",
+      "affinity": 10,
+      "trust": 5,
+      "personality": ["competitive", "loyal"],
+      "description": "A quick, competitive student who respects effort more than boasting.",
+      "memories": ["You have seen each other around the academy, but hardly know one another."]
+    },
+    {
+      "id": "academy_instructor",
+      "name": "Instructor Daichi",
+      "role": "Academy instructor",
+      "age": 27,
+      "location": "academy",
+      "affinity": 0,
+      "trust": 0,
+      "personality": ["patient", "demanding"],
+      "description": "A patient instructor who gives useful advice when a student shows consistent effort.",
+      "memories": ["They recognize your name from the academy roster."]
+    },
+    {
+      "id": "village_smith",
+      "name": "Tetsu the Smith",
+      "role": "Blacksmith",
+      "age": 46,
+      "location": "blacksmith",
+      "affinity": 0,
+      "trust": 0,
+      "personality": ["patient", "meticulous"],
+      "description": "A careful village smith who judges a tool by how it holds up under real use.",
+      "memories": ["The village smith has seen every kind of rushed repair."]
+    },
+    {
+      "id": "naruto_uzumaki",
+      "name": "Naruto Uzumaki",
+      "role": "Academy peer",
+      "age": 10,
+      "location": "academy_leaf",
+      "local_location": "academy",
+      "region_id": "land_of_fire",
+      "affinity": 5,
+      "trust": 0,
+      "personality": ["energetic", "stubborn", "lonely"],
+      "description": "A loud academy student who refuses to give up on being acknowledged.",
+      "memories": ["The class knows Naruto as the student who turns every quiet lesson into an opportunity to be noticed."]
+    },
+    {
+      "id": "sasuke_uchiha",
+      "name": "Sasuke Uchiha",
+      "role": "Academy peer",
+      "age": 10,
+      "location": "academy_leaf",
+      "local_location": "academy",
+      "region_id": "land_of_fire",
+      "affinity": 0,
+      "trust": 0,
+      "personality": ["reserved", "driven", "observant"],
+      "description": "A talented, distant student carrying the weight of his clan's loss.",
+      "memories": ["Sasuke keeps to himself and rarely speaks unless there is a reason."]
+    },
+    {
+      "id": "sakura_haruno",
+      "name": "Sakura Haruno",
+      "role": "Academy peer",
+      "age": 10,
+      "location": "academy_leaf",
+      "local_location": "academy",
+      "region_id": "land_of_fire",
+      "affinity": 3,
+      "trust": 0,
+      "personality": ["focused", "curious", "competitive"],
+      "description": "A sharp student who studies hard and notices more than she lets on.",
+      "memories": ["Sakura is often comparing notes or asking precise questions after class."]
+    },
+    {
+      "id": "hinata_hyuga",
+      "name": "Hinata Hyuga",
+      "role": "Academy peer",
+      "age": 10,
+      "location": "academy_leaf",
+      "local_location": "academy",
+      "region_id": "land_of_fire",
+      "affinity": 5,
+      "trust": 2,
+      "personality": ["gentle", "shy", "determined"],
+      "description": "A quiet Hyuga student working to find confidence in her own way.",
+      "memories": ["Hinata watches the others carefully and speaks softly when she feels safe."]
+    },
+    {
+      "id": "shikamaru_nara",
+      "name": "Shikamaru Nara",
+      "role": "Academy peer",
+      "age": 10,
+      "location": "academy_leaf",
+      "local_location": "academy",
+      "region_id": "land_of_fire",
+      "affinity": 0,
+      "trust": 0,
+      "personality": ["analytical", "dry-witted", "reluctant"],
+      "description": "A strategic thinker who would rather watch a situation than rush into it.",
+      "memories": ["Shikamaru notices patterns quickly, though he rarely volunteers to make extra work for himself."]
+    },
+    {
+      "id": "iruka_umino",
+      "name": "Iruka Umino",
+      "role": "Academy instructor",
+      "age": 27,
+      "location": "academy_leaf",
+      "local_location": "academy",
+      "region_id": "land_of_fire",
+      "affinity": 10,
+      "trust": 10,
+      "personality": ["patient", "protective", "fair"],
+      "description": "An academy instructor who takes his students' futures personally.",
+      "memories": ["Iruka believes steady effort can change the course of a student's life."]
+    },
+    {
+      "id": "mission_clerk",
+      "name": "Mika Tanaka",
+      "role": "Mission Clerk",
+      "age": 32,
+      "location": "hokage_tower",
+      "affinity": 0,
+      "trust": 0,
+      "personality": ["organized", "practical", "busy"],
+      "description": "A mission-desk clerk who matches assignments to readiness and village needs.",
+      "memories": ["They have not yet had a reason to remember you."]
+    },
+    {
+      "id": "clinic_nin",
+      "name": "Shizune",
+      "role": "Medical-nin",
+      "age": 28,
+      "location": "clinic_leaf",
+      "local_location": "clinic",
+      "region_id": "land_of_fire",
+      "affinity": 0,
+      "trust": 0,
+      "personality": ["attentive", "calm", "demanding"],
+      "description": "A skilled medic who expects people to take recovery and field safety seriously.",
+      "memories": ["Shizune is careful about who she trusts with medical work."]
+    },
+    {
+      "id": "hokage",
+      "name": "Hiruzen Sarutobi",
+      "role": "Hokage",
+      "age": 68,
+      "location": "hokage_tower_leaf",
+      "local_location": "hokage_tower",
+      "region_id": "land_of_fire",
+      "affinity": 0,
+      "trust": 0,
+      "personality": ["measured", "warm", "politically astute"],
+      "description": "The village leader balances the needs of its clans, civilians, and shinobi.",
+      "memories": ["He has heard many young shinobi make promises about the future."]
+    },
+    {
+      "id": "training_partner",
+      "name": "Kenta Mori",
+      "role": "Academy peer",
+      "age": 10,
+      "location": "training_ground",
+      "affinity": 4,
+      "trust": 8,
+      "personality": ["sporting", "focused", "good-humored"],
+      "description": "A steady training partner who prefers clean technique over showy wins.",
+      "combat_power": 16,
+      "memories": ["Kenta has offered to spar when you feel ready."]
+    },
+    {
+      "id": "kakashi_hatake",
+      "name": "Kakashi Hatake",
+      "role": "Jonin instructor",
+      "age": 26,
+      "location": "training_ground_leaf",
+      "local_location": "training_ground",
+      "region_id": "land_of_fire",
+      "affinity": 0,
+      "trust": 0,
+      "personality": ["wry", "perceptive", "hard to impress"],
+      "description": "A renowned jonin whose lessons emphasize teamwork, awareness, and learning from failure.",
+      "combat_power": 68,
+      "memories": ["Kakashi has not yet worked with you directly."]
+    }
+  ],
+  "interactions": [
+    {
+      "id": "talk",
+      "label": "Talk",
+      "description": "Share a moment and learn what has been on their mind.",
+      "relationship_effects": {"affinity": 3, "trust": 1},
+      "memory": "You made time to talk with {name}."
+    },
+    {
+      "id": "play_together",
+      "label": "Play Together",
+      "description": "Spend a little time together and make an ordinary day feel special.",
+      "requires_role": "Parent",
+      "relationship_effects": {"affinity": 2, "trust": 2},
+      "effects": {"ui_stats": {"happiness": 2}},
+      "memory": "You and {name} spent time playing together at home."
+    },
+    {
+      "id": "help",
+      "label": "Offer Help",
+      "description": "Show that your support can be counted on.",
+      "min_age": 5,
+      "relationship_effects": {"affinity": 1, "trust": 4},
+      "memory": "You offered help to {name}, and they will remember that you showed up."
+    },
+    {
+      "id": "train_together",
+      "label": "Train Together",
+      "description": "Practice side by side and learn how each of you responds under pressure.",
+      "min_age": 6,
+      "requires_role": "Academy peer",
+      "relationship_effects": {"affinity": 2, "trust": 3},
+      "effects": {"attributes": {"body_conditioning": 1, "willpower": 1}},
+      "memory": "You trained with {name} and found a little more respect for each other's effort."
+    },
+    {
+      "id": "ask_guidance",
+      "label": "Ask for Guidance",
+      "description": "Bring a specific question and show what you have already tried.",
+      "min_age": 8,
+      "requires_role": "Academy instructor",
+      "relationship_effects": {"affinity": 1, "trust": 3},
+      "effects": {"attributes": {"academy_knowledge": 2}},
+      "memory": "You asked {name} for guidance and received a practical correction."
+    },
+    {
+      "id": "send_note",
+      "label": "Send a Note",
+      "description": "Write a short note and let them know they crossed your mind.",
+      "min_age": 6,
+      "range": "anywhere",
+      "relationship_effects": {"affinity": 2, "trust": 1},
+      "memory": "You sent {name} a note. They know you thought of them."
+    },
+    {
+      "id": "give_small_gift",
+      "label": "Give a Thoughtful Gift",
+      "description": "Spend a little of your own money on something small that suits them.",
+      "min_age": 6,
+      "costs": {"money": 5},
+      "relationship_effects": {"affinity": 5, "trust": 2},
+      "memory": "You gave {name} a small thoughtful gift. They remember the gesture."
+    }
+  ]
+}

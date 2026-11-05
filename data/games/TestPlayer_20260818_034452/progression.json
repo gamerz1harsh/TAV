@@ -1,0 +1,21 @@
+{
+  "year": 1,
+  "season_index": 0,
+  "actions_remaining": 3,
+  "completed": false,
+  "completed_milestones": [],
+  "milestone_events_pending": [],
+  "seen_random_events": [],
+  "active_random_event": null,
+  "random_seen_this_season": false,
+  "education": {
+    "status": "none",
+    "location": null,
+    "forced": false,
+    "school_unlocked": false,
+    "grade": "C",
+    "attendance": 0,
+    "extracurriculars": []
+  },
+  "career_tracks": {}
+}

@@ -1,0 +1,88 @@
+{
+  "npcs": [
+    {
+      "id": "family_guardian",
+      "name": "Aiko Mori",
+      "role": "Parent",
+      "age": 31,
+      "location": "home",
+      "affinity": 40,
+      "trust": 47,
+      "personality": [
+        "protective",
+        "observant"
+      ],
+      "description": "Your parent worries about the risks of shinobi life but wants to see you thrive.",
+      "memories": [
+        "They remember the day you first talked about the academy.",
+        "You made time to talk with Aiko Mori.",
+        "You sent Aiko Mori a note. They know you thought of them."
+      ],
+      "interaction_counts": {},
+      "reaction": "They trust you and are willing to rely on you.",
+      "last_interaction": "send_note",
+      "last_interaction_year": 8
+    },
+    {
+      "id": "academy_peer",
+      "name": "Ren Akiyama",
+      "role": "Academy peer",
+      "age": 7,
+      "location": "academy",
+      "affinity": 10,
+      "trust": 5,
+      "personality": [
+        "competitive",
+        "loyal"
+      ],
+      "description": "A quick, competitive student who respects effort more than boasting.",
+      "memories": [
+        "You have seen each other around the academy, but hardly know one another."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    },
+    {
+      "id": "academy_instructor",
+      "name": "Instructor Daichi",
+      "role": "Academy instructor",
+      "age": 29,
+      "location": "academy",
+      "affinity": 0,
+      "trust": 0,
+      "personality": [
+        "patient",
+        "demanding"
+      ],
+      "description": "A patient instructor who gives useful advice when a student shows consistent effort.",
+      "memories": [
+        "They recognize your name from the academy roster."
+      ],
+      "interaction_counts": {},
+      "reaction": "They are still getting to know you."
+    }
+  ],
+  "flags": {
+    "world_pack": "naruto"
+  },
+  "dynamic_locations": {},
+  "dynamic_npcs": [],
+  "starting_map": {},
+  "starting_scenario": "",
+  "world": {
+    "era": "naruto",
+    "pack_id": "naruto",
+    "pack_version": 1,
+    "phase": "academy preparation",
+    "rank": "Academy Student",
+    "unlocks": {},
+    "village": "leaf"
+  },
+  "parents": {
+    "strictness": 0.5,
+    "support": 0.6,
+    "name": "Family",
+    "style": "balanced",
+    "memory": []
+  }
+}
